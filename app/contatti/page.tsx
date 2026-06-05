@@ -11,7 +11,7 @@ export default function ContattiPage() {
             <SectionTitle
               eyebrow="Contatti"
               title="Parliamo della ceramica che stai cercando"
-              intro="Per informazioni, disponibilita dei prodotti o visite in laboratorio, puoi contattarci telefonicamente o inviare una richiesta dal modulo."
+              intro="Per informazioni, disponibilità dei prodotti o visite in laboratorio, puoi contattarci telefonicamente o inviare una richiesta dal modulo."
             />
             <div className="mt-10 grid gap-6">
               <div className="paper-panel rounded-sm p-6">
@@ -21,7 +21,7 @@ export default function ContattiPage() {
               <div className="paper-panel rounded-sm p-6">
                 <h2 className="font-serif text-2xl font-semibold text-ceramica">Telefono</h2>
                 <a
-                  className="focus-ring mt-3 inline-block text-xl font-bold text-terracotta underline-offset-4 hover:underline"
+                  className="focus-ring mt-3 inline-block text-xl font-bold text-ceramica underline-offset-4 hover:underline"
                   href={site.phoneHref}
                 >
                   {site.phone}
@@ -46,12 +46,12 @@ export default function ContattiPage() {
         </div>
       </section>
 
-      <section className="bg-[#efe3d1] px-4 py-20 sm:px-6 lg:px-8">
+      <section className="bg-[#f2e4ca] px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="Dove siamo"
             title="Via San Giuseppe, 9 - Pianezze"
-            intro="Il blocco e predisposto per incorporare Google Maps con l'indirizzo del laboratorio."
+            intro="Il blocco è predisposto per incorporare Google Maps con l’indirizzo del laboratorio."
           />
           <div className="paper-panel mt-10 overflow-hidden rounded-sm p-4 shadow-soft">
             <iframe

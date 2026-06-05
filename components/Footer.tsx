@@ -3,7 +3,7 @@ import { navItems, site } from "@/data/site";
 
 export function Footer() {
   return (
-    <footer className="border-t border-oro/30 bg-[#efe3d1] pb-20 sm:pb-0">
+    <footer className="border-t border-ceramica/25 bg-[#f2e4ca] pb-20 sm:pb-0">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr] lg:px-8">
         <div>
           <p className="font-serif text-2xl font-semibold text-ceramica">{site.visibleName}</p>

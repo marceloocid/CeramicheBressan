@@ -4,7 +4,11 @@
 
 :root {
   color-scheme: light;
-  --paper-flecks: rgba(107, 74, 53, 0.06);
+  --brand-green: #006B43;
+  --brand-red: #C31524;
+  --leaf-green: #6F8B45;
+  --warm-cream: #FFF9F0;
+  --paper-flecks: rgba(81, 57, 31, 0.06);
 }
 
 * {
@@ -18,12 +22,12 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 18% 22%, rgba(184, 155, 94, 0.13), transparent 28%),
-    radial-gradient(circle at 84% 12%, rgba(138, 154, 123, 0.12), transparent 30%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.32) 0 25%, transparent 25% 50%, rgba(255, 255, 255, 0.22) 50% 75%, transparent 75%),
-    #F6F0E6;
-  background-size: auto, auto, 12px 12px, auto;
-  color: #2F241D;
+    radial-gradient(circle at 8% 0%, rgba(195, 21, 36, 0.11), transparent 31%),
+    radial-gradient(circle at 92% 8%, rgba(0, 107, 67, 0.16), transparent 28%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.34) 0 25%, transparent 25% 50%, rgba(255, 255, 255, 0.18) 50% 75%, transparent 75%),
+    #FFF9F0;
+  background-size: auto, auto, 13px 13px, auto;
+  color: #1E2318;
   font-family: Lato, Inter, Arial, sans-serif;
 }
 
@@ -37,7 +41,7 @@ img {
 }
 
 ::selection {
-  background: rgba(31, 78, 121, 0.2);
+  background: rgba(0, 107, 67, 0.2);
 }
 
 .ornamental-border {
@@ -50,19 +54,19 @@ img {
   position: absolute;
   inset: 12px;
   pointer-events: none;
-  border: 1px solid rgba(184, 155, 94, 0.45);
+  border: 1px solid rgba(0, 107, 67, 0.55);
 }
 
 .ornamental-border::after {
   inset: 18px;
-  border-color: rgba(31, 78, 121, 0.18);
+  border-color: rgba(216, 165, 43, 0.45);
 }
 
 .brush-divider {
   width: 92px;
   height: 4px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #1F4E79, #B89B5E, #B7653B);
+  background: linear-gradient(90deg, #006B43, #D8A52B, #C31524);
 }
 
 .focus-ring {
@@ -71,13 +75,68 @@ img {
 
 .paper-panel {
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.18)),
-    #fbf7ef;
-  border: 1px solid rgba(184, 155, 94, 0.32);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.36)),
+    #fffaf2;
+  border: 1px solid rgba(0, 107, 67, 0.28);
 }
 
 .image-frame {
-  border: 1px solid rgba(184, 155, 94, 0.48);
+  border: 2px solid rgba(0, 107, 67, 0.55);
   background: #fffaf1;
-  box-shadow: 0 14px 42px rgba(47, 36, 29, 0.14);
+  box-shadow: 0 14px 42px rgba(41, 31, 18, 0.16);
+}
+
+.brand-plaque {
+  position: relative;
+  border: 2px solid var(--brand-green);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.94), inset 0 0 0 6px rgba(0, 107, 67, 0.2);
+}
+
+.brand-plaque::before,
+.brand-plaque::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  pointer-events: none;
+  border-top: 1px solid rgba(0, 107, 67, 0.45);
+  border-bottom: 1px solid rgba(0, 107, 67, 0.45);
+}
+
+.brand-plaque::after {
+  inset: 12px;
+  border-color: rgba(216, 165, 43, 0.38);
+}
+
+.brand-script {
+  font-family: "Snell Roundhand", "Apple Chancery", "Brush Script MT", "Segoe Script", cursive;
+  letter-spacing: 0;
+}
+
+.ceramic-gloss {
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255, 255, 255, 0.52), transparent 11%),
+    radial-gradient(circle at 50% 55%, rgba(195, 21, 36, 0.95), rgba(118, 7, 18, 0.95) 52%, rgba(0, 107, 67, 0.88) 53%, rgba(49, 78, 23, 0.9) 65%, rgba(38, 31, 18, 0.8) 66%, transparent 67%);
+}
+
+.painted-leaf {
+  display: inline-block;
+  width: 18px;
+  height: 7px;
+  border-radius: 100% 0 100% 0;
+  background: #1f2f14;
+  transform: rotate(-28deg);
+}
+
+/* Brand override: the client logo uses this deep green as the main identity color. */
+.text-ceramica {
+  color: var(--brand-green) !important;
+}
+
+.bg-ceramica {
+  background-color: var(--brand-green) !important;
+}
+
+.border-ceramica {
+  border-color: var(--brand-green) !important;
 }

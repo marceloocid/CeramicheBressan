@@ -9,7 +9,7 @@ export function SectionTitle({ eyebrow, title, intro, align = "left" }: SectionT
   return (
     <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
       {eyebrow ? (
-        <p className="text-sm font-bold uppercase tracking-[0.18em] text-terracotta">{eyebrow}</p>
+        <p className="text-sm font-bold uppercase tracking-[0.18em] text-ceramica">{eyebrow}</p>
       ) : null}
       <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight text-ceramica sm:text-4xl">
         {title}

@@ -38,7 +38,7 @@ export const collectionCategories = [
     image: "/images/ceramiche-cucina.jpg",
     alt: "Oggetti in ceramica per la cucina artigianale",
     description:
-      "Elementi pratici e decorativi per la cucina, realizzati per portare nella quotidianita il calore della ceramica lavorata a mano."
+      "Elementi pratici e decorativi per la cucina, realizzati per portare nella quotidianità il calore della ceramica lavorata a mano."
   },
   {
     title: "Complementi decorativi",

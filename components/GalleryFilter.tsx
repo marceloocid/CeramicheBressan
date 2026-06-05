@@ -46,13 +46,13 @@ export function GalleryFilter() {
               <Image className="object-cover" src={item.image} alt={item.alt} fill sizes="(min-width: 1024px) 33vw, 100vw" />
             </div>
             <div className="p-5">
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-terracotta">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-ceramica">
                 {collectionCategories.find((category) => category.slug === item.category)?.title}
               </p>
               <h3 className="mt-2 font-serif text-2xl font-semibold text-ceramica">{item.name}</h3>
               <p className="mt-3 leading-7 text-argilla">{item.description}</p>
               <ButtonLink href="/contatti" variant="ghost" className="mt-5">
-                Chiedi disponibilita
+                Chiedi disponibilità
               </ButtonLink>
             </div>
           </article>

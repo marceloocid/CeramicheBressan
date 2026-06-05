@@ -39,17 +39,17 @@ export default function LavorazionePage() {
           </div>
           <SectionTitle
             eyebrow="Lavorazione artigianale"
-            title="La qualita si vede nei dettagli"
-            intro="La ceramica artigianale richiede tempo, sensibilita e attenzione. Bressan C2 valorizza il lavoro manuale senza trasformarlo in racconto tecnico: il risultato e un oggetto caldo, curato e pensato per durare."
+            title="La qualità si vede nei dettagli"
+            intro="La ceramica artigianale richiede tempo, sensibilità e attenzione. Bressan C2 valorizza il lavoro manuale senza trasformarlo in racconto tecnico: il risultato è un oggetto caldo, curato e pensato per durare."
           />
         </div>
       </section>
 
-      <section className="bg-[#efe3d1] px-4 py-20 sm:px-6 lg:px-8">
+      <section className="bg-[#f2e4ca] px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2">
           {steps.map((step, index) => (
             <article className="paper-panel rounded-sm p-7" key={step.title}>
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-terracotta">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-ceramica">
                 {String(index + 1).padStart(2, "0")}
               </p>
               <h2 className="mt-3 font-serif text-2xl font-semibold text-ceramica">{step.title}</h2>
@@ -62,7 +62,7 @@ export default function LavorazionePage() {
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="paper-panel mx-auto max-w-5xl rounded-sm p-8 text-center shadow-soft">
           <h2 className="font-serif text-3xl font-semibold text-ceramica">
-            Vuoi conoscere le disponibilita attuali?
+            Vuoi conoscere le disponibilità attuali?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-argilla">
             Il modo migliore per scegliere e contattare direttamente la bottega: possiamo indicarti

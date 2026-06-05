@@ -10,9 +10,9 @@ type ButtonLinkProps = {
 
 const styles = {
   primary:
-    "bg-ceramica text-white border-ceramica hover:bg-[#173b5c] hover:border-[#173b5c]",
+    "bg-ceramica text-white border-ceramica hover:bg-[#004f31] hover:border-[#004f31]",
   secondary:
-    "bg-terracotta text-white border-terracotta hover:bg-[#995531] hover:border-[#995531]",
+    "bg-ceramica text-white border-ceramica hover:bg-[#004f31] hover:border-[#004f31]",
   ghost:
     "bg-transparent text-ceramica border-oro/60 hover:bg-white/50 hover:border-ceramica"
 };

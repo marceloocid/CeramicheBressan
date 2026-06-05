@@ -2,7 +2,7 @@
 
 Sito web corporate/catalogo per una bottega artigiana di ceramiche artistiche a Pianezze, Vicenza.
 
-Non e una piattaforma ecommerce: non ci sono carrello, checkout, prezzi o pagamenti. Le CTA portano a telefono, contatti, richiesta disponibilita e visita in laboratorio.
+Non è una piattaforma ecommerce: non ci sono carrello, checkout, prezzi o pagamenti. Le CTA portano a telefono, contatti, richiesta disponibilità e visita in laboratorio.
 
 ## Esecuzione
 
@@ -36,7 +36,7 @@ I dati principali sono in `data/site.ts`.
 - Facebook: `site.facebookUrl`
 - Email: `site.email`
 
-Nota: l'email `info@ceramichebressanc2.it` e inserita come dato da confermare nel codice, non come dato verificato.
+Nota: l’email `info@ceramichebressanc2.it` è inserita come dato da confermare nel codice, non come dato verificato.
 
 ## Testi
 

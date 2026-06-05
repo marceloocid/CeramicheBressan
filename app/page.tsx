@@ -8,7 +8,7 @@ import { collectionCategories, site } from "@/data/site";
 const pillars = [
   {
     title: "Tradizione artigiana",
-    text: "Una bottega legata al territorio vicentino, dove ogni oggetto viene seguito con attenzione e sensibilita manuale."
+    text: "Una bottega legata al territorio vicentino, dove ogni oggetto viene seguito con attenzione e sensibilità manuale."
   },
   {
     title: "Ceramica dipinta a mano",
@@ -24,9 +24,22 @@ export default function Home() {
   return (
     <main>
       <section className="relative overflow-hidden">
+        <div className="absolute inset-0 opacity-35">
+          <div className="ceramic-gloss absolute -right-24 top-12 h-[420px] w-[420px] rounded-full blur-[1px] sm:h-[560px] sm:w-[560px]" />
+          <div className="ceramic-gloss absolute -left-40 bottom-8 h-[360px] w-[360px] rounded-full opacity-70 sm:h-[480px] sm:w-[480px]" />
+        </div>
         <div className="mx-auto grid min-h-[calc(100vh-96px)] max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
           <div className="relative z-10 max-w-3xl">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-terracotta">
+            <div className="brand-plaque mb-8 inline-block max-w-full px-6 py-4">
+              <p className="relative z-10 text-lg italic leading-none text-ceramica">Ceramiche Artistiche</p>
+              <p className="brand-script relative z-10 text-5xl font-semibold leading-none text-ceramica sm:text-7xl">
+                Bressan C2
+              </p>
+              <p className="relative z-10 mt-1 font-serif text-lg font-semibold italic text-argilla">
+                Prodotto artigianale fatto a mano
+              </p>
+            </div>
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-ceramica">
               Bottega artigiana a Pianezze
             </p>
             <h1 className="mt-4 font-serif text-4xl font-semibold leading-[1.08] text-ceramica sm:text-6xl">
@@ -55,6 +68,11 @@ export default function Home() {
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
             />
+            <div className="absolute bottom-6 right-6 flex gap-2" aria-hidden="true">
+              <span className="painted-leaf" />
+              <span className="painted-leaf translate-y-3 rotate-12" />
+              <span className="painted-leaf -translate-y-1 rotate-45" />
+            </div>
           </div>
         </div>
       </section>
@@ -63,7 +81,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionTitle
             eyebrow="La bottega"
-            title="Ceramiche nate per abitare la quotidianita"
+            title="Ceramiche nate per abitare la quotidianità"
             intro="Da Bressan C2 la ceramica nasce come oggetto quotidiano e decorativo: forme, colori e dettagli pensati per portare nella casa il calore della lavorazione artigianale."
           />
           <div className="paper-panel rounded-sm p-8 text-lg leading-8 text-argilla">
@@ -73,14 +91,14 @@ export default function Home() {
               familiare e riconoscibile.
             </p>
             <p className="mt-5">
-              La vendita avviene attraverso il contatto diretto: ascolto, disponibilita e scelta
-              consapevole dei pezzi piu adatti alla casa, alla tavola o a un regalo curato.
+              La vendita avviene attraverso il contatto diretto: ascolto, disponibilità e scelta
+              consapevole dei pezzi più adatti alla casa, alla tavola o a un regalo curato.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#efe3d1] px-4 py-20 sm:px-6 lg:px-8">
+      <section className="bg-[#f2e4ca] px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 md:grid-cols-3">
             {pillars.map((pillar) => (
@@ -108,7 +126,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white/35 px-4 py-20 sm:px-6 lg:px-8">
+      <section className="bg-white/45 px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="image-frame relative aspect-[4/3] overflow-hidden rounded-sm">
             {/* Placeholder: sostituire con foto ravvicinata di decorazione manuale o dettagli prodotto. */}

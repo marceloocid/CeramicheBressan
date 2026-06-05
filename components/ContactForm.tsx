@@ -64,13 +64,13 @@ export function ContactForm() {
         />
       </div>
       <button
-        className="focus-ring min-h-12 rounded-sm border border-terracotta bg-terracotta px-5 py-3 text-sm font-bold uppercase tracking-[0.1em] text-white transition hover:bg-[#995531]"
+        className="focus-ring min-h-12 rounded-sm border border-ceramica bg-ceramica px-5 py-3 text-sm font-bold uppercase tracking-[0.1em] text-white transition hover:bg-[#004f31]"
         type="submit"
       >
         Invia richiesta
       </button>
       <p className="text-sm leading-6 text-argilla">
-        Il modulo e predisposto per il collegamento a un servizio di invio email o CRM. Verificare la
+        Il modulo è predisposto per il collegamento a un servizio di invio email o CRM. Verificare la
         configurazione prima della pubblicazione.
       </p>
     </form>

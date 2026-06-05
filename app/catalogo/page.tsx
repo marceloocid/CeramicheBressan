@@ -12,7 +12,7 @@ export default function CatalogoPage() {
           <SectionTitle
             eyebrow="Catalogo"
             title="Una selezione delle nostre ceramiche artistiche"
-            intro="Questa pagina presenta esempi e categorie di prodotto. Non e una vendita online: per disponibilita, varianti e visite in laboratorio puoi inviare una richiesta o telefonare."
+            intro="Questa pagina presenta esempi e categorie di prodotto. Non è una vendita online: per disponibilità, varianti e visite in laboratorio puoi inviare una richiesta o telefonare."
             align="center"
           />
 
@@ -24,13 +24,13 @@ export default function CatalogoPage() {
                   <Image className="object-cover" src={item.image} alt={item.alt} fill sizes="(min-width: 1024px) 33vw, 100vw" />
                 </div>
                 <div className="p-6">
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-terracotta">
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-ceramica">
                     {collectionCategories.find((category) => category.slug === item.category)?.title}
                   </p>
                   <h2 className="mt-2 font-serif text-2xl font-semibold text-ceramica">{item.name}</h2>
                   <p className="mt-3 leading-7 text-argilla">{item.description}</p>
                   <ButtonLink href="/contatti" variant="ghost" className="mt-5">
-                    Chiedi disponibilita
+                    Chiedi disponibilità
                   </ButtonLink>
                 </div>
               </article>
@@ -39,14 +39,14 @@ export default function CatalogoPage() {
         </div>
       </section>
 
-      <section className="bg-[#efe3d1] px-4 py-16 sm:px-6 lg:px-8">
+      <section className="bg-[#f2e4ca] px-4 py-16 sm:px-6 lg:px-8">
         <div className="paper-panel mx-auto max-w-4xl rounded-sm p-8 text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-terracotta">Catalogo PDF</p>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ceramica">Catalogo PDF</p>
           <h2 className="mt-3 font-serif text-3xl font-semibold text-ceramica">
             Catalogo PDF - prossimamente disponibile
           </h2>
           <p className="mx-auto mt-4 max-w-2xl leading-7 text-argilla">
-            Il pulsante potra essere attivato quando sara disponibile un file PDF confermato con il
+            Il pulsante potrà essere attivato quando sarà disponibile un file PDF confermato con il
             cliente.
           </p>
           {/*

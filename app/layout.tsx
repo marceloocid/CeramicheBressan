@@ -22,6 +22,10 @@ export const metadata: Metadata = {
       "Ceramiche artistiche dipinte a mano per la casa, la tavola e la cucina a Pianezze, Vicenza.",
     locale: "it_IT",
     type: "website"
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png"
   }
 };
 
@@ -51,7 +55,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="it">
+    <html lang="it" data-scroll-behavior="smooth">
       <body>
         <script
           type="application/ld+json"

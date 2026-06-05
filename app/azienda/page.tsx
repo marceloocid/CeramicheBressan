@@ -26,7 +26,7 @@ export default function AziendaPage() {
         </div>
       </section>
 
-      <section className="bg-[#efe3d1] px-4 py-20 sm:px-6 lg:px-8">
+      <section className="bg-[#f2e4ca] px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-6xl gap-8 text-lg leading-8 text-argilla md:grid-cols-2">
           <p>
             Ceramiche Artistiche Bressan C2 opera a Pianezze, in un territorio vicentino dove la
@@ -42,11 +42,11 @@ export default function AziendaPage() {
           <p>
             La continuita familiare e la dimensione di bottega permettono un rapporto vicino con chi
             cerca un complemento per la propria casa, un servizio per la tavola o un’idea regalo in
-            ceramica realizzata con sensibilita manuale.
+            ceramica realizzata con sensibilità manuale.
           </p>
           <p>
             Non una produzione impersonale, ma un catalogo vivo di forme e decori da conoscere
-            attraverso fotografie, richiesta di disponibilita, telefonata o visita in laboratorio.
+            attraverso fotografie, richiesta di disponibilità, telefonata o visita in laboratorio.
           </p>
         </div>
       </section>

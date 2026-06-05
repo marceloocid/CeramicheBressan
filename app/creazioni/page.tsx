@@ -12,7 +12,7 @@ export default function CreazioniPage() {
           <SectionTitle
             eyebrow="Creazioni e collezioni"
             title="Catalogo visuale di ceramiche artistiche"
-            intro="Una panoramica delle proposte Bressan C2 per la casa, la tavola, la cucina e il regalo. La disponibilita viene verificata su richiesta, senza acquisto online."
+            intro="Una panoramica delle proposte Bressan C2 per la casa, la tavola, la cucina e il regalo. La disponibilità viene verificata su richiesta, senza acquisto online."
             align="center"
           />
           <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
@@ -23,7 +23,7 @@ export default function CreazioniPage() {
         </div>
       </section>
 
-      <section className="bg-[#efe3d1] px-4 py-20 sm:px-6 lg:px-8">
+      <section className="bg-[#f2e4ca] px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="Galleria"
