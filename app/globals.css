@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --paper-flecks: rgba(107, 74, 53, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(184, 155, 94, 0.13), transparent 28%),
+    radial-gradient(circle at 84% 12%, rgba(138, 154, 123, 0.12), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.32) 0 25%, transparent 25% 50%, rgba(255, 255, 255, 0.22) 50% 75%, transparent 75%),
+    #F6F0E6;
+  background-size: auto, auto, 12px 12px, auto;
+  color: #2F241D;
+  font-family: Lato, Inter, Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: rgba(31, 78, 121, 0.2);
+}
+
+.ornamental-border {
+  position: relative;
+}
+
+.ornamental-border::before,
+.ornamental-border::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  pointer-events: none;
+  border: 1px solid rgba(184, 155, 94, 0.45);
+}
+
+.ornamental-border::after {
+  inset: 18px;
+  border-color: rgba(31, 78, 121, 0.18);
+}
+
+.brush-divider {
+  width: 92px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #1F4E79, #B89B5E, #B7653B);
+}
+
+.focus-ring {
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ceramica;
+}
+
+.paper-panel {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.18)),
+    #fbf7ef;
+  border: 1px solid rgba(184, 155, 94, 0.32);
+}
+
+.image-frame {
+  border: 1px solid rgba(184, 155, 94, 0.48);
+  background: #fffaf1;
+  box-shadow: 0 14px 42px rgba(47, 36, 29, 0.14);
+}
