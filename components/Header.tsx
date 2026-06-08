@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navItems, site } from "@/data/site";
+import { navItems } from "@/data/site";
 import { ButtonLink } from "@/components/ButtonLink";
 
 export function Header() {
@@ -31,8 +31,8 @@ export function Header() {
         </nav>
 
         <div className="hidden sm:block">
-          <ButtonLink href={site.phoneHref} variant="secondary" className="px-4 py-2">
-            Chiama
+          <ButtonLink href="/catalogo" variant="secondary" className="px-4 py-2">
+            Richiedi informazioni
           </ButtonLink>
         </div>
       </div>

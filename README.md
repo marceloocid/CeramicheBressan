@@ -2,7 +2,7 @@
 
 Sito web corporate/catalogo per una bottega artigiana di ceramiche artistiche a Pianezze, Vicenza.
 
-Non è una piattaforma ecommerce: non ci sono carrello, checkout, prezzi o pagamenti. Le CTA portano a telefono, contatti, richiesta disponibilità e visita in laboratorio.
+Non è una piattaforma ecommerce: non ci sono carrello, checkout, prezzi o pagamenti. Le CTA portano a richiesta informazioni, catalogo visuale e contatti per negozi e punti vendita.
 
 ## Esecuzione
 
@@ -46,6 +46,7 @@ I testi principali sono nelle pagine dentro `app/`:
 - Home: `app/page.tsx`
 - Azienda: `app/azienda/page.tsx`
 - Creazioni: `app/creazioni/page.tsx`
+- Per negozi: `app/per-rivenditori/page.tsx`
 - Lavorazione: `app/lavorazione/page.tsx`
 - Catalogo: `app/catalogo/page.tsx`
 - Contatti: `app/contatti/page.tsx`

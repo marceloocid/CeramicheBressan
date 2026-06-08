@@ -6,20 +6,21 @@ import { MobileCallButton } from "@/components/MobileCallButton";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Ceramiche Artistiche Bressan C2 | Ceramiche dipinte a mano a Pianezze",
+  title: "Ceramiche Artistiche Bressan C2 | Ceramiche dipinte a mano",
   description:
-    "Ceramiche artistiche dipinte a mano per la casa, la tavola e la cucina. Bressan C2, bottega artigiana a Pianezze, Vicenza.",
+    "Ceramiche artistiche dipinte a mano per la casa, la tavola e il regalo. Creazioni artigianali italiane pensate per negozi, botteghe e punti vendita.",
   keywords: [
-    "ceramiche artistiche Pianezze",
+    "ceramiche artistiche per negozi",
     "ceramiche dipinte a mano Vicenza",
-    "ceramiche per la casa",
-    "oggetti in ceramica artigianale",
+    "ceramiche artigianali italiane",
+    "oggetti in ceramica per la casa e il regalo",
+    "ceramiche per punti vendita",
     "Bressan C2 ceramiche"
   ],
   openGraph: {
     title: "Ceramiche Artistiche Bressan C2",
     description:
-      "Ceramiche artistiche dipinte a mano per la casa, la tavola e la cucina a Pianezze, Vicenza.",
+      "Creazioni in ceramica dipinte a mano per la casa, la tavola e il regalo, pensate per negozi e punti vendita.",
     locale: "it_IT",
     type: "website"
   },
@@ -40,7 +41,7 @@ export default function RootLayout({
     name: site.visibleName,
     legalName: site.legalName,
     description:
-      "Bottega artigiana di ceramiche artistiche, oggettistica varia in ceramica e prodotti per la casa, la tavola e la cucina dipinti a mano.",
+      "Bottega artigiana di ceramiche artistiche, oggettistica varia in ceramica e creazioni dipinte a mano per casa, tavola e regalo.",
     telephone: "+39042475762",
     address: {
       "@type": "PostalAddress",

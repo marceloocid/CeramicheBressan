@@ -11,7 +11,7 @@ export default function AziendaPage() {
           <SectionTitle
             eyebrow="Azienda"
             title="Una bottega artigiana nel territorio vicentino"
-            intro="Da Bressan C2 la ceramica nasce come oggetto quotidiano e decorativo: forme, colori e dettagli pensati per portare nella casa il calore della lavorazione artigianale."
+            intro="Da Bressan C2 la ceramica nasce come oggetto decorativo e funzionale: forme, colori e dettagli pensati per portare nei punti vendita il calore della lavorazione artigianale italiana."
           />
           <div className="image-frame ornamental-border relative aspect-[4/3] overflow-hidden rounded-sm">
             {/* Placeholder: sostituire con immagine reale dell'esterno o dell'interno laboratorio. */}
@@ -31,27 +31,44 @@ export default function AziendaPage() {
           <p>
             Ceramiche Artistiche Bressan C2 opera a Pianezze, in un territorio vicentino dove la
             ceramica conserva un forte legame con la casa, la tavola e gli oggetti decorativi.
-            La bottega propone ceramiche artistiche, oggettistica varia e prodotti per la cucina
-            dipinti a mano.
+            La bottega realizza ceramiche artistiche, oggettistica varia e prodotti per la cucina
+            con un linguaggio caldo, familiare e riconoscibile.
           </p>
           <p>
             Il lavoro artigianale si riconosce nella cura delle superfici, nella scelta dei colori e
-            nell’attenzione al dettaglio. Ogni creazione viene pensata per essere guardata, usata e
-            scelta con un rapporto diretto, senza la distanza di una vendita automatizzata.
+            nell’attenzione al dettaglio. Ogni creazione viene pensata per essere proposta in un
+            punto vendita con un carattere riconoscibile, caldo e autenticamente artigianale.
           </p>
           <p>
-            La continuita familiare e la dimensione di bottega permettono un rapporto vicino con chi
-            cerca un complemento per la propria casa, un servizio per la tavola o un’idea regalo in
-            ceramica realizzata con sensibilità manuale.
+            La continuità familiare e la dimensione artigianale permettono un rapporto diretto con
+            negozi, botteghe e realtà che scelgono ceramiche italiane da inserire nel proprio
+            assortimento con cura.
           </p>
           <p>
-            Non una produzione impersonale, ma un catalogo vivo di forme e decori da conoscere
-            attraverso fotografie, richiesta di disponibilità, telefonata o visita in laboratorio.
+            Non una piattaforma di vendita online, ma una vetrina di forme e decori da conoscere
+            attraverso catalogo visuale, richiesta di informazioni e contatto diretto.
           </p>
         </div>
       </section>
 
       <section className="px-4 py-20 sm:px-6 lg:px-8">
+        <div className="paper-panel mx-auto max-w-5xl rounded-sm p-8 shadow-soft">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ceramica">Per negozi e punti vendita</p>
+          <h2 className="mt-3 font-serif text-3xl font-semibold text-ceramica">
+            Creazioni artigianali da inserire nel tuo spazio
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-argilla">
+            Le nostre creazioni sono rivolte a negozi, botteghe e punti vendita dedicati alla casa,
+            al regalo e al turismo, che cercano oggetti in ceramica artistica da proporre con identità
+            e valore artigianale.
+          </p>
+          <p className="mt-5 border-l-4 border-ceramica bg-white/65 px-4 py-3 font-bold leading-7 text-ceramica">
+            {site.b2bNotice}
+          </p>
+        </div>
+      </section>
+
+      <section className="px-4 pb-20 sm:px-6 lg:px-8">
         <div className="paper-panel mx-auto max-w-5xl rounded-sm p-8 shadow-soft">
           <h2 className="font-serif text-3xl font-semibold text-ceramica">Dati aziendali</h2>
           <dl className="mt-6 grid gap-5 text-argilla sm:grid-cols-2">

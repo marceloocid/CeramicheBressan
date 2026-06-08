@@ -18,7 +18,7 @@ const steps = [
   },
   {
     title: "Produzione pensata per durare",
-    text: "Le creazioni sono pensate per entrare nella casa con naturalezza, mantenendo il valore di un oggetto artigianale scelto con cura."
+    text: "Le creazioni sono pensate per mantenere valore nel tempo e portare nel punto vendita una presenza curata e riconoscibile."
   }
 ];
 
@@ -40,7 +40,7 @@ export default function LavorazionePage() {
           <SectionTitle
             eyebrow="Lavorazione artigianale"
             title="La qualità si vede nei dettagli"
-            intro="La ceramica artigianale richiede tempo, sensibilità e attenzione. Bressan C2 valorizza il lavoro manuale senza trasformarlo in racconto tecnico: il risultato è un oggetto caldo, curato e pensato per durare."
+            intro="La ceramica artigianale richiede tempo, sensibilità e attenzione. Bressan C2 valorizza il lavoro manuale per creare oggetti caldi, curati e riconoscibili."
           />
         </div>
       </section>
@@ -62,11 +62,11 @@ export default function LavorazionePage() {
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="paper-panel mx-auto max-w-5xl rounded-sm p-8 text-center shadow-soft">
           <h2 className="font-serif text-3xl font-semibold text-ceramica">
-            Vuoi conoscere le disponibilità attuali?
+            Vuoi conoscere le collezioni disponibili?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-argilla">
-            Il modo migliore per scegliere e contattare direttamente la bottega: possiamo indicarti
-            prodotti, colori e soluzioni adatte alla tua richiesta.
+            Se hai un negozio, una bottega o un punto vendita, contattaci per conoscere prodotti,
+            categorie e disponibilità.
           </p>
           <ButtonLink href="/contatti" variant="secondary" className="mt-7">
             Richiedi informazioni

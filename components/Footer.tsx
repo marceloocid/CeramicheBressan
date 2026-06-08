@@ -8,8 +8,8 @@ export function Footer() {
         <div>
           <p className="font-serif text-2xl font-semibold text-ceramica">{site.visibleName}</p>
           <p className="mt-3 max-w-md leading-7 text-argilla">
-            Ceramiche artistiche a Pianezze, Vicenza. Oggetti per la casa, la tavola e la cucina,
-            dipinti a mano e realizzati con cura artigianale.
+            Ceramiche artistiche dipinte a mano per negozi e punti vendita — Pianezze, Vicenza.
+            Creazioni in ceramica artigianale per casa, tavola e regalo.
           </p>
         </div>
         <div>

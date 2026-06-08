@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
 import { ContactCta } from "@/components/ContactCta";
 import { SectionTitle } from "@/components/SectionTitle";
-import { catalogItems, collectionCategories } from "@/data/site";
+import { catalogItems, collectionCategories, site } from "@/data/site";
 
 export default function CatalogoPage() {
   return (
@@ -11,10 +11,17 @@ export default function CatalogoPage() {
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="Catalogo"
-            title="Una selezione delle nostre ceramiche artistiche"
-            intro="Questa pagina presenta esempi e categorie di prodotto. Non è una vendita online: per disponibilità, varianti e visite in laboratorio puoi inviare una richiesta o telefonare."
+            title="Collezioni per negozi e punti vendita"
+            intro="Una selezione di ceramiche artistiche pensate per arricchire l’assortimento di negozi, botteghe e spazi dedicati alla casa, al regalo e al turismo."
             align="center"
           />
+          <div className="paper-panel mx-auto mt-10 max-w-4xl rounded-sm p-6 text-center">
+            <p className="leading-7 text-argilla">
+              Le immagini rappresentano esempi di prodotto. Per disponibilità e dettagli sulle collezioni,
+              contattaci direttamente.
+            </p>
+            <p className="mt-3 font-bold leading-7 text-ceramica">{site.b2bNotice}</p>
+          </div>
 
           <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
             {catalogItems.map((item) => (
@@ -36,7 +43,7 @@ export default function CatalogoPage() {
                   <h2 className="mt-2 font-serif text-2xl font-semibold text-ceramica">{item.name}</h2>
                   <p className="mt-3 leading-7 text-argilla">{item.description}</p>
                   <ButtonLink href="/contatti" variant="ghost" className="mt-5">
-                    Chiedi disponibilità
+                    Chiedi informazioni
                   </ButtonLink>
                 </div>
               </article>
@@ -47,25 +54,21 @@ export default function CatalogoPage() {
 
       <section className="bg-[#f2e4ca] px-4 py-16 sm:px-6 lg:px-8">
         <div className="paper-panel mx-auto max-w-4xl rounded-sm p-8 text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ceramica">Catalogo PDF</p>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ceramica">Collezioni per il punto vendita</p>
           <h2 className="mt-3 font-serif text-3xl font-semibold text-ceramica">
-            Catalogo PDF - prossimamente disponibile
+            Richiedi informazioni sulle collezioni disponibili
           </h2>
           <p className="mx-auto mt-4 max-w-2xl leading-7 text-argilla">
-            Il pulsante potrà essere attivato quando sarà disponibile un file PDF confermato con il
-            cliente.
+            Se hai un negozio, una bottega o un punto vendita, contattaci per ricevere maggiori
+            informazioni sulle creazioni disponibili.
           </p>
           {/*
             Attivare quando esiste un file reale:
             <a href="/catalogo-bressan-c2.pdf">Scarica il catalogo PDF</a>
           */}
-          <button
-            className="mt-7 min-h-11 cursor-not-allowed rounded-sm border border-oro/50 px-5 py-3 text-sm font-bold uppercase tracking-[0.1em] text-argilla opacity-70"
-            disabled
-            type="button"
-          >
-            Download non disponibile
-          </button>
+          <ButtonLink href="/contatti" variant="secondary" className="mt-7">
+            Richiedi informazioni
+          </ButtonLink>
         </div>
       </section>
 

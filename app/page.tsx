@@ -3,20 +3,20 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { CollectionCard } from "@/components/CollectionCard";
 import { ContactCta } from "@/components/ContactCta";
 import { SectionTitle } from "@/components/SectionTitle";
-import { collectionCategories, site } from "@/data/site";
+import { collectionCategories } from "@/data/site";
 
 const pillars = [
   {
-    title: "Tradizione artigiana",
-    text: "Una bottega legata al territorio vicentino, dove ogni oggetto viene seguito con attenzione e sensibilità manuale."
+    title: "Tradizione artigianale",
+    text: "Una bottega legata al territorio vicentino, dove forme e colori conservano il calore della ceramica italiana."
   },
   {
-    title: "Ceramica dipinta a mano",
-    text: "Decori, colori e piccoli dettagli rendono le creazioni riconoscibili, calde e naturalmente diverse tra loro."
+    title: "Decorazioni dipinte a mano",
+    text: "Decori, pennellate e piccoli dettagli rendono ogni creazione riconoscibile, viva e naturalmente diversa."
   },
   {
-    title: "Oggetti per la casa e la tavola",
-    text: "Ceramiche pensate per entrare negli ambienti quotidiani con eleganza, funzionalita e carattere artigianale."
+    title: "Creazioni per negozi e punti vendita",
+    text: "Oggetti in ceramica pensati per arricchire esposizioni, vetrine e spazi dedicati alla casa e al regalo."
   }
 ];
 
@@ -50,18 +50,19 @@ export default function Home() {
               Bottega artigiana a Pianezze
             </p>
             <h1 className="mt-4 font-serif text-4xl font-semibold leading-[1.08] text-ceramica sm:text-6xl">
-              Ceramiche artistiche dipinte a mano a Pianezze
+              Ceramiche artistiche dipinte a mano
             </h1>
             <p className="mt-6 max-w-2xl text-xl leading-9 text-argilla">
-              Oggetti in ceramica per la casa, la tavola e la cucina, realizzati con cura artigianale.
+              Creazioni in ceramica per la casa, la tavola e il regalo, pensate per arricchire negozi,
+              botteghe e punti vendita con il valore dell’artigianato italiano.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/creazioni">Scopri le creazioni</ButtonLink>
-              <ButtonLink href="/contatti" variant="ghost">
-                Contattaci
+              <ButtonLink href="/creazioni">Scopri le collezioni</ButtonLink>
+              <ButtonLink href="/catalogo" variant="ghost">
+                Richiedi informazioni
               </ButtonLink>
-              <ButtonLink href={site.phoneHref} variant="secondary">
-                Chiama ora
+              <ButtonLink href="/contatti" variant="secondary">
+                Contattaci
               </ButtonLink>
             </div>
           </div>
@@ -72,18 +73,18 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionTitle
             eyebrow="La bottega"
-            title="Ceramiche nate per abitare la quotidianità"
-            intro="Da Bressan C2 la ceramica nasce come oggetto quotidiano e decorativo: forme, colori e dettagli pensati per portare nella casa il calore della lavorazione artigianale."
+            title="Ceramiche nate per essere esposte, raccontate e scelte"
+            intro="Lavoriamo con negozi, botteghe e punti vendita che desiderano proporre ceramiche artistiche italiane, curate nei dettagli e dal carattere autentico."
           />
           <div className="paper-panel rounded-sm p-8 text-lg leading-8 text-argilla">
             <p>
-              A Pianezze, nel territorio vicentino, la bottega realizza ceramiche artistiche,
-              oggettistica varia e prodotti per la casa e la cucina con un linguaggio caldo,
-              familiare e riconoscibile.
+              A Pianezze, nel territorio vicentino, Bressan C2 realizza ceramiche artistiche,
+              oggettistica varia e prodotti per la casa, la tavola, la cucina e il regalo con un linguaggio
+              caldo, familiare e riconoscibile.
             </p>
             <p className="mt-5">
-              La vendita avviene attraverso il contatto diretto: ascolto, disponibilità e scelta
-              consapevole dei pezzi più adatti alla casa, alla tavola o a un regalo curato.
+              La web è una vetrina di creazioni e collezioni: per conoscere disponibilità e dettagli,
+              il contatto avviene direttamente con l’azienda.
             </p>
           </div>
         </div>
@@ -105,9 +106,9 @@ export default function Home() {
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionTitle
-            eyebrow="Creazioni"
-            title="Una selezione per casa, tavola e cucina"
-            intro="Il catalogo visuale presenta categorie e ispirazioni senza prezzi, carrello o acquisto online: ogni richiesta viene gestita con contatto diretto."
+            eyebrow="Collezioni"
+            title="Una selezione per casa, tavola e regalo"
+            intro="Il catalogo visuale presenta categorie e ispirazioni come vetrina di creazioni: ogni richiesta viene gestita con contatto diretto."
           />
           <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
             {collectionCategories.slice(0, 3).map((category) => (
@@ -131,16 +132,16 @@ export default function Home() {
           </div>
           <div>
             <SectionTitle
-              eyebrow="Dal laboratorio alla tua casa"
-              title="Il valore di un oggetto scelto con calma"
-              intro="Ogni creazione nasce dal dialogo tra forma, colore e uso quotidiano. La lavorazione artigianale permette di dare attenzione al dettaglio e di proporre ceramiche adatte a chi cerca un prodotto personale, decorativo e durevole."
+              eyebrow="Pensate per il punto vendita"
+              title="Oggetti da esporre, raccontare e scegliere"
+              intro="Le nostre ceramiche nascono per essere esposte, raccontate e scelte: oggetti decorativi e funzionali che portano nel negozio il calore della lavorazione artigianale italiana."
             />
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/lavorazione" variant="ghost">
-                Scopri la lavorazione
+              <ButtonLink href="/per-rivenditori" variant="ghost">
+                Per negozi
               </ButtonLink>
-              <ButtonLink href="/contatti" variant="secondary">
-                Richiedi informazioni
+              <ButtonLink href="/creazioni" variant="secondary">
+                Scopri le collezioni
               </ButtonLink>
             </div>
           </div>

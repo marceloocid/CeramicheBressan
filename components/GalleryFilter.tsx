@@ -58,7 +58,7 @@ export function GalleryFilter() {
               <h3 className="mt-2 font-serif text-2xl font-semibold text-ceramica">{item.name}</h3>
               <p className="mt-3 leading-7 text-argilla">{item.description}</p>
               <ButtonLink href="/contatti" variant="ghost" className="mt-5">
-                Chiedi disponibilità
+                Chiedi informazioni
               </ButtonLink>
             </div>
           </article>

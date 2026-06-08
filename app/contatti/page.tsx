@@ -10,12 +10,19 @@ export default function ContattiPage() {
           <div>
             <SectionTitle
               eyebrow="Contatti"
-              title="Parliamo della ceramica che stai cercando"
-              intro="Per informazioni, disponibilità dei prodotti o visite in laboratorio, puoi contattarci telefonicamente o inviare una richiesta dal modulo."
+              title="Contatti"
+              intro="Per informazioni sulle collezioni e sulle possibilità di collaborazione con negozi e punti vendita, contattaci direttamente."
             />
             <div className="mt-10 grid gap-6">
+              <div className="paper-panel rounded-sm border-l-4 border-l-ceramica p-6">
+                <h2 className="font-serif text-2xl font-semibold text-ceramica">Collezioni e informazioni</h2>
+                <p className="mt-3 leading-7 text-argilla">
+                  Raccontaci il tuo negozio o il tuo punto vendita: ti risponderemo con indicazioni
+                  sulle creazioni più adatte e sulle collezioni disponibili.
+                </p>
+              </div>
               <div className="paper-panel rounded-sm p-6">
-                <h2 className="font-serif text-2xl font-semibold text-ceramica">Laboratorio</h2>
+                <h2 className="font-serif text-2xl font-semibold text-ceramica">Sede produttiva</h2>
                 <address className="mt-3 not-italic leading-7 text-argilla">{site.address}</address>
               </div>
               <div className="paper-panel rounded-sm p-6">
@@ -27,7 +34,7 @@ export default function ContattiPage() {
                   {site.phone}
                 </a>
                 <p className="mt-3 leading-7 text-argilla">
-                  Preferisci parlare con noi? Chiamaci allo {site.phone}.
+                  Preferisci parlare direttamente con noi? Chiamaci allo {site.phone}.
                 </p>
               </div>
               <div className="paper-panel rounded-sm p-6">
@@ -51,7 +58,7 @@ export default function ContattiPage() {
           <SectionTitle
             eyebrow="Dove siamo"
             title="Via San Giuseppe, 9 - Pianezze"
-            intro="Il blocco è predisposto per incorporare Google Maps con l’indirizzo del laboratorio."
+            intro="Sede produttiva di Ceramiche Artistiche Bressan C2 a Pianezze, Vicenza."
           />
           <div className="paper-panel mt-10 overflow-hidden rounded-sm p-4 shadow-soft">
             <iframe

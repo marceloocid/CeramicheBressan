@@ -3,12 +3,24 @@ export function ContactForm() {
     <form className="paper-panel grid gap-5 rounded-sm p-6 shadow-soft" action="#" method="post">
       <div>
         <label className="block text-sm font-bold uppercase tracking-[0.1em] text-ceramica" htmlFor="nome">
-          Nome
+          Nome e cognome
         </label>
         <input
           className="focus-ring mt-2 w-full rounded-sm border border-oro/45 bg-white/80 px-4 py-3 text-argilla"
           id="nome"
           name="nome"
+          required
+          type="text"
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-bold uppercase tracking-[0.1em] text-ceramica" htmlFor="azienda">
+          Nome del negozio / attività
+        </label>
+        <input
+          className="focus-ring mt-2 w-full rounded-sm border border-oro/45 bg-white/80 px-4 py-3 text-argilla"
+          id="azienda"
+          name="azienda"
           required
           type="text"
         />
@@ -37,20 +49,15 @@ export function ContactForm() {
         />
       </div>
       <div>
-        <label className="block text-sm font-bold uppercase tracking-[0.1em] text-ceramica" htmlFor="tipo">
-          Tipo di richiesta
+        <label className="block text-sm font-bold uppercase tracking-[0.1em] text-ceramica" htmlFor="citta">
+          Città
         </label>
-        <select
+        <input
           className="focus-ring mt-2 w-full rounded-sm border border-oro/45 bg-white/80 px-4 py-3 text-argilla"
-          id="tipo"
-          name="tipo"
-          defaultValue="Informazioni"
-        >
-          <option>Informazioni</option>
-          <option>Disponibilita prodotto</option>
-          <option>Visita in laboratorio</option>
-          <option>Altro</option>
-        </select>
+          id="citta"
+          name="citta"
+          type="text"
+        />
       </div>
       <div>
         <label className="block text-sm font-bold uppercase tracking-[0.1em] text-ceramica" htmlFor="messaggio">
@@ -69,6 +76,10 @@ export function ContactForm() {
       >
         Invia richiesta
       </button>
+      <p className="text-sm leading-6 text-argilla">
+        Le richieste sono rivolte a negozi, botteghe e punti vendita. Non effettuiamo vendita online
+        o vendita diretta al pubblico dalla sede produttiva.
+      </p>
       <p className="text-sm leading-6 text-argilla">
         Il modulo è predisposto per il collegamento a un servizio di invio email o CRM. Verificare la
         configurazione prima della pubblicazione.

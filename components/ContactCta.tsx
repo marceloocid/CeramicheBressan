@@ -1,5 +1,4 @@
 import { ButtonLink } from "@/components/ButtonLink";
-import { site } from "@/data/site";
 
 export function ContactCta() {
   return (
@@ -8,22 +7,23 @@ export function ContactCta() {
         <div className="max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#ffd95a]">Contatto diretto</p>
           <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight sm:text-4xl">
-            Cerchi un prodotto in ceramica artigianale?
+            Cerchi ceramiche artigianali per il tuo punto vendita?
           </h2>
           <p className="mt-4 text-lg leading-8 text-[#fff6e6]">
-            Contattaci per informazioni, disponibilità o per organizzare una visita al laboratorio.
+            Contattaci per conoscere le collezioni disponibili e valutare insieme le creazioni più adatte al tuo spazio.
           </p>
         </div>
         <div className="flex flex-wrap gap-3">
           <ButtonLink href="/contatti" variant="secondary">
             Contattaci
           </ButtonLink>
-          <a
+          <ButtonLink
+            href="/catalogo"
+            variant="ghost"
             className="focus-ring inline-flex min-h-11 items-center justify-center rounded-sm border border-white bg-white px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ceramica shadow-soft transition hover:bg-[#fff6e6] hover:border-[#fff6e6]"
-            href={site.phoneHref}
           >
-            Chiama ora
-          </a>
+            Scopri il catalogo
+          </ButtonLink>
         </div>
       </div>
     </section>
