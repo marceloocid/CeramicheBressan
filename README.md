@@ -18,6 +18,7 @@ Aprire `http://localhost:3000`.
 Le immagini placeholder sono in `public/images`:
 
 - `laboratorio-ceramica.jpg`
+- `home-laboratorio-bressan.jpg`
 - `piatti-dipinti-a-mano.jpg`
 - `vasi-ceramica-artistica.jpg`
 - `dettagli-decorazione.jpg`

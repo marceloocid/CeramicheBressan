@@ -19,9 +19,15 @@ export default function CatalogoPage() {
           <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
             {catalogItems.map((item) => (
               <article className="paper-panel overflow-hidden rounded-sm shadow-soft" key={`${item.name}-${item.category}`}>
-                <div className="relative aspect-[4/3]">
+                <div className="relative aspect-[4/3] bg-[#fffaf1]">
                   {/* Placeholder: sostituire con foto reale del prodotto corrispondente. */}
-                  <Image className="object-cover" src={item.image} alt={item.alt} fill sizes="(min-width: 1024px) 33vw, 100vw" />
+                  <Image
+                    className={item.imageFit === "contain" ? "object-contain p-5 sm:p-7" : "object-cover"}
+                    src={item.image}
+                    alt={item.alt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, 100vw"
+                  />
                 </div>
                 <div className="p-6">
                   <p className="text-xs font-bold uppercase tracking-[0.16em] text-ceramica">

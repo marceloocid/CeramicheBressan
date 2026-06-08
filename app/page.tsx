@@ -23,13 +23,20 @@ const pillars = [
 export default function Home() {
   return (
     <main>
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 opacity-35">
-          <div className="ceramic-gloss absolute -right-24 top-12 h-[420px] w-[420px] rounded-full blur-[1px] sm:h-[560px] sm:w-[560px]" />
-          <div className="ceramic-gloss absolute -left-40 bottom-8 h-[360px] w-[360px] rounded-full opacity-70 sm:h-[480px] sm:w-[480px]" />
-        </div>
-        <div className="mx-auto grid min-h-[calc(100vh-96px)] max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
-          <div className="relative z-10 max-w-3xl">
+      <section className="relative isolate overflow-hidden">
+        <Image
+          priority
+          className="absolute inset-0 -z-20 object-cover"
+          src="/images/home-laboratorio-bressan.jpg"
+          alt="Laboratorio Bressan C2 con ceramiche artistiche dipinte a mano"
+          fill
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#10170d]/82 via-[#1c2a16]/62 to-[#10170d]/24" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#10170d]/58 via-transparent to-[#10170d]/34" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_45%,rgba(255,249,240,0.18),transparent_34%)]" />
+        <div className="mx-auto grid min-h-[calc(100vh-96px)] max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_0.72fr] lg:px-8">
+          <div className="relative z-10 max-w-3xl rounded-sm border border-white/35 bg-[#fffaf1]/90 p-6 shadow-soft backdrop-blur-sm sm:p-8 lg:p-10">
             <div className="brand-plaque mb-8 inline-block max-w-full px-6 py-4">
               <p className="relative z-10 text-lg italic leading-none text-ceramica">Ceramiche Artistiche</p>
               <p className="brand-script relative z-10 text-5xl font-semibold leading-none text-ceramica sm:text-7xl">
@@ -56,22 +63,6 @@ export default function Home() {
               <ButtonLink href={site.phoneHref} variant="secondary">
                 Chiama ora
               </ButtonLink>
-            </div>
-          </div>
-          <div className="ornamental-border image-frame relative aspect-[4/5] overflow-hidden rounded-sm">
-            {/* Placeholder: sostituire con foto reale del laboratorio o di una selezione prodotti Bressan C2. */}
-            <Image
-              priority
-              className="object-cover"
-              src="/images/laboratorio-ceramica.jpg"
-              alt="Laboratorio artigianale di ceramiche artistiche a Pianezze"
-              fill
-              sizes="(min-width: 1024px) 45vw, 100vw"
-            />
-            <div className="absolute bottom-6 right-6 flex gap-2" aria-hidden="true">
-              <span className="painted-leaf" />
-              <span className="painted-leaf translate-y-3 rotate-12" />
-              <span className="painted-leaf -translate-y-1 rotate-45" />
             </div>
           </div>
         </div>

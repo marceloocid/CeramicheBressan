@@ -42,8 +42,14 @@ export function GalleryFilter() {
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {visibleItems.map((item) => (
           <article className="paper-panel overflow-hidden rounded-sm" key={`${item.category}-${item.name}`}>
-            <div className="relative aspect-[4/3]">
-              <Image className="object-cover" src={item.image} alt={item.alt} fill sizes="(min-width: 1024px) 33vw, 100vw" />
+            <div className="relative aspect-[4/3] bg-[#fffaf1]">
+              <Image
+                className={item.imageFit === "contain" ? "object-contain p-5 sm:p-7" : "object-cover"}
+                src={item.image}
+                alt={item.alt}
+                fill
+                sizes="(min-width: 1024px) 33vw, 100vw"
+              />
             </div>
             <div className="p-5">
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-ceramica">

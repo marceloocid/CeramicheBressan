@@ -70,15 +70,16 @@ export const catalogItems = [
   {
     name: "Piatto decorato",
     category: "tavola",
-    image: "/images/piatti-dipinti-a-mano.jpg",
+    image: "/images/piatto-decorato.jpg",
     alt: "Piatto decorato in ceramica dipinto a mano",
     description: "Una presenza elegante per tavole quotidiane o occasioni speciali."
   },
   {
     name: "Vaso in ceramica",
     category: "decorativi",
-    image: "/images/vasi-ceramica-artistica.jpg",
+    image: "/images/vaso-in-ceramica.png",
     alt: "Vaso in ceramica artistica",
+    imageFit: "contain",
     description: "Forma decorativa per ambienti domestici, ingressi e composizioni floreali."
   },
   {
@@ -105,8 +106,9 @@ export const catalogItems = [
   {
     name: "Oggetto regalo",
     category: "regalo",
-    image: "/images/laboratorio-ceramica.jpg",
-    alt: "Laboratorio artigianale con ceramiche artistiche",
+    image: "/images/oggetto-regalo.jpg",
+    alt: "Oggetto regalo in ceramica artigianale",
+    imageFit: "contain",
     description: "Piccole creazioni in ceramica per un pensiero curato e personale."
   }
 ];

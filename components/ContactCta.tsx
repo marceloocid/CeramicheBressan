@@ -18,9 +18,12 @@ export function ContactCta() {
           <ButtonLink href="/contatti" variant="secondary">
             Contattaci
           </ButtonLink>
-          <ButtonLink href={site.phoneHref} variant="ghost" className="border-white/70 text-white hover:bg-white/10">
+          <a
+            className="focus-ring inline-flex min-h-11 items-center justify-center rounded-sm border border-white bg-white px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ceramica shadow-soft transition hover:bg-[#fff6e6] hover:border-[#fff6e6]"
+            href={site.phoneHref}
+          >
             Chiama ora
-          </ButtonLink>
+          </a>
         </div>
       </div>
     </section>
