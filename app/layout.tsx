@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -25,7 +26,10 @@ export const metadata: Metadata = {
     type: "website"
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.svg", type: "image/svg+xml" }
+    ],
     apple: "/apple-touch-icon.png"
   }
 };
@@ -66,6 +70,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <MobileCallButton />
+        <Analytics />
       </body>
     </html>
   );
