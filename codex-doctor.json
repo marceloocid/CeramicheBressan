@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "1781894208s since unix epoch",
+  "overallStatus": "ok",
+  "codexVersion": "0.141.0",
+  "checks": {
+    "app_server.status": {
+      "id": "app_server.status",
+      "category": "app-server",
+      "status": "ok",
+      "summary": "background server is not running",
+      "details": {
+        "control socket": "/Users/marcelocid/.codex/app-server-control/app-server-control.sock",
+        "daemon state dir": "/Users/marcelocid/.codex/app-server-daemon",
+        "mode": "ephemeral",
+        "pid file": "/Users/marcelocid/.codex/app-server-daemon/app-server.pid (missing)",
+        "settings": "/Users/marcelocid/.codex/app-server-daemon/settings.json (missing)",
+        "status": "not running",
+        "update-loop pid file": "/Users/marcelocid/.codex/app-server-daemon/app-server-updater.pid (missing)"
+      },
+      "remediation": null,
+      "durationMs": 0
+    },
+    "auth.credentials": {
+      "id": "auth.credentials",
+      "category": "auth",
+      "status": "ok",
+      "summary": "auth is configured",
+      "details": {
+        "auth file": "/Users/marcelocid/.codex/auth.json",
+        "auth storage mode": "File",
+        "stored API key": "false",
+        "stored ChatGPT tokens": "true",
+        "stored agent identity": "false",
+        "stored auth mode": "chatgpt"
+      },
+      "remediation": null,
+      "durationMs": 0
+    },
+    "config.load": {
+      "id": "config.load",
+      "category": "config",
+      "status": "ok",
+      "summary": "config loaded",
+      "details": {
+        "CODEX_HOME": "/Users/marcelocid/.codex",
+        "config.toml": "/Users/marcelocid/.codex/config.toml",
+        "config.toml parse": "ok",
+        "cwd": "/Users/marcelocid/Documents/CeramicheBressan",
+        "enabled feature flags": "shell_tool, unified_exec, shell_snapshot, terminal_resize_reflow, sqlite, hooks, enable_request_compression, multi_agent, apps, tool_suggest, plugins, in_app_browser, browser_use, browser_use_external, computer_use, plugin_sharing, image_generation, skill_mcp_dependency_install, mentions_v2, steer, guardian_approval, goals, collaboration_modes, tool_call_mcp_elicitation, personality, fast_mode, tui_app_server, remote_compaction_v2, workspace_dependencies",
+        "feature flag overrides": "none",
+        "feature flags enabled": "29",
+        "log dir": "/Users/marcelocid/.codex/log",
+        "mcp servers": "0",
+        "model": "gpt-5.5",
+        "model provider": "openai",
+        "sqlite home": "/Users/marcelocid/.codex"
+      },
+      "remediation": null,
+      "durationMs": 0
+    },
+    "git.environment": {
+      "id": "git.environment",
+      "category": "git",
+      "status": "ok",
+      "summary": "git version 2.47.0",
+      "details": {
+        ".git entry": "directory",
+        "PATH git #1": "/usr/local/bin/git",
+        "PATH git #2": "/usr/bin/git",
+        "PATH git entries": "2",
+        "git branch": "main",
+        "git build options": "git version 2.47.0; cpu: x86_64; no commit associated with this build; sizeof-long: 8; sizeof-size_t: 8; shell-path: /bin/sh; feature: fsmonitor--daemon; libcurl: 8.4.0; zlib: 1.2.12",
+        "git exec path": "/usr/local/opt/git/libexec/git-core",
+        "git version": "git version 2.47.0",
+        "repo detected": "true",
+        "repo root": "/Users/marcelocid/Documents/CeramicheBressan",
+        "selected git": "/usr/local/bin/git"
+      },
+      "remediation": null,
+      "durationMs": 13
+    },
+    "installation": {
+      "id": "installation",
+      "category": "install",
+      "status": "ok",
+      "summary": "installation looks consistent",
+      "details": {
+        "PATH codex #1": "/Users/marcelocid/.local/bin/codex",
+        "current executable": "/Users/marcelocid/.local/bin/codex",
+        "install context": "standalone (unix, package /Users/marcelocid/.codex/packages/standalone/releases/0.141.0-x86_64-apple-darwin, bin /Users/marcelocid/.codex/packages/standalone/releases/0.141.0-x86_64-apple-darwin/bin, resources /Users/marcelocid/.codex/packages/standalone/releases/0.141.0-x86_64-apple-darwin/codex-resources, path /Users/marcelocid/.codex/packages/standalone/releases/0.141.0-x86_64-apple-darwin/codex-path)",
+        "managed by bun": "false",
+        "managed by npm": "false",
+        "managed package root": "not set"
+      },
+      "remediation": null,
+      "durationMs": 5
+    },
+    "mcp.config": {
+      "id": "mcp.config",
+      "category": "mcp",
+      "status": "ok",
+      "summary": "no MCP servers configured",
+      "details": {},
+      "remediation": null,
+      "durationMs": 0
+    },
+    "network.env": {
+      "id": "network.env",
+      "category": "network",
+      "status": "ok",
+      "summary": "network-related environment looks readable",
+      "details": {
+        "proxy env vars": "none"
+      },
+      "remediation": null,
+      "durationMs": 0
+    },
+    "network.provider_reachability": {
+      "id": "network.provider_reachability",
+      "category": "reachability",
+      "status": "ok",
+      "summary": "active provider endpoints are reachable over HTTP",
+      "details": {
+        "ChatGPT base URL": "https://chatgpt.com/backend-api/ reachable (HTTP 403)",
+        "reachability mode": "ChatGPT auth"
+      },
+      "remediation": null,
+      "durationMs": 413
+    },
+    "network.websocket_reachability": {
+      "id": "network.websocket_reachability",
+      "category": "websocket",
+      "status": "ok",
+      "summary": "Responses WebSocket handshake succeeded",
+      "details": {
+        "DNS": "2 IPv4, 0 IPv6, first IPv4",
+        "auth mode": "chatgpt",
+        "connect timeout": "15000 ms",
+        "endpoint": "wss://chatgpt.com/backend-api/<redacted>",
+        "handshake result": "HTTP 101 Switching Protocols",
+        "model provider": "openai",
+        "models etag present": "true",
+        "provider name": "OpenAI",
+        "proxy env vars": "none",
+        "reasoning header": "false",
+        "server model present": "false",
+        "supports websockets": "true",
+        "wire API": "responses"
+      },
+      "remediation": null,
+      "durationMs": 830
+    },
+    "runtime.provenance": {
+      "id": "runtime.provenance",
+      "category": "runtime",
+      "status": "ok",
+      "summary": "running standalone on macos-x86_64",
+      "details": {
+        "commit": "unknown",
+        "current executable": "/Users/marcelocid/.local/bin/codex",
+        "install method": "standalone (unix, package /Users/marcelocid/.codex/packages/standalone/releases/0.141.0-x86_64-apple-darwin, bin /Users/marcelocid/.codex/packages/standalone/releases/0.141.0-x86_64-apple-darwin/bin, resources /Users/marcelocid/.codex/packages/standalone/releases/0.141.0-x86_64-apple-darwin/codex-resources, path /Users/marcelocid/.codex/packages/standalone/releases/0.141.0-x86_64-apple-darwin/codex-path)",
+        "platform": "macos-x86_64",
+        "version": "0.141.0"
+      },
+      "remediation": null,
+      "durationMs": 0
+    },
+    "runtime.search": {
+      "id": "runtime.search",
+      "category": "search",
+      "status": "ok",
+      "summary": "search is OK (bundled)",
+      "details": {
+        "search command": "/Users/marcelocid/.codex/packages/standalone/releases/0.141.0-x86_64-apple-darwin/codex-path/rg",
+        "search command readiness": "file exists",
+        "search provider": "bundled"
+      },
+      "remediation": null,
+      "durationMs": 0
+    },
+    "sandbox.helpers": {
+      "id": "sandbox.helpers",
+      "category": "sandbox",
+      "status": "ok",
+      "summary": "sandbox configuration is readable",
+      "details": {
+        "approval policy": "OnRequest",
+        "codex-linux-sandbox helper": "none",
+        "execve wrapper helper": "/Users/marcelocid/.codex/tmp/arg0/codex-arg0D2J2pm/codex-execve-wrapper",
+        "filesystem sandbox": "restricted",
+        "network sandbox": "restricted"
+      },
+      "remediation": null,
+      "durationMs": 0
+    },
+    "state.paths": {
+      "id": "state.paths",
+      "category": "state",
+      "status": "ok",
+      "summary": "state paths and databases are inspectable",
+      "details": {
+        "CODEX_HOME": "/Users/marcelocid/.codex (dir)",
+        "active rollout files": "33 files, 10589414 total bytes, 320891 average bytes",
+        "archived rollout files": "0 files, 0 total bytes, 0 average bytes",
+        "goals DB": "/Users/marcelocid/.codex/goals_1.sqlite (file)",
+        "goals DB integrity": "ok",
+        "log DB": "/Users/marcelocid/.codex/logs_2.sqlite (file)",
+        "log DB integrity": "ok",
+        "log dir": "/Users/marcelocid/.codex/log (dir)",
+        "memories DB": "/Users/marcelocid/.codex/memories_1.sqlite (file)",
+        "memories DB integrity": "ok",
+        "sqlite home": "/Users/marcelocid/.codex (dir)",
+        "standalone release cache": "1 entries in /Users/marcelocid/.codex/packages/standalone/releases",
+        "state DB": "/Users/marcelocid/.codex/state_5.sqlite (file)",
+        "state DB integrity": "ok"
+      },
+      "remediation": null,
+      "durationMs": 324
+    },
+    "state.rollout_db_parity": {
+      "id": "state.rollout_db_parity",
+      "category": "threads",
+      "status": "ok",
+      "summary": "rollout files and state DB thread inventory agree",
+      "details": {
+        "default model provider": "openai",
+        "rollout DB active files": "33",
+        "rollout DB active rows": "33",
+        "rollout DB archive mismatches": "0",
+        "rollout DB archived files": "0",
+        "rollout DB archived rows": "0",
+        "rollout DB duplicate DB paths": "0",
+        "rollout DB duplicate rollout thread ids": "0",
+        "rollout DB malformed file names": "0",
+        "rollout DB missing active rows": "0",
+        "rollout DB missing archived rows": "0",
+        "rollout DB model providers": "openai=33",
+        "rollout DB rows": "33",
+        "rollout DB scan cap reached": "false",
+        "rollout DB scan errors": "0",
+        "rollout DB sources": "cli=26, exec=7",
+        "rollout DB stale rows": "0"
+      },
+      "remediation": null,
+      "durationMs": 387
+    },
+    "system.environment": {
+      "id": "system.environment",
+      "category": "system",
+      "status": "ok",
+      "summary": "OS language es-ES",
+      "details": {
+        "EDITOR": "not set",
+        "LANG": "C.UTF-8",
+        "LC_CTYPE": "UTF-8",
+        "VISUAL": "not set",
+        "os": "Mac OS 26.5.1 [64-bit]",
+        "os language": "es-ES",
+        "os type": "Mac OS",
+        "os version": "26.5.1"
+      },
+      "remediation": null,
+      "durationMs": 3
+    },
+    "terminal.env": {
+      "id": "terminal.env",
+      "category": "terminal",
+      "status": "ok",
+      "summary": "terminal metadata was detected",
+      "details": {
+        "COLORTERM": "truecolor",
+        "TERM_PROGRAM": "WarpTerminal",
+        "color output": "disabled (stdout is not a terminal)",
+        "effective locale": "UTF-8",
+        "stderr is terminal": "true",
+        "stdin is terminal": "true",
+        "stdout is terminal": "false",
+        "terminal": "Warp",
+        "terminal size": "124x47",
+        "terminal version": "v0.2026.06.17.09.49.stable_01"
+      },
+      "remediation": null,
+      "durationMs": 0
+    },
+    "terminal.title": {
+      "id": "terminal.title",
+      "category": "title",
+      "status": "ok",
+      "summary": "terminal title default",
+      "details": {
+        "terminal title activity": "true",
+        "terminal title items": "activity, project-name",
+        "terminal title project source": "git repo root",
+        "terminal title project value": "CeramicheBressan",
+        "terminal title source": "default"
+      },
+      "remediation": null,
+      "durationMs": 0
+    },
+    "updates.status": {
+      "id": "updates.status",
+      "category": "updates",
+      "status": "ok",
+      "summary": "update configuration is locally consistent",
+      "details": {
+        "cached latest version": "0.141.0",
+        "check for update on startup": "true",
+        "last checked at": "2026-06-19T18:19:39.116211Z",
+        "latest version": "0.141.0",
+        "latest version status": "current version is not older",
+        "update action": "standalone installer",
+        "version cache": "/Users/marcelocid/.codex/version.json"
+      },
+      "remediation": null,
+      "durationMs": 403
+    }
+  }
+}

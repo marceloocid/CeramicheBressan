@@ -93,6 +93,14 @@ export default function AziendaPage() {
               </dd>
             </div>
             <div>
+              <dt className="font-bold text-ceramica">Email</dt>
+              <dd className="mt-1">
+                <a className="focus-ring underline-offset-4 hover:underline" href={site.emailHref}>
+                  {site.email}
+                </a>
+              </dd>
+            </div>
+            <div>
               <dt className="font-bold text-ceramica">P.IVA / C.F.</dt>
               <dd className="mt-1">{site.vat}</dd>
             </div>

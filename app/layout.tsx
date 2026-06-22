@@ -47,6 +47,7 @@ export default function RootLayout({
     description:
       "Bottega artigiana di ceramiche artistiche, oggettistica varia in ceramica e creazioni dipinte a mano per casa, tavola e regalo.",
     telephone: "+39042475762",
+    email: site.email,
     address: {
       "@type": "PostalAddress",
       streetAddress: site.streetAddress,

@@ -11,8 +11,8 @@ export const site = {
   phoneHref: "tel:+39042475762",
   vat: "02084630249",
   facebookUrl: "https://www.facebook.com/people/Ceramiche-Bressan-C2/100057633592183/",
-  // DATO DA CONFERMARE con il cliente prima della pubblicazione.
-  email: "info@ceramichebressanc2.it",
+  email: "ceramichebressanc2@gmail.com",
+  emailHref: "mailto:ceramichebressanc2@gmail.com",
   b2bNotice:
     "Le nostre creazioni sono destinate a negozi e punti vendita. Non effettuiamo vendita online o vendita diretta al pubblico dalla sede produttiva."
 };

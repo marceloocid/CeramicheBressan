@@ -38,6 +38,15 @@ export default function ContattiPage() {
                 </p>
               </div>
               <div className="paper-panel rounded-sm p-6">
+                <h2 className="font-serif text-2xl font-semibold text-ceramica">Email</h2>
+                <a
+                  className="focus-ring mt-3 inline-block font-bold text-ceramica underline-offset-4 hover:underline"
+                  href={site.emailHref}
+                >
+                  {site.email}
+                </a>
+              </div>
+              <div className="paper-panel rounded-sm p-6">
                 <h2 className="font-serif text-2xl font-semibold text-ceramica">Facebook</h2>
                 <a
                   className="focus-ring mt-3 inline-block font-bold text-ceramica underline-offset-4 hover:underline"

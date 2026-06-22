@@ -35,9 +35,7 @@ I dati principali sono in `data/site.ts`.
 - Indirizzo: `site.address`
 - Ragione sociale e P.IVA: `site.legalName`, `site.vat`
 - Facebook: `site.facebookUrl`
-- Email: `site.email`
-
-Nota: l’email `info@ceramichebressanc2.it` è inserita come dato da confermare nel codice, non come dato verificato.
+- Email: `site.email` e `site.emailHref`
 
 ## Testi
 
@@ -55,7 +53,7 @@ Categorie e prodotti generici del catalogo sono in `data/site.ts`.
 
 ## Prima della pubblicazione
 
-- Confermare email e dati di contatto.
+- Confermare periodicamente i dati di contatto.
 - Sostituire le foto placeholder con immagini reali autorizzate.
 - Collegare il modulo contatti a un servizio email, CRM o backend.
 - Completare Privacy Policy e Cookie Policy con testi legali definitivi.
