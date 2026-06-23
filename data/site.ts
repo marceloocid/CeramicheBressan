@@ -83,7 +83,7 @@ export const collectionCategories: CollectionCategory[] = [
     alt: "Piatti e taglieri in ceramica decorati per pizza e bruschette",
     description:
       "Linee ispirate alla tavola italiana, adatte a negozi regalo, concept store e spazi dedicati alla cucina mediterranea.",
-    themes: ["Pizza e bruschette", "Pasta e spaghetti", "Caprese"]
+    themes: ["Pizza e bruschette", "Linea Pasta", "Caprese"]
   },
   {
     title: "Frutta, agrumi e vendemmia",
@@ -124,11 +124,10 @@ export const catalogItems: CatalogItem[] = [
     description:
       "Servizi, tazze e piccoli complementi con decori di arance e limoni, adatti a una vetrina luminosa e mediterranea.",
     images: [
-      image("/images/agrumi/ChatGPT Image 20 jun 2026, 18_29_35 (1).png", "Servizio in ceramica decorato con agrumi"),
-      image("/images/agrumi/ChatGPT Image 20 jun 2026, 18_29_35 (2).png", "Tazze e vassoio in ceramica con decoro agrumi"),
       image("/images/agrumi/ChatGPT Image 20 jun 2026, 18_29_35 (3).png", "Composizione da tavola con decoro arance e limoni"),
-      image("/images/agrumi/ChatGPT Image 20 jun 2026, 18_29_36 (4).png", "Bicchieri e vassoio in ceramica con agrumi"),
-      image("/images/agrumi/ChatGPT Image 20 jun 2026, 21_10_56.png", "Ciotole e piatto in ceramica con bordo agrumi")
+      image("/images/agrumi/ChatGPT Image 20 jun 2026, 18_29_35 (2).png", "Tazze e vassoio in ceramica con decoro agrumi"),
+      image("/images/agrumi/ChatGPT Image 20 jun 2026, 18_29_35 (1).png", "Servizio in ceramica decorato con agrumi"),
+      image("/images/agrumi/ChatGPT Image 20 jun 2026, 18_29_36 (4).png", "Bicchieri e vassoio in ceramica con agrumi")
     ]
   },
   {
@@ -155,13 +154,15 @@ export const catalogItems: CatalogItem[] = [
     description:
       "Composizioni con pere, uva, frutta dipinta e piccoli pezzi coordinati per una proposta colorata ma artigianale.",
     images: [
-      image("/images/frutta_mista/ChatGPT Image 20 jun 2026, 20_26_15.png", "Foglie e frutti decorativi in ceramica"),
-      image("/images/frutta_mista/ChatGPT Image 20 jun 2026, 20_39_44 (4).png", "Bottiglia, piatto e brocca con frutta dipinta"),
       image("/images/frutta_mista/ChatGPT Image 20 jun 2026, 21_10_41.png", "Teiera, tazze e contenitori in ceramica con frutta"),
       image("/images/frutta_mista/ChatGPT Image 20 jun 2026, 21_11_07.png", "Piatto crostata, vassoio e tazza con frutta dipinta"),
-      image("/images/frutta_mista/ChatGPT Image 20 jun 2026, 21_11_13.png", "Bottiglie e brocca con decori di pera e frutta"),
+      image("/images/frutta_mista/ChatGPT Image 20 jun 2026, 21_26_36.png", "Composizione con piatto e brocca decorati con frutta"),
       image("/images/frutta_mista/ChatGPT Image 20 jun 2026, 21_26_32.png", "Bottiglie, piatto e vassoio con decori di frutta"),
-      image("/images/frutta_mista/ChatGPT Image 20 jun 2026, 21_26_36.png", "Composizione con piatto e brocca decorati con frutta")
+      image("/images/frutta_mista/ChatGPT Image 20 jun 2026, 20_39_44 (4).png", "Bottiglia, piatto e brocca con frutta dipinta"),
+      image("/images/agrumi/ChatGPT Image 20 jun 2026, 21_10_56.png", "Ciotole e vassoio in ceramica con decori di frutta mista"),
+      image("/images/ortaggi/ChatGPT Image 20 jun 2026, 18_35_35 (2).png", "Brocche sagomate a frutta in ceramica"),
+      image("/images/frutta_mista/ChatGPT Image 20 jun 2026, 21_11_13.png", "Bottiglie e brocca con decori di pera e frutta"),
+      image("/images/frutta_mista/ChatGPT Image 20 jun 2026, 20_26_15.png", "Foglie e frutti decorativi in ceramica")
     ]
   },
   {
@@ -221,9 +222,6 @@ export const catalogItems: CatalogItem[] = [
     description:
       "Barattoli, piatti, brocche e ciotole con peperoni, verdure e piccoli ortaggi dipinti a mano.",
     images: [
-      image("/images/ortaggi/ChatGPT Image 20 jun 2026, 18_32_34.png", "Barattoli e oliere in ceramica con ortaggi dipinti"),
-      image("/images/ortaggi/ChatGPT Image 20 jun 2026, 18_35_35 (1).png", "Caraffe e barattoli con decoro di verdure"),
-      image("/images/ortaggi/ChatGPT Image 20 jun 2026, 18_35_35 (2).png", "Brocche sagomate a peperoni e uva"),
       image("/images/ortaggi/ChatGPT Image 20 jun 2026, 18_35_36 (4).png", "Vassoi e ciotole con decoro ortaggi"),
       image("/images/ortaggi/ChatGPT Image 20 jun 2026, 20_30_44.png", "Piatti e ciotole con verdure dipinte")
     ]
@@ -236,10 +234,10 @@ export const catalogItems: CatalogItem[] = [
     description:
       "Vassoi, piatti e ciotole con decoro asparagi, una linea essenziale per una tavola naturale e riconoscibile.",
     images: [
-      image("/images/ortaggi/ChatGPT Image 21 jun 2026, 18_46_27 (1).png", "Vassoio ovale in ceramica con decoro asparagi"),
-      image("/images/ortaggi/ChatGPT Image 21 jun 2026, 18_46_27 (2).png", "Piatto e vassoio con asparagi dipinti"),
+      image("/images/ortaggi/ChatGPT Image 21 jun 2026, 18_46_28 (4).png", "Composizione completa con piatti e ciotole ad asparagi"),
       image("/images/ortaggi/ChatGPT Image 21 jun 2026, 18_46_28 (3).png", "Servizio con ciotola e vassoio decorati ad asparagi"),
-      image("/images/ortaggi/ChatGPT Image 21 jun 2026, 18_46_28 (4).png", "Composizione completa con piatti e ciotole ad asparagi")
+      image("/images/ortaggi/ChatGPT Image 21 jun 2026, 18_46_27 (2).png", "Piatto e vassoio con asparagi dipinti"),
+      image("/images/ortaggi/ChatGPT Image 21 jun 2026, 18_46_27 (1).png", "Vassoio ovale in ceramica con decoro asparagi")
     ]
   },
   {
@@ -250,8 +248,8 @@ export const catalogItems: CatalogItem[] = [
     description:
       "Piatti e vassoi con pomodori, basilico, caprese e mozzarella, pensati per una proposta italiana chiara e immediata.",
     images: [
-      image("/images/pomodori/ChatGPT Image 20 jun 2026, 17_22_56 (1).png", "Servizio in ceramica con decoro pomodori e basilico"),
       image("/images/pomodori/ChatGPT Image 21 jun 2026, 18_29_14.png", "Vassoio caprese e piatti con pomodori dipinti"),
+      image("/images/pomodori/ChatGPT Image 20 jun 2026, 17_22_56 (1).png", "Servizio in ceramica con decoro pomodori e basilico"),
       image("/images/collezione-tavola.jpg", "Esposizione di piatti caprese e mozzarella in ceramica", "cover")
     ]
   },
@@ -263,27 +261,29 @@ export const catalogItems: CatalogItem[] = [
     description:
       "Piatti e taglieri decorati per pizza e bruschette, con scritte e colori pensati per punti vendita turistici e negozi cucina.",
     images: [
-      image("/images/pizza_e_bruschette/ChatGPT Image 21 jun 2026, 10_34_41.png", "Piatti pizza e bruschette su tavola apparecchiata"),
-      image("/images/pizza_e_bruschette/ChatGPT Image 21 jun 2026, 10_34_50.png", "Vetrina cucina con piatti pizza e bruschette"),
+      image("/images/pizza_e_bruschette/ChatGPT Image 21 jun 2026, 18_32_20 (3).png", "Linea pizza e bruschette con piatti e vassoio"),
+      image("/images/pizza_e_bruschette/ChatGPT Image 21 jun 2026, 18_32_21 (4).png", "Composizione completa pizza e bruschette"),
       image("/images/pizza_e_bruschette/ChatGPT Image 21 jun 2026, 18_32_19 (1).png", "Piatti e accessori con decoro pizza"),
       image("/images/pizza_e_bruschette/ChatGPT Image 21 jun 2026, 18_32_20 (2).png", "Piatto pizza e tagliere bruschette in ceramica"),
-      image("/images/pizza_e_bruschette/ChatGPT Image 21 jun 2026, 18_32_20 (3).png", "Linea pizza e bruschette con piatti e vassoio"),
-      image("/images/pizza_e_bruschette/ChatGPT Image 21 jun 2026, 18_32_21 (4).png", "Composizione completa pizza e bruschette")
+      image("/images/pizza_e_bruschette/ChatGPT Image 21 jun 2026, 10_34_50.png", "Vetrina cucina con piatti pizza e bruschette"),
+      image("/images/pizza_e_bruschette/ChatGPT Image 21 jun 2026, 10_34_41.png", "Piatti pizza e bruschette su tavola apparecchiata")
     ]
   },
   {
-    name: "Pasta e spaghetti",
+    name: "Linea Pasta",
     slug: "pasta-spaghetti",
     category: "gastronomia",
-    theme: "Pasta",
+    theme: "Tavola italiana",
     description:
-      "Piatti sagomati e vassoi con decori per spaghetti e pasta, una serie giocosa ma coerente con la tavola italiana.",
+      "Piatti sagomati e vassoi decorati con motivi ispirati alla pasta italiana, pensati per una tavola vivace, autentica e riconoscibile.",
     images: [
-      image("/images/pasta_e_spaghetti/ChatGPT Image 20 jun 2026, 17_22_56 (3).png", "Servizio con piatti pasta e barattoli decorati"),
-      image("/images/pasta_e_spaghetti/ChatGPT Image 20 jun 2026, 18_35_35 (3).png", "Piatti sagomati per pasta e spaghetti"),
-      image("/images/pasta_e_spaghetti/ChatGPT Image 20 jun 2026, 20_15_02.png", "Piatti a forma di pesce con scritta spaghetti"),
       image("/images/pasta_e_spaghetti/ChatGPT Image 20 jun 2026, 21_26_47 (5).png", "Vassoi pasta e spaghetti ambientati in cucina"),
-      image("/images/pasta_e_spaghetti/ChatGPT Image 20 jun 2026, 21_39_32.png", "Linea pasta e spaghetti con piatti e piccoli vassoi")
+      image("/images/pasta_e_spaghetti/ChatGPT Image 20 jun 2026, 21_39_32.png", "Linea pasta e spaghetti con piatti e piccoli vassoi"),
+      image("/images/pasta_e_spaghetti/ChatGPT Image 20 jun 2026, 20_15_02.png", "Piatti a forma di pesce con scritta spaghetti"),
+      image("/images/pasta_e_spaghetti/ChatGPT Image 20 jun 2026, 18_35_35 (3).png", "Piatti sagomati per pasta e spaghetti"),
+      image("/images/pasta_e_spaghetti/ChatGPT Image 20 jun 2026, 17_22_56 (3).png", "Servizio con piatti pasta e barattoli decorati"),
+      image("/images/ortaggi/ChatGPT Image 20 jun 2026, 18_32_34.png", "Barattoli e brocca in ceramica con pasta in rilievo"),
+      image("/images/ortaggi/ChatGPT Image 20 jun 2026, 18_35_35 (1).png", "Barattoli, bottiglia e caraffa con decori di pasta")
     ]
   },
   {
