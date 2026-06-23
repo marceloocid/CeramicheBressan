@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { CatalogItemCard } from "@/components/CatalogItemCard";
 import { ButtonLink } from "@/components/ButtonLink";
 import { ContactCta } from "@/components/ContactCta";
 import { SectionTitle } from "@/components/SectionTitle";
@@ -11,8 +11,8 @@ export default function CatalogoPage() {
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="Catalogo"
-            title="Collezioni per negozi e punti vendita"
-            intro="Una selezione di ceramiche artistiche pensate per arricchire l’assortimento di negozi, botteghe e spazi dedicati alla casa, al regalo e al turismo."
+            title="Esempi fotografici per tema"
+            intro="Una selezione organizzata di ceramiche artistiche per negozi, botteghe e punti vendita. Ogni scheda raccoglie tutte le immagini disponibili della stessa linea o famiglia di prodotto."
             align="center"
           />
           <div className="paper-panel mx-auto mt-10 max-w-4xl rounded-sm p-6 text-center">
@@ -23,31 +23,33 @@ export default function CatalogoPage() {
             <p className="mt-3 font-bold leading-7 text-ceramica">{site.b2bNotice}</p>
           </div>
 
-          <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-            {catalogItems.map((item) => (
-              <article className="paper-panel overflow-hidden rounded-sm shadow-soft" key={`${item.name}-${item.category}`}>
-                <div className="relative aspect-[4/3] bg-[#fffaf1]">
-                  {/* Placeholder: sostituire con foto reale del prodotto corrispondente. */}
-                  <Image
-                    className={item.imageFit === "contain" ? "object-contain p-5 sm:p-7" : "object-cover"}
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, 100vw"
-                  />
-                </div>
-                <div className="p-6">
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-ceramica">
-                    {collectionCategories.find((category) => category.slug === item.category)?.title}
-                  </p>
-                  <h2 className="mt-2 font-serif text-2xl font-semibold text-ceramica">{item.name}</h2>
-                  <p className="mt-3 leading-7 text-argilla">{item.description}</p>
-                  <ButtonLink href="/contatti" variant="ghost" className="mt-5">
-                    Chiedi informazioni
-                  </ButtonLink>
-                </div>
-              </article>
-            ))}
+          <div className="mt-14 space-y-16">
+            {collectionCategories.map((category) => {
+              const categoryItems = catalogItems.filter((item) => item.category === category.slug);
+
+              if (categoryItems.length === 0) {
+                return null;
+              }
+
+              return (
+                <section className="scroll-mt-28" id={category.slug} key={category.slug}>
+                  <div className="mb-7 max-w-3xl">
+                    <p className="text-sm font-bold uppercase tracking-[0.18em] text-ceramica">
+                      {category.title}
+                    </p>
+                    <h2 className="mt-3 font-serif text-3xl font-semibold text-ceramica">
+                      {category.themes.join(", ")}
+                    </h2>
+                    <p className="mt-4 leading-7 text-argilla">{category.description}</p>
+                  </div>
+                  <div className="grid gap-7 lg:grid-cols-2">
+                    {categoryItems.map((item) => (
+                      <CatalogItemCard categoryTitle={category.title} item={item} key={item.slug} />
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
           </div>
         </div>
       </section>

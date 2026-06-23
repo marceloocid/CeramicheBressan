@@ -44,9 +44,9 @@ export function GalleryFilter() {
           <article className="paper-panel overflow-hidden rounded-sm" key={`${item.category}-${item.name}`}>
             <div className="relative aspect-[4/3] bg-[#fffaf1]">
               <Image
-                className={item.imageFit === "contain" ? "object-contain p-5 sm:p-7" : "object-cover"}
-                src={item.image}
-                alt={item.alt}
+                className={item.images[0].fit === "cover" ? "object-cover" : "object-contain p-5 sm:p-7"}
+                src={item.images[0].src}
+                alt={item.images[0].alt}
                 fill
                 sizes="(min-width: 1024px) 33vw, 100vw"
               />

@@ -1,6 +1,6 @@
 import { CollectionCard } from "@/components/CollectionCard";
 import { ContactCta } from "@/components/ContactCta";
-import { GalleryFilter } from "@/components/GalleryFilter";
+import { ButtonLink } from "@/components/ButtonLink";
 import { SectionTitle } from "@/components/SectionTitle";
 import { collectionCategories, site } from "@/data/site";
 
@@ -33,12 +33,23 @@ export default function CreazioniPage() {
       <section className="bg-[#f2e4ca] px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionTitle
-            eyebrow="Galleria"
-            title="Filtra gli esempi per categoria"
-            intro="Le immagini sono pensate come vetrina di ispirazione e punto di partenza per una richiesta diretta."
+            eyebrow="Dal tema al prodotto"
+            title="Una lettura ordinata delle proposte"
+            intro="Questa pagina presenta le famiglie decorative e le direzioni di assortimento. Il catalogo raccoglie invece le serie fotografiche complete, con tutti gli esempi disponibili per ogni tema."
           />
-          <div className="mt-10">
-            <GalleryFilter />
+          <div className="paper-panel mt-10 grid gap-6 rounded-sm p-6 md:grid-cols-[1fr_auto] md:items-center">
+            <div>
+              <h3 className="font-serif text-2xl font-semibold text-ceramica">
+                Vuoi vedere gli esempi concreti?
+              </h3>
+              <p className="mt-3 leading-7 text-argilla">
+                Nel catalogo trovi le linee come agrumi, limoni, pizza, pasta, ortaggi, fiori e mare,
+                con tutte le immagini disponibili per ciascuna serie.
+              </p>
+            </div>
+            <ButtonLink href="/catalogo" variant="secondary">
+              Vai al catalogo
+            </ButtonLink>
           </div>
         </div>
       </section>
