@@ -31,8 +31,8 @@ export function Header() {
         </nav>
 
         <div className="hidden sm:block">
-          <ButtonLink href="/catalogo" variant="secondary" className="px-4 py-2">
-            Scopri il catalogo
+          <ButtonLink href="/contatti#richiesta" variant="secondary" className="px-4 py-2">
+            Richiedi informazioni
           </ButtonLink>
         </div>
       </div>
