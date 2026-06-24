@@ -11,17 +11,28 @@ export default function ContattiPage() {
           <SectionTitle
             eyebrow="Contatti"
             title="Contatti"
-            intro="Per informazioni sulle linee disponibili e sulle possibilità di collaborazione con negozi e punti vendita, contattaci direttamente."
+            intro="Per informazioni sulle linee disponibili, sulle collaborazioni con negozi e punti vendita o sulle creazioni più adatte al tuo assortimento, contattaci direttamente."
             align="center"
           />
-          <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1fr]">
-            <div className="paper-panel rounded-sm border-l-4 border-l-ceramica p-6">
+          <div className="mt-10 grid gap-6 lg:grid-cols-[0.86fr_1.14fr]">
+            <div className="paper-panel self-start rounded-sm border-l-4 border-l-ceramica p-5 sm:p-6">
               <h2 className="font-serif text-2xl font-semibold text-ceramica">Informazioni per negozi</h2>
               <p className="mt-3 leading-7 text-argilla">
                 Raccontaci il tuo negozio o il tuo punto vendita: ti risponderemo con indicazioni
                 sulle linee disponibili, sulle collaborazioni e sulle creazioni più adatte al tuo assortimento.
               </p>
-              <ButtonLink href="/contatti#richiesta" variant="secondary" className="mt-6">
+              <div className="mt-5 grid gap-2">
+                {[
+                  "Linee disponibili per negozi e punti vendita",
+                  "Informazioni su assortimento e collaborazioni",
+                  "Produzione artigianale a Pianezze, Vicenza"
+                ].map((item) => (
+                  <p className="border-l border-oro/60 pl-3 text-sm font-bold leading-6 text-argilla" key={item}>
+                    {item}
+                  </p>
+                ))}
+              </div>
+              <ButtonLink href="/contatti#richiesta" variant="secondary" className="mt-5">
                 Richiedi informazioni
               </ButtonLink>
             </div>
