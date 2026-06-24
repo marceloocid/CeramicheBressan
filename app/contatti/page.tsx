@@ -89,7 +89,7 @@ export default function ContattiPage() {
         </div>
       </section>
 
-      <section className="bg-[#f2e4ca] px-4 py-20 sm:px-6 lg:px-8">
+      <section className="scroll-mt-36 bg-[#f2e4ca] px-4 py-20 sm:px-6 lg:scroll-mt-40 lg:px-8" id="dove-siamo">
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="Dove siamo"

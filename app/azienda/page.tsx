@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ButtonLink } from "@/components/ButtonLink";
 import { ContactCta } from "@/components/ContactCta";
 import { SectionTitle } from "@/components/SectionTitle";
 import { site } from "@/data/site";
@@ -65,6 +66,30 @@ export default function AziendaPage() {
           <p className="mt-5 border-l-4 border-ceramica bg-white/65 px-4 py-3 font-bold leading-7 text-ceramica">
             {site.b2bNotice}
           </p>
+        </div>
+      </section>
+
+      <section className="bg-white/45 px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+          <SectionTitle
+            eyebrow="Dove lavoriamo"
+            title="Pianezze, nel territorio vicentino"
+            intro="La nostra sede produttiva si trova a Pianezze, in provincia di Vicenza. Da qui realizziamo ceramiche artistiche dipinte a mano per negozi, botteghe e punti vendita."
+          />
+          <div className="paper-panel rounded-sm p-7 shadow-soft">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ceramica">Sede produttiva</p>
+            <address className="mt-3 not-italic text-lg leading-8 text-argilla">
+              {site.streetAddress}
+              <br />
+              {site.postalCode} {site.city} ({site.province}), Italia
+            </address>
+            <p className="mt-4 leading-7 text-argilla">
+              Per indicazioni, contatti e mappa completa puoi visitare la pagina contatti.
+            </p>
+            <ButtonLink href="/contatti#dove-siamo" variant="secondary" className="mt-6">
+              Vedi contatti e mappa
+            </ButtonLink>
+          </div>
         </div>
       </section>
 
