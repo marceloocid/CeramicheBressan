@@ -81,7 +81,7 @@ export default function PerRivenditoriPage() {
             Vuoi inserire le nostre ceramiche nel tuo negozio?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-argilla">
-            Contattaci per conoscere le collezioni disponibili e valutare insieme le creazioni più
+            Contattaci per conoscere le linee disponibili e valutare insieme le creazioni più
             adatte al tuo punto vendita.
           </p>
           <ButtonLink href="/contatti" variant="secondary" className="mt-7">

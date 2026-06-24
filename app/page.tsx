@@ -57,12 +57,9 @@ export default function Home() {
               botteghe e punti vendita con il valore dell’artigianato italiano.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/creazioni">Scopri le collezioni</ButtonLink>
-              <ButtonLink href="/catalogo" variant="ghost">
-                Richiedi informazioni
-              </ButtonLink>
-              <ButtonLink href="/contatti" variant="secondary">
-                Contattaci
+              <ButtonLink href="/catalogo">Sfoglia il catalogo</ButtonLink>
+              <ButtonLink href="/creazioni" variant="ghost">
+                Scopri le collezioni
               </ButtonLink>
             </div>
           </div>
@@ -83,7 +80,7 @@ export default function Home() {
               caldo, familiare e riconoscibile.
             </p>
             <p className="mt-5">
-              La web è una vetrina di creazioni e collezioni: per conoscere disponibilità e dettagli,
+              Il sito è una vetrina di creazioni e collezioni: per conoscere disponibilità e dettagli,
               il contatto avviene direttamente con l’azienda.
             </p>
           </div>
@@ -108,7 +105,7 @@ export default function Home() {
           <SectionTitle
             eyebrow="Collezioni"
             title="Una selezione per casa, tavola e regalo"
-            intro="Il catalogo visuale presenta categorie e ispirazioni come vetrina di creazioni: ogni richiesta viene gestita con contatto diretto."
+            intro="Una panoramica di famiglie decorative e ispirazioni: ogni richiesta viene gestita con contatto diretto."
           />
           <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
             {collectionCategories.slice(0, 3).map((category) => (

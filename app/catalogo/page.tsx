@@ -17,11 +17,36 @@ export default function CatalogoPage() {
           />
           <div className="paper-panel mx-auto mt-10 max-w-4xl rounded-sm p-6 text-center">
             <p className="leading-7 text-argilla">
-              Le immagini rappresentano esempi di prodotto. Per disponibilità e dettagli sulle collezioni,
+              Le immagini rappresentano esempi di prodotto. Per disponibilità e dettagli sulle linee,
               contattaci direttamente.
             </p>
             <p className="mt-3 font-bold leading-7 text-ceramica">{site.b2bNotice}</p>
           </div>
+
+          <nav
+            aria-label="Indice del catalogo"
+            className="mx-auto mt-8 max-w-5xl rounded-sm border border-ceramica/20 bg-[#fffaf1] p-2 shadow-[0_10px_26px_rgba(41,31,18,0.10)] lg:sticky lg:top-32 lg:z-30"
+          >
+            <div className="flex gap-2 overflow-x-auto">
+              {collectionCategories.map((category) => {
+                const hasItems = catalogItems.some((item) => item.category === category.slug);
+
+                if (!hasItems) {
+                  return null;
+                }
+
+                return (
+                  <a
+                    className="focus-ring shrink-0 rounded-sm border border-oro/45 bg-white/55 px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] text-argilla transition hover:border-ceramica hover:text-ceramica"
+                    href={`#${category.slug}`}
+                    key={category.slug}
+                  >
+                    {category.title}
+                  </a>
+                );
+              })}
+            </div>
+          </nav>
 
           <div className="mt-14 space-y-16">
             {collectionCategories.map((category) => {
@@ -32,7 +57,7 @@ export default function CatalogoPage() {
               }
 
               return (
-                <section className="scroll-mt-28" id={category.slug} key={category.slug}>
+                <section className="scroll-mt-28 lg:scroll-mt-[13.5rem]" id={category.slug} key={category.slug}>
                   <div className="mb-7 max-w-3xl">
                     <p className="text-sm font-bold uppercase tracking-[0.18em] text-ceramica">
                       {category.title}
@@ -58,11 +83,11 @@ export default function CatalogoPage() {
         <div className="paper-panel mx-auto max-w-4xl rounded-sm p-8 text-center">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-ceramica">Collezioni per il punto vendita</p>
           <h2 className="mt-3 font-serif text-3xl font-semibold text-ceramica">
-            Richiedi informazioni sulle collezioni disponibili
+            Parliamo delle linee disponibili
           </h2>
           <p className="mx-auto mt-4 max-w-2xl leading-7 text-argilla">
             Se hai un negozio, una bottega o un punto vendita, contattaci per ricevere maggiori
-            informazioni sulle creazioni disponibili.
+            informazioni sulle linee più adatte al tuo assortimento.
           </p>
           {/*
             Attivare quando esiste un file reale:

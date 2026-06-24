@@ -17,7 +17,7 @@ export default function CreazioniPage() {
           />
           <div className="paper-panel mx-auto mt-10 max-w-4xl rounded-sm p-6 text-center text-argilla">
             <p className="leading-7">
-              Le immagini rappresentano esempi di produzione. Per conoscere collezioni disponibili
+              Le immagini rappresentano esempi di produzione. Per conoscere linee disponibili
               e dettagli sulle creazioni, contattaci direttamente.
             </p>
             <p className="mt-4 font-bold text-ceramica">{site.b2bNotice}</p>
@@ -43,7 +43,7 @@ export default function CreazioniPage() {
                 Vuoi vedere gli esempi concreti?
               </h3>
               <p className="mt-3 leading-7 text-argilla">
-                Nel catalogo trovi le linee come agrumi, limoni, pizza, pasta, ortaggi, fiori e mare,
+                Nel catalogo trovi le linee come agrumi, limoni, pizza, Linea Pasta, ortaggi, fiori e mare,
                 con tutte le immagini disponibili per ciascuna serie.
               </p>
             </div>

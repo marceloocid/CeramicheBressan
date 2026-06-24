@@ -21,8 +21,10 @@ export function CatalogLightbox({
 }: CatalogLightboxProps) {
   const [activeIndex, setActiveIndex] = useState(initialIndex);
   const touchStartX = useRef<number | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const hasMultipleImages = images.length > 1;
   const activeImage = images[activeIndex];
+  const titleId = `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-gallery-title`;
 
   const goToPrevious = useCallback(() => {
     setActiveIndex((current) => (current === 0 ? images.length - 1 : current - 1));
@@ -56,6 +58,7 @@ export function CatalogLightbox({
     };
 
     document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
@@ -70,7 +73,7 @@ export function CatalogLightbox({
 
   return (
     <div
-      aria-label={`Galleria immagini ${title}`}
+      aria-labelledby={titleId}
       aria-modal="true"
       className="fixed inset-0 z-50 flex items-center justify-center bg-[#1e2318]/85 p-3 sm:p-6"
       onClick={onClose}
@@ -83,12 +86,15 @@ export function CatalogLightbox({
         <div className="flex items-center justify-between gap-4 border-b border-ceramica/20 px-4 py-3 sm:px-5">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-ceramica">Galleria</p>
-            <h2 className="font-serif text-xl font-semibold leading-tight text-ceramica sm:text-2xl">{title}</h2>
+            <h2 className="font-serif text-xl font-semibold leading-tight text-ceramica sm:text-2xl" id={titleId}>
+              {title}
+            </h2>
           </div>
           <button
             aria-label="Chiudi la galleria"
             className="focus-ring inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-ceramica/30 bg-white text-2xl leading-none text-ceramica transition hover:bg-white/70"
             onClick={onClose}
+            ref={closeButtonRef}
             type="button"
           >
             &times;

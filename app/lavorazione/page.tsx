@@ -62,7 +62,7 @@ export default function LavorazionePage() {
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="paper-panel mx-auto max-w-5xl rounded-sm p-8 text-center shadow-soft">
           <h2 className="font-serif text-3xl font-semibold text-ceramica">
-            Vuoi conoscere le collezioni disponibili?
+            Vuoi conoscere le linee disponibili?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-argilla">
             Se hai un negozio, una bottega o un punto vendita, contattaci per conoscere prodotti,

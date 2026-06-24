@@ -138,10 +138,10 @@ export const catalogItems: CatalogItem[] = [
     description:
       "Caraffe, bottiglie, servizi e accessori con decoro limoni, pensati per negozi casa e assortimenti estivi.",
     images: [
-      image("/images/limoni/ChatGPT Image 20 jun 2026, 17_23_02.png", "Servizio completo in ceramica con decoro limoni"),
-      image("/images/limoni/ChatGPT Image 20 jun 2026, 20_39_18 (5).png", "Bottiglie e brocca in ceramica con limoni"),
       image("/images/limoni/ChatGPT Image 20 jun 2026, 21_26_28.png", "Brocche e vassoio in ceramica decorati con limoni"),
       image("/images/limoni/ChatGPT Image 21 jun 2026, 10_28_23 (1).png", "Caraffe e ciotola in ceramica con decoro limoni"),
+      image("/images/limoni/ChatGPT Image 20 jun 2026, 17_23_02.png", "Servizio completo in ceramica con decoro limoni"),
+      image("/images/limoni/ChatGPT Image 20 jun 2026, 20_39_18 (5).png", "Bottiglie e brocca in ceramica con limoni"),
       image("/images/limoni/ChatGPT Image 21 jun 2026, 10_28_24 (3).png", "Bottiglie, contenitore e tazze con decoro limoni"),
       image("/images/limoni/ChatGPT Image 21 jun 2026, 10_28_24 (4).png", "Piatti sagomati e tazze con decoro limoni")
     ]
@@ -173,16 +173,16 @@ export const catalogItems: CatalogItem[] = [
     description:
       "Servizi da tavola, alzate e oggetti coordinati con piccoli frutti e decori per crostata.",
     images: [
+      image("/images/frutti_di_bosco/ChatGPT Image 20 jun 2026, 21_26_47 (1).png", "Composizione da cucina con piatto crostata e frutti"),
+      image("/images/frutti_di_bosco/ChatGPT Image 20 jun 2026, 20_39_43 (2).png", "Piatto crostata e vassoio con frutta mista"),
+      image("/images/frutti_di_bosco/ChatGPT Image 20 jun 2026, 20_39_18 (1).png", "Piatti crostata e vassoio con frutti dipinti"),
       image("/images/frutti_di_bosco/ChatGPT Image 20 jun 2026, 17_28_53 (1).png", "Servizio da tavola con bordo a frutti di bosco"),
       image("/images/frutti_di_bosco/ChatGPT Image 20 jun 2026, 17_28_53 (2).png", "Piatti e vassoi con piccoli frutti dipinti"),
       image("/images/frutti_di_bosco/ChatGPT Image 20 jun 2026, 17_28_54 (3).png", "Alzata e piatti con decoro frutti di bosco"),
       image("/images/frutti_di_bosco/ChatGPT Image 20 jun 2026, 20_20_06.png", "Teiere e piatti con decoro frutta"),
       image("/images/frutti_di_bosco/ChatGPT Image 20 jun 2026, 20_23_12.png", "Servizio tè e piatti decorati con frutta"),
       image("/images/frutti_di_bosco/ChatGPT Image 20 jun 2026, 20_23_15.png", "Teiera, tazze e piatti con piccoli frutti"),
-      image("/images/frutti_di_bosco/ChatGPT Image 20 jun 2026, 20_26_11.png", "Barattoli decorativi con frutti e limoni"),
-      image("/images/frutti_di_bosco/ChatGPT Image 20 jun 2026, 20_39_18 (1).png", "Piatti crostata e vassoio con frutti dipinti"),
-      image("/images/frutti_di_bosco/ChatGPT Image 20 jun 2026, 20_39_43 (2).png", "Piatto crostata e vassoio con frutta mista"),
-      image("/images/frutti_di_bosco/ChatGPT Image 20 jun 2026, 21_26_47 (1).png", "Composizione da cucina con piatto crostata e frutti")
+      image("/images/frutti_di_bosco/ChatGPT Image 20 jun 2026, 20_26_11.png", "Barattoli decorativi con frutti e limoni")
     ]
   },
   {
@@ -193,11 +193,11 @@ export const catalogItems: CatalogItem[] = [
     description:
       "Vassoi, ciotole e bottiglie con uva dipinta, adatti a botteghe, enoteche e punti vendita legati al territorio.",
     images: [
-      image("/images/uva/ChatGPT Image 20 jun 2026, 20_26_19.png", "Piatti e ciotole in ceramica con piccoli grappoli d'uva"),
-      image("/images/uva/ChatGPT Image 20 jun 2026, 20_30_57.png", "Ciotole sagomate con decoro uva"),
+      image("/images/uva/ChatGPT Image 20 jun 2026, 21_11_11.png", "Piatto e brocca con grappoli d'uva dipinti"),
       image("/images/uva/ChatGPT Image 20 jun 2026, 20_39_42 (1).png", "Vassoio, tazza e piatto con uva e frutta"),
       image("/images/uva/ChatGPT Image 20 jun 2026, 20_39_44 (3).png", "Bottiglie e vassoio con decoro uva"),
-      image("/images/uva/ChatGPT Image 20 jun 2026, 21_11_11.png", "Piatto e brocca con grappoli d'uva dipinti")
+      image("/images/uva/ChatGPT Image 20 jun 2026, 20_26_19.png", "Piatti e ciotole in ceramica con piccoli grappoli d'uva"),
+      image("/images/uva/ChatGPT Image 20 jun 2026, 20_30_57.png", "Ciotole sagomate con decoro uva")
     ]
   },
   {
@@ -208,10 +208,10 @@ export const catalogItems: CatalogItem[] = [
     description:
       "Accessori e vassoi con rami d'olivo, bottiglie per condimenti e piccoli pezzi da servizio coordinati.",
     images: [
-      image("/images/olive/ChatGPT Image 20 jun 2026, 18_21_58.png", "Bottiglie e piatto con rami d'olivo"),
-      image("/images/olive/ChatGPT Image 20 jun 2026, 18_22_05.png", "Vassoio ovale e ciotola con decoro olive"),
       image("/images/olive/ChatGPT Image 20 jun 2026, 18_25_24.png", "Servizio con bottiglie e piatto decorati a olive"),
-      image("/images/olive/ChatGPT Image 20 jun 2026, 18_25_28.png", "Composizione coordinata con decoro olive")
+      image("/images/olive/ChatGPT Image 20 jun 2026, 18_25_28.png", "Composizione coordinata con decoro olive"),
+      image("/images/olive/ChatGPT Image 20 jun 2026, 18_21_58.png", "Bottiglie e piatto con rami d'olivo"),
+      image("/images/olive/ChatGPT Image 20 jun 2026, 18_22_05.png", "Vassoio ovale e ciotola con decoro olive")
     ]
   },
   {
@@ -294,9 +294,9 @@ export const catalogItems: CatalogItem[] = [
     description:
       "Teiere, tazze, piatti e piccoli oggetti con fiori dipinti, adatti a negozi regalo e assortimenti primaverili.",
     images: [
+      image("/images/fiori/ChatGPT Image 20 jun 2026, 17_57_16.png", "Tazze e servizio con decoro girasoli"),
       image("/images/fiori/ChatGPT Image 20 jun 2026, 17_37_40 (1).png", "Teiera, tazza e zuccheriera con girasoli"),
       image("/images/fiori/ChatGPT Image 20 jun 2026, 17_37_41 (3).png", "Fiori decorativi e piatti in ceramica"),
-      image("/images/fiori/ChatGPT Image 20 jun 2026, 17_57_16.png", "Tazze e servizio con decoro girasoli"),
       image("/images/fiori/ChatGPT Image 20 jun 2026, 20_30_49.png", "Piatti con bordo floreale dipinto")
     ]
   },
@@ -308,9 +308,9 @@ export const catalogItems: CatalogItem[] = [
     description:
       "Oggetti e piatti con conchiglie, stelle marine e piccoli soggetti marini, ideali anche per punti vendita turistici.",
     images: [
+      image("/images/mare/ChatGPT Image 20 jun 2026, 18_17_43 (2).png", "Vassoi e piatti con decoro mare"),
       image("/images/mare/ChatGPT Image 20 jun 2026, 18_16_07.png", "Oggetti in ceramica con decori marini e conchiglie"),
       image("/images/mare/ChatGPT Image 20 jun 2026, 18_17_43 (1).png", "Piatti e piccoli oggetti con stelle marine"),
-      image("/images/mare/ChatGPT Image 20 jun 2026, 18_17_43 (2).png", "Vassoi e piatti con decoro mare"),
       image("/images/mare/ChatGPT Image 20 jun 2026, 18_17_44 (3).png", "Piatti e pesci decorativi in ceramica"),
       image("/images/mare/ChatGPT Image 20 jun 2026, 18_17_46 (4).png", "Composizione completa con soggetti marini")
     ]
@@ -323,8 +323,8 @@ export const catalogItems: CatalogItem[] = [
     description:
       "Esempi di piatti, dettagli decorativi e pezzi dipinti a mano per valorizzare l'esposizione con lavorazioni riconoscibili.",
     images: [
-      image("/images/piatto-decorato.jpg", "Piatto decorato in ceramica dipinto a mano", "cover"),
       image("/images/piatti-dipinti-a-mano.jpg", "Piatti in ceramica dipinti a mano", "cover"),
+      image("/images/piatto-decorato.jpg", "Piatto decorato in ceramica dipinto a mano", "cover"),
       image("/images/dettagli-decorazione.jpg", "Dettaglio di decorazione manuale su ceramica", "cover")
     ]
   },
@@ -336,8 +336,8 @@ export const catalogItems: CatalogItem[] = [
     description:
       "Vasi e forme decorative per completare una proposta da negozio casa, regalo o bottega artigianale.",
     images: [
-      image("/images/vaso-in-ceramica.png", "Vaso in ceramica artistica"),
       image("/images/vasi-ceramica-artistica.jpg", "Vasi e complementi decorativi in ceramica artistica", "cover"),
+      image("/images/vaso-in-ceramica.png", "Vaso in ceramica artistica"),
       image("/images/oggetto-regalo.jpg", "Oggetto regalo in ceramica artigianale")
     ]
   }

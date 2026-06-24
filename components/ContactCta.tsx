@@ -10,7 +10,7 @@ export function ContactCta() {
             Cerchi ceramiche artigianali per il tuo punto vendita?
           </h2>
           <p className="mt-4 text-lg leading-8 text-[#fff6e6]">
-            Contattaci per conoscere le collezioni disponibili e valutare insieme le creazioni più adatte al tuo spazio.
+            Contattaci per conoscere le linee disponibili e valutare insieme le creazioni più adatte al tuo spazio.
           </p>
         </div>
         <div className="flex flex-wrap gap-3">

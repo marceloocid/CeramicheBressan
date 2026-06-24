@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CatalogLightbox } from "@/components/CatalogLightbox";
@@ -13,15 +13,28 @@ type CatalogItemCardProps = {
 
 export function CatalogItemCard({ item, categoryTitle }: CatalogItemCardProps) {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const lastTriggerRef = useRef<HTMLElement | null>(null);
   const coverImage = item.images[0];
   const hasGallery = item.images.length > 1;
+
+  const openGallery = () => {
+    lastTriggerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    setIsGalleryOpen(true);
+  };
+
+  const closeGallery = () => {
+    setIsGalleryOpen(false);
+    window.requestAnimationFrame(() => {
+      lastTriggerRef.current?.focus();
+    });
+  };
 
   return (
     <article className="paper-panel flex h-full flex-col overflow-hidden rounded-sm shadow-soft" id={item.slug}>
       <button
         aria-label={`Apri immagine grande per ${item.name}`}
         className="focus-ring group relative aspect-[4/3] w-full cursor-zoom-in overflow-hidden bg-[#fffaf1]"
-        onClick={() => setIsGalleryOpen(true)}
+        onClick={openGallery}
         type="button"
       >
         <Image
@@ -46,7 +59,7 @@ export function CatalogItemCard({ item, categoryTitle }: CatalogItemCardProps) {
           {hasGallery ? (
             <button
               className="focus-ring inline-flex min-h-11 items-center justify-center rounded-sm border border-oro/60 bg-transparent px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ceramica transition hover:border-ceramica hover:bg-white/50"
-              onClick={() => setIsGalleryOpen(true)}
+              onClick={openGallery}
               type="button"
             >
               Vedi la galleria
@@ -63,7 +76,7 @@ export function CatalogItemCard({ item, categoryTitle }: CatalogItemCardProps) {
           images={item.images}
           initialIndex={0}
           isOpen={isGalleryOpen}
-          onClose={() => setIsGalleryOpen(false)}
+          onClose={closeGallery}
           title={item.name}
         />
       ) : null}

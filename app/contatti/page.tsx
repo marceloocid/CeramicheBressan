@@ -18,7 +18,7 @@ export default function ContattiPage() {
                 <h2 className="font-serif text-2xl font-semibold text-ceramica">Collezioni e informazioni</h2>
                 <p className="mt-3 leading-7 text-argilla">
                   Raccontaci il tuo negozio o il tuo punto vendita: ti risponderemo con indicazioni
-                  sulle creazioni più adatte e sulle collezioni disponibili.
+                  sulle creazioni più adatte e sulle linee disponibili.
                 </p>
               </div>
               <div className="paper-panel rounded-sm p-6">
