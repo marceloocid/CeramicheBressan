@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import { CatalogItemCard } from "@/components/CatalogItemCard";
 import { ButtonLink } from "@/components/ButtonLink";
 import { ContactCta } from "@/components/ContactCta";
 import { SectionTitle } from "@/components/SectionTitle";
 import { catalogItems, collectionCategories, site } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "Catalogo ceramiche artistiche",
+  description:
+    "Catalogo fotografico di linee e creazioni in ceramica artistica dipinta a mano per negozi, botteghe e punti vendita."
+};
 
 export default function CatalogoPage() {
   return (
@@ -14,6 +21,7 @@ export default function CatalogoPage() {
             title="Esempi fotografici per tema"
             intro="Una selezione organizzata di ceramiche artistiche per negozi, botteghe e punti vendita. Ogni scheda raccoglie tutte le immagini disponibili della stessa linea o famiglia di prodotto."
             align="center"
+            as="h1"
           />
           <div className="paper-panel mx-auto mt-10 max-w-4xl rounded-sm p-6 text-center">
             <p className="leading-7 text-argilla">

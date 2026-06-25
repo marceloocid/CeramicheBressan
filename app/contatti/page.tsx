@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { ButtonLink } from "@/components/ButtonLink";
 import { SectionTitle } from "@/components/SectionTitle";
 import { site } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "Contatti e richiesta informazioni",
+  description:
+    "Contatti, sede e modulo di richiesta informazioni per Ceramiche Artistiche Bressan C2 a Pianezze, Vicenza."
+};
 
 export default function ContattiPage() {
   return (
@@ -13,6 +20,7 @@ export default function ContattiPage() {
             title="Contatti"
             intro="Per informazioni sulle linee disponibili, sulle collaborazioni con negozi e punti vendita o sulle creazioni più adatte al tuo assortimento, contattaci direttamente."
             align="center"
+            as="h1"
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-[0.86fr_1.14fr]">
             <div className="paper-panel self-start rounded-sm border-l-4 border-l-ceramica p-5 sm:p-6">

@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import { CollectionCard } from "@/components/CollectionCard";
 import { ContactCta } from "@/components/ContactCta";
 import { ButtonLink } from "@/components/ButtonLink";
 import { SectionTitle } from "@/components/SectionTitle";
 import { collectionCategories, site } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "Collezioni di ceramiche artigianali",
+  description:
+    "Famiglie decorative e collezioni di ceramiche artigianali italiane dipinte a mano per casa, tavola, regalo, negozi e botteghe."
+};
 
 export default function CreazioniPage() {
   return (
@@ -14,6 +21,7 @@ export default function CreazioniPage() {
             title="Collezioni artigianali in ceramica"
             intro="Una panoramica delle proposte Bressan C2 per negozi casa, regalo, botteghe e punti vendita che scelgono prodotti artigianali italiani."
             align="center"
+            as="h1"
           />
           <div className="paper-panel mx-auto mt-10 max-w-4xl rounded-sm p-6 text-center text-argilla">
             <p className="leading-7">

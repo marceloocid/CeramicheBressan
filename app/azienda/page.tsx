@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { ContactCta } from "@/components/ContactCta";
 import { SectionTitle } from "@/components/SectionTitle";
 import { site } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "Azienda artigiana a Pianezze",
+  description:
+    "Scopri Ceramiche Artistiche Bressan C2, bottega artigiana a Pianezze, Vicenza, specializzata in ceramiche dipinte a mano per negozi e punti vendita."
+};
 
 export default function AziendaPage() {
   return (
@@ -12,6 +19,7 @@ export default function AziendaPage() {
             eyebrow="Azienda"
             title="Una bottega artigiana nel territorio vicentino"
             intro="Da Bressan C2 la ceramica nasce come oggetto decorativo e funzionale: forme, colori e dettagli pensati per portare nei punti vendita il calore della lavorazione artigianale italiana."
+            as="h1"
           />
           <div className="image-frame ornamental-border relative aspect-[4/3] overflow-hidden rounded-sm">
             {/* Placeholder: sostituire con immagine reale dell'esterno o dell'interno laboratorio. */}
@@ -105,7 +113,7 @@ export default function AziendaPage() {
               <dd className="mt-1">{site.vat}</dd>
             </div>
             <div>
-              <dt className="font-bold text-ceramica">Attivita</dt>
+              <dt className="font-bold text-ceramica">Attività</dt>
               <dd className="mt-1">
                 Ceramiche artistiche, oggettistica varia in ceramica, prodotti in ceramica per la
                 casa e la cucina, dipinti a mano.
