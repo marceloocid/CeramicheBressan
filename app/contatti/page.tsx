@@ -64,15 +64,6 @@ export default function ContattiPage() {
                   {site.postalCode} {site.city} ({site.province}), Italia
                 </address>
               </div>
-              <div className="paper-panel rounded-sm p-6 sm:col-span-2">
-                <h2 className="font-serif text-2xl font-semibold text-ceramica">Facebook</h2>
-                <a
-                  className="focus-ring mt-3 inline-block font-bold text-ceramica underline-offset-4 hover:underline"
-                  href={site.facebookUrl}
-                >
-                  Visita la pagina Facebook
-                </a>
-              </div>
             </div>
           </div>
         </div>
