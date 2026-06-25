@@ -25,13 +25,6 @@ export const metadata: Metadata = {
       "Creazioni in ceramica dipinte a mano per la casa, la tavola e il regalo, pensate per negozi e punti vendita.",
     locale: "it_IT",
     type: "website"
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon.svg", type: "image/svg+xml" }
-    ],
-    apple: "/apple-touch-icon.png"
   }
 };
 
