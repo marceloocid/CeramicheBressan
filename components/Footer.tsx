@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CookiePreferencesButton } from "@/components/CookieConsent";
 import { navItems, site } from "@/data/site";
 
 export function Footer() {
@@ -43,6 +44,7 @@ export function Footer() {
             <Link className="focus-ring hover:text-ceramica" href="/cookie-policy">
               Cookie Policy
             </Link>
+            <CookiePreferencesButton />
           </div>
         </div>
       </div>

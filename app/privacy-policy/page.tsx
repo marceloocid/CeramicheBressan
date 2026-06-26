@@ -19,11 +19,11 @@ const thirdPartyServices = [
   },
   {
     name: "Vercel Analytics",
-    text: "strumento di analisi tecnica e statistica del traffico, se attivo nell'ambiente di pubblicazione."
+    text: "strumento di statistiche aggregate e privacy-friendly, attivato solo se l'utente accetta la categoria Statistiche."
   },
   {
     name: "Google Maps",
-    text: "servizio esterno incorporato nella pagina Contatti per mostrare la posizione della sede produttiva."
+    text: "contenuto esterno disponibile nella pagina Contatti, caricato nella pagina solo dopo il consenso ai Contenuti esterni."
   }
 ];
 
@@ -71,6 +71,10 @@ export default function PrivacyPolicyPage() {
               Il sito può inoltre trattare dati tecnici necessari al funzionamento, alla sicurezza e alla
               protezione antispam del modulo.
             </p>
+            <p className="mt-3">
+              Le preferenze cookie e servizi esterni vengono salvate localmente nel browser per ricordare
+              la scelta dell’utente.
+            </p>
           </section>
 
           <section className="mt-8">
@@ -82,7 +86,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <p className="mt-3">
               I dati tecnici possono essere utilizzati per sicurezza, prevenzione dello spam, funzionamento
-              del sito e analisi tecnica del traffico.
+              del sito, gestione delle preferenze e, solo con consenso, statistiche aggregate del traffico.
             </p>
           </section>
 

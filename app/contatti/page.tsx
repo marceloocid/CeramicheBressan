@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
+import { GoogleMapConsent } from "@/components/GoogleMapConsent";
 import { ButtonLink } from "@/components/ButtonLink";
 import { SectionTitle } from "@/components/SectionTitle";
 import { site } from "@/data/site";
@@ -96,13 +97,7 @@ export default function ContattiPage() {
             intro="Sede produttiva di Ceramiche Artistiche Bressan C2 a Pianezze, Vicenza."
           />
           <div className="paper-panel mt-10 overflow-hidden rounded-sm p-4 shadow-soft">
-            <iframe
-              className="h-[420px] w-full rounded-sm border-0"
-              title="Mappa per Ceramiche Artistiche Bressan C2 a Pianezze"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=Via%20San%20Giuseppe%209%2036060%20Pianezze%20VI%20Italia&output=embed"
-            />
+            <GoogleMapConsent />
           </div>
         </div>
       </section>

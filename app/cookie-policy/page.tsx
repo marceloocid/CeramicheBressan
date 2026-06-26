@@ -15,11 +15,11 @@ const services = [
   },
   {
     title: "Vercel Analytics",
-    text: "presente nel progetto per analisi tecniche e statistiche del traffico. Verificare la configurazione effettiva nell'ambiente di produzione."
+    text: "usato per statistiche aggregate e privacy-friendly. Viene caricato solo se l'utente accetta la categoria Statistiche."
   },
   {
     title: "Google Maps",
-    text: "incorporato nella pagina Contatti per mostrare la sede produttiva. Può comportare il caricamento di risorse e cookie di Google."
+    text: "disponibile nella pagina Contatti per mostrare la sede produttiva. L'iframe viene caricato solo dopo il consenso ai Contenuti esterni."
   },
   {
     title: "Resend",
@@ -58,6 +58,10 @@ export default function CookiePolicyPage() {
               Il sito può utilizzare cookie tecnici o tecnologie equivalenti necessari al corretto
               funzionamento delle pagine, alla sicurezza e alla gestione del modulo di contatto.
             </p>
+            <p className="mt-3">
+              Le preferenze espresse nel banner vengono salvate localmente nel browser per ricordare
+              la scelta dell’utente. Questa memorizzazione è considerata necessaria alla gestione del consenso.
+            </p>
           </section>
 
           <section className="mt-8">
@@ -74,12 +78,11 @@ export default function CookiePolicyPage() {
           <section className="mt-8">
             <h2 className="font-serif text-2xl font-semibold text-ceramica">Consenso e preferenze</h2>
             <p className="mt-3">
-              Prima della pubblicazione definitiva occorre verificare quali servizi siano effettivamente
-              attivi, se richiedano consenso preventivo e se sia necessario integrare un banner di gestione
-              preferenze.
+              Il banner permette di accettare, rifiutare o gestire separatamente Statistiche e Contenuti
+              esterni. Le preferenze possono essere modificate in qualsiasi momento dal link nel footer.
             </p>
             <p className="mt-3 font-bold text-ceramica">
-              [DA VERIFICARE: configurazione definitiva di analytics, mappe e strumenti di consenso]
+              [DA VERIFICARE: configurazione definitiva dei servizi e testi legali con consulente]
             </p>
           </section>
 

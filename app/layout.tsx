@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
+import { CookieConsentProvider } from "@/components/CookieConsent";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MobileCallButton } from "@/components/MobileCallButton";
@@ -104,12 +103,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        <Header />
-        {children}
-        <Footer />
-        <MobileCallButton />
-        <Analytics />
-        <SpeedInsights />
+        <CookieConsentProvider>
+          <Header />
+          {children}
+          <Footer />
+          <MobileCallButton />
+        </CookieConsentProvider>
       </body>
     </html>
   );
