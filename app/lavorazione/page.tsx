@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
 import { ContactCta } from "@/components/ContactCta";
 import { SectionTitle } from "@/components/SectionTitle";
+
+export const metadata: Metadata = {
+  title: "Lavorazione artigianale",
+  description:
+    "Decorazione manuale, cura dei dettagli e lavorazione artigianale delle ceramiche artistiche Bressan C2."
+};
 
 const steps = [
   {
@@ -41,6 +48,7 @@ export default function LavorazionePage() {
             eyebrow="Lavorazione artigianale"
             title="La qualità si vede nei dettagli"
             intro="La ceramica artigianale richiede tempo, sensibilità e attenzione. Bressan C2 valorizza il lavoro manuale per creare oggetti caldi, curati e riconoscibili."
+            as="h1"
           />
         </div>
       </section>

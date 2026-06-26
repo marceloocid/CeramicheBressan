@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ButtonLink";
 import { ContactCta } from "@/components/ContactCta";
 import { SectionTitle } from "@/components/SectionTitle";
 import { site } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "Ceramiche artigianali per negozi",
+  description:
+    "Informazioni per negozi, botteghe e punti vendita interessati a ceramiche artistiche italiane dipinte a mano e assortimenti artigianali."
+};
 
 const audiences = [
   "Negozi di articoli regalo",
@@ -32,6 +39,7 @@ export default function PerRivenditoriPage() {
             title="Ceramiche artigianali per il tuo negozio"
             intro="Collaboriamo con negozi, botteghe e punti vendita che cercano oggetti in ceramica curati, decorativi e dal carattere italiano."
             align="center"
+            as="h1"
           />
           <div className="paper-panel mx-auto mt-10 max-w-4xl rounded-sm p-6 text-center">
             <p className="text-lg font-bold leading-8 text-ceramica">{site.b2bNotice}</p>

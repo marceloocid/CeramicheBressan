@@ -24,8 +24,6 @@ export function Footer() {
             <a className="focus-ring underline-offset-4 hover:underline" href={site.emailHref}>
               {site.email}
             </a>
-            <br />
-            P.IVA {site.vat}
           </address>
         </div>
         <div>

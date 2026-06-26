@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CollectionCard } from "@/components/CollectionCard";
 import { ContactCta } from "@/components/ContactCta";
 import { SectionTitle } from "@/components/SectionTitle";
 import { collectionCategories } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "Ceramiche dipinte a mano a Pianezze",
+  description:
+    "Ceramiche artistiche dipinte a mano a Pianezze, Vicenza: creazioni artigianali italiane per casa, tavola, regalo, negozi e punti vendita."
+};
 
 const pillars = [
   {
