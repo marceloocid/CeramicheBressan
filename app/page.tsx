@@ -44,16 +44,13 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_45%,rgba(255,249,240,0.18),transparent_34%)]" />
         <div className="mx-auto grid min-h-[calc(100vh-96px)] max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_0.72fr] lg:px-8">
           <div className="relative z-10 max-w-3xl rounded-sm border border-white/35 bg-[#fffaf1]/90 p-6 shadow-soft backdrop-blur-sm sm:p-8 lg:p-10">
-            <div className="brand-plaque mb-8 inline-block max-w-full px-6 py-4">
-              <p className="relative z-10 text-lg italic leading-none text-ceramica">Ceramiche Artistiche</p>
-              <p className="brand-script relative z-10 text-5xl font-semibold leading-none text-ceramica sm:text-7xl">
+            <div className="mb-7">
+              <p className="font-serif text-lg italic leading-none text-ceramica">Ceramiche Artistiche</p>
+              <p className="brand-script mt-1 text-5xl font-semibold leading-none text-ceramica sm:text-7xl">
                 Bressan C2
               </p>
-              <p className="relative z-10 mt-1 font-serif text-lg font-semibold italic text-argilla">
-                Prodotto artigianale fatto a mano
-              </p>
             </div>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-ceramica">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#8a4f3a]">
               Bottega artigiana a Pianezze
             </p>
             <h1 className="mt-4 font-serif text-4xl font-semibold leading-[1.08] text-ceramica sm:text-6xl">

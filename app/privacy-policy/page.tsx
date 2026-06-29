@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const thirdPartyServices = [
   {
     name: "Resend",
-    text: "servizio utilizzato per l'invio delle email generate dal modulo di contatto."
+    text: "servizio utilizzato lato server per l'invio delle email generate dal modulo di contatto."
   },
   {
     name: "Cloudflare Turnstile",
@@ -27,6 +27,8 @@ const thirdPartyServices = [
   }
 ];
 
+const lastUpdated = "29 giugno 2026";
+
 export default function PrivacyPolicyPage() {
   return (
     <main className="px-4 py-20 sm:px-6 lg:px-8">
@@ -39,12 +41,9 @@ export default function PrivacyPolicyPage() {
         />
 
         <div className="paper-panel mt-10 rounded-sm p-6 leading-8 text-argilla sm:p-8">
-          <p className="border-l-4 border-ceramica bg-white/70 px-4 py-3 font-bold leading-7 text-ceramica">
-            Documento da verificare con il titolare o con il consulente incaricato prima della
-            pubblicazione definitiva.
-          </p>
+          {/* Nota interna: documento da verificare con il titolare o con un consulente privacy prima della pubblicazione definitiva. */}
 
-          <section className="mt-8">
+          <section>
             <h2 className="font-serif text-2xl font-semibold text-ceramica">Titolare del trattamento</h2>
             <p className="mt-3">
               Il titolare del trattamento è {site.legalName}, con sede in {site.address}, C.F. / P.IVA{" "}
@@ -57,7 +56,10 @@ export default function PrivacyPolicyPage() {
               </a>
               .
             </p>
-            <p className="mt-3 font-bold text-ceramica">[DA COMPLETARE: PEC o email privacy dedicata]</p>
+            <p className="mt-3">
+              Per richieste relative alla privacy è possibile utilizzare lo stesso recapito email indicato
+              sopra.
+            </p>
           </section>
 
           <section className="mt-8">
@@ -93,12 +95,14 @@ export default function PrivacyPolicyPage() {
           <section className="mt-8">
             <h2 className="font-serif text-2xl font-semibold text-ceramica">Base giuridica</h2>
             <p className="mt-3">
-              La base giuridica può comprendere l’esecuzione di misure precontrattuali richieste
-              dall’interessato, il consenso espresso tramite il modulo e il legittimo interesse del titolare
-              alla sicurezza del sito e alla gestione delle richieste ricevute.
+              Il trattamento dei dati inviati volontariamente tramite il modulo di contatto si basa
+              sull&apos;esecuzione di misure precontrattuali richieste dall&apos;interessato e sul consenso espresso
+              per essere ricontattati in merito alla richiesta inviata.
             </p>
-            <p className="mt-3 font-bold text-ceramica">
-              [DA VERIFICARE: formulazione definitiva della base giuridica con consulente privacy]
+            <p className="mt-3">
+              I trattamenti tecnici necessari al funzionamento, alla sicurezza del sito e alla prevenzione
+              dello spam si basano sul legittimo interesse del titolare a mantenere il sito sicuro e
+              correttamente funzionante.
             </p>
           </section>
 
@@ -106,9 +110,10 @@ export default function PrivacyPolicyPage() {
             <h2 className="font-serif text-2xl font-semibold text-ceramica">Conservazione</h2>
             <p className="mt-3">
               I dati saranno conservati per il tempo necessario a gestire la richiesta e gli eventuali
-              rapporti successivi con il punto vendita interessato.
+              rapporti successivi con il punto vendita interessato. In assenza di rapporti commerciali
+              successivi, le richieste ricevute tramite il modulo sono conservate di norma per un periodo
+              massimo di 24 mesi, salvo obblighi di legge o necessità di tutela dei diritti del titolare.
             </p>
-            <p className="mt-3 font-bold text-ceramica">[DA COMPLETARE: periodo di conservazione]</p>
           </section>
 
           <section className="mt-8">
@@ -135,7 +140,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="mt-8">
             <h2 className="font-serif text-2xl font-semibold text-ceramica">Ultimo aggiornamento</h2>
-            <p className="mt-3 font-bold text-ceramica">[DA COMPLETARE: data di aggiornamento]</p>
+            <p className="mt-3 font-bold text-ceramica">{lastUpdated}</p>
           </section>
         </div>
       </div>

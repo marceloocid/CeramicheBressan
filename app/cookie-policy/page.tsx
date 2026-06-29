@@ -27,6 +27,8 @@ const services = [
   }
 ];
 
+const lastUpdated = "29 giugno 2026";
+
 export default function CookiePolicyPage() {
   return (
     <main className="px-4 py-20 sm:px-6 lg:px-8">
@@ -39,17 +41,20 @@ export default function CookiePolicyPage() {
         />
 
         <div className="paper-panel mt-10 rounded-sm p-6 leading-8 text-argilla sm:p-8">
-          <p className="border-l-4 border-ceramica bg-white/70 px-4 py-3 font-bold leading-7 text-ceramica">
-            Documento da verificare con il titolare o con il consulente incaricato prima della
-            pubblicazione definitiva.
-          </p>
+          {/* Nota interna: documento da verificare con il titolare o con un consulente privacy prima della pubblicazione definitiva. */}
 
-          <section className="mt-8">
+          <section>
             <h2 className="font-serif text-2xl font-semibold text-ceramica">Titolare</h2>
             <p className="mt-3">
               Il sito è riferito a {site.legalName}, con sede in {site.address}, C.F. / P.IVA {site.vat}.
             </p>
-            <p className="mt-3 font-bold text-ceramica">[DA COMPLETARE: email privacy o PEC]</p>
+            <p className="mt-3">
+              Per richieste relative a cookie e privacy è possibile scrivere a{" "}
+              <a className="focus-ring font-bold text-ceramica underline-offset-4 hover:underline" href={site.emailHref}>
+                {site.email}
+              </a>
+              .
+            </p>
           </section>
 
           <section className="mt-8">
@@ -81,14 +86,16 @@ export default function CookiePolicyPage() {
               Il banner permette di accettare, rifiutare o gestire separatamente Statistiche e Contenuti
               esterni. Le preferenze possono essere modificate in qualsiasi momento dal link nel footer.
             </p>
-            <p className="mt-3 font-bold text-ceramica">
-              [DA VERIFICARE: configurazione definitiva dei servizi e testi legali con consulente]
+            <p className="mt-3">
+              L&apos;utente può gestire o bloccare i cookie e tecnologie simili anche attraverso le impostazioni
+              del proprio browser. La disattivazione di alcune funzioni può limitare la corretta
+              visualizzazione di servizi esterni, come la mappa.
             </p>
           </section>
 
           <section className="mt-8">
             <h2 className="font-serif text-2xl font-semibold text-ceramica">Aggiornamento</h2>
-            <p className="mt-3 font-bold text-ceramica">[DA COMPLETARE: data di aggiornamento]</p>
+            <p className="mt-3 font-bold text-ceramica">{lastUpdated}</p>
           </section>
         </div>
       </div>

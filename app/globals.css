@@ -63,10 +63,10 @@ img {
 }
 
 .brush-divider {
-  width: 92px;
-  height: 4px;
+  width: 96px;
+  height: 1px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #006B43, #D8A52B, #C31524);
+  background: rgba(0, 107, 67, 0.55);
 }
 
 .focus-ring {
