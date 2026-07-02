@@ -1,37 +1,52 @@
 # Ceramiche Artistiche Bressan C2
 
-Sito web corporate/catalogo per Ceramiche Artistiche Bressan C2, bottega artigiana di ceramiche dipinte a mano a Pianezze, Vicenza.
+Corporate catalogue website for **Ceramiche Artistiche Bressan C2**, an Italian hand-painted ceramics workshop based in Pianezze, Vicenza.
 
-Il sito non è una piattaforma ecommerce: non ci sono carrello, checkout, prezzi o pagamenti. La navigazione presenta l'azienda, le collezioni, il catalogo visuale e i contatti per negozi, botteghe, punti vendita e clienti interessati.
+The website is not an ecommerce platform. It has no cart, checkout, prices, or payments. Its purpose is to present the company, product families, visual catalogue, and contact channels for shops, boutiques, retailers, distributors, and interested business customers.
 
-## Stack
+Visible website content is written in Italian.
+
+## Tech Stack
 
 - Next.js App Router
 - React
 - Tailwind CSS
-- Resend per l'invio del modulo contatti
-- Cloudflare Turnstile per protezione antispam
-- Vercel Analytics e Speed Insights
+- Resend for contact form email delivery
+- Cloudflare Turnstile for spam protection
+- Vercel Analytics and Speed Insights, loaded through the cookie consent flow
 
-## Esecuzione locale
+## Local Development
+
+Install dependencies:
 
 ```bash
 npm install
-npm run dev -- -p 3000
 ```
 
-Aprire `http://localhost:3000`.
+Run the development server:
 
-## Comandi utili
+```bash
+npm run dev
+```
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+## Useful Commands
 
 ```bash
 npm run lint
 npm run build
 ```
 
-## Variabili ambiente
+`npm run build` may temporarily update `next-env.d.ts` between development and production route types. Do not commit that generated change unless it is intentional.
 
-Creare `.env.local` partendo da `.env.local.example`.
+## Environment Variables
+
+Create `.env.local` from `.env.local.example`.
 
 ```env
 RESEND_API_KEY=
@@ -42,47 +57,114 @@ TURNSTILE_SECRET_KEY=
 NEXT_PUBLIC_SITE_URL=
 ```
 
-Note:
+Notes:
 
-- Non committare `.env.local`.
-- `CONTACT_FROM_EMAIL` deve usare un mittente valido per Resend.
-- In produzione configurare `NEXT_PUBLIC_SITE_URL` con il dominio reale.
-- Verificare in Cloudflare Turnstile che il dominio di produzione sia autorizzato.
+- Never commit `.env.local`.
+- `CONTACT_FROM_EMAIL` must be a sender accepted by Resend.
+- In production, set `NEXT_PUBLIC_SITE_URL` to the real public domain.
+- In Cloudflare Turnstile, authorize every domain used for testing and production, including `localhost` if needed.
+- Only variables prefixed with `NEXT_PUBLIC_` are exposed to the browser.
 
-## Pagine principali
+## Main Routes
 
 - `/` - Home
-- `/azienda` - Azienda e dati aziendali
-- `/creazioni` - Collezioni e famiglie decorative
-- `/per-rivenditori` - Informazioni per negozi e punti vendita
-- `/catalogo` - Catalogo fotografico per serie/prodotto
-- `/lavorazione` - Lavorazione artigianale
-- `/contatti` - Contatti, modulo richiesta informazioni e mappa
+- `/azienda` - Company profile and business details
+- `/creazioni` - Editorial product families and collections
+- `/per-rivenditori` - Information for shops and retailers
+- `/catalogo` - Visual catalogue grouped by product series
+- `/lavorazione` - Craftsmanship and production process
+- `/contatti` - Contact page, request form, and map
 - `/privacy-policy`
 - `/cookie-policy`
+- `/robots.txt`
+- `/sitemap.xml`
 
-## Catalogo e immagini
+## Project Structure
 
-I dati principali del catalogo sono in `data/site.ts`.
+Key files and folders:
 
-- `collectionCategories` rappresenta famiglie editoriali e categorie generali.
-- `catalogItems` rappresenta serie/prodotti concreti.
-- Ogni item può avere `images[]`; la prima immagine è usata come immagine principale della scheda.
-- Le immagini della galleria si aprono nel lightbox del catalogo.
+- `app/` - App Router pages, metadata, API routes, sitemap, robots, and app icons.
+- `components/` - Shared UI components.
+- `data/site.ts` - Main website data: company info, navigation, collection categories, and catalogue items.
+- `public/images/` - Original image assets used by the website.
+- `public/favicon-source.png` - Source image used to generate favicons and app icons.
 
-Le immagini originali sono in `public/images`. Non vanno sovrascritte, ritagliate o ottimizzate automaticamente senza decisione esplicita.
+## Catalogue and Images
 
-La cartella `public/images/muestra` è stata rimossa intenzionalmente perché non usata nel sito.
+Catalogue data lives mainly in `data/site.ts`.
 
-## Favicon e icone
+- `collectionCategories` represents broad editorial families used by `/creazioni`.
+- `catalogItems` represents concrete product series or real product examples used by `/catalogo`.
+- Each catalogue item may include an `images[]` gallery.
+- The first image in each `images[]` array is used as the main catalogue card image.
+- Additional images are shown through the catalogue lightbox/modal.
 
-La sorgente del favicon è:
+Image handling rules:
+
+- Do not overwrite, crop, optimize, or delete original product images without an explicit decision.
+- Add new product images under `public/images/`.
+- Reference new images from `data/site.ts`.
+- The folder `public/images/muestra` was intentionally removed because it was not used by the website.
+
+## Contact Form
+
+The contact form component is:
+
+```text
+components/ContactForm.tsx
+```
+
+It posts to:
+
+```text
+app/api/contact/route.ts
+```
+
+The API route:
+
+- accepts `POST` requests,
+- validates required fields,
+- validates email format,
+- validates privacy consent,
+- validates the Cloudflare Turnstile token server-side,
+- uses a hidden honeypot field named `website`,
+- sends the request by email through Resend,
+- uses the visitor email as `Reply-To`,
+- does not send an automatic email back to the visitor.
+
+If Turnstile does not appear locally, restart the development server so `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is reloaded, then verify that the current domain is allowed in Cloudflare Turnstile.
+
+## Cookie Consent and External Services
+
+Cookie and external-service preferences are handled by:
+
+```text
+components/CookieConsent.tsx
+```
+
+Current consent categories:
+
+- `Necessari` - always active.
+- `Statistiche` - enables Vercel Analytics and Speed Insights.
+- `Contenuti esterni` - enables external embeds such as Google Maps.
+
+Google Maps is wrapped by:
+
+```text
+components/GoogleMapConsent.tsx
+```
+
+The map iframe should not load before the user accepts external content.
+
+## Favicons and Icons
+
+The favicon source file is:
 
 ```text
 public/favicon-source.png
 ```
 
-Da questa immagine derivano:
+Generated favicon/icon files include:
 
 - `public/favicon.ico`
 - `public/favicon.svg`
@@ -91,59 +173,48 @@ Da questa immagine derivano:
 - `app/icon.png`
 - `app/apple-icon.png`
 
-Se si cambia il favicon, sostituire `public/favicon-source.png` e rigenerare questi file.
+To replace the favicon, update `public/favicon-source.png` and regenerate the favicon/icon files from that source.
 
-## Formulario contatti
+## SEO and Publishing
 
-Il modulo in `components/ContactForm.tsx` invia i dati a:
+The website includes:
 
-```text
-app/api/contact/route.ts
-```
-
-La API route:
-
-- accetta solo `POST`,
-- valida nome, email, messaggio e consenso privacy,
-- valida il token Cloudflare Turnstile lato server,
-- usa un honeypot `website`,
-- invia email tramite Resend,
-- usa l'email del visitatore come `Reply-To`.
-
-Non viene inviata email automatica all'utente.
-
-## SEO e pubblicazione
-
-Il sito include:
-
-- metadata globale in `app/layout.tsx`,
-- metadata specifica nelle pagine principali,
-- Open Graph e Twitter card base,
+- global metadata in `app/layout.tsx`,
+- page-level metadata on main pages,
+- Open Graph metadata,
+- Twitter card metadata,
 - `app/sitemap.ts`,
 - `app/robots.ts`,
-- structured data `LocalBusiness`.
+- `LocalBusiness` structured data.
 
-Prima della pubblicazione verificare:
+Before publishing, verify:
 
-- dominio reale in `NEXT_PUBLIC_SITE_URL`,
-- Resend con dominio/mittente verificato,
-- Turnstile configurato per il dominio reale,
-- Privacy Policy e Cookie Policy con il titolare o consulente incaricato,
-- eventuale banner consenso se richiesto da servizi terzi attivi,
-- caricamento reale di mappa, analytics e modulo in produzione.
+- `NEXT_PUBLIC_SITE_URL` points to the production domain,
+- Resend is configured with the final sender/domain,
+- Cloudflare Turnstile allows the production domain,
+- the contact form works in production,
+- Privacy Policy and Cookie Policy have been reviewed by the owner or a legal/privacy advisor,
+- Google Maps, analytics, and cookie preferences behave as expected.
 
-## Dati aziendali
+## Company Data
 
-I dati principali sono in `data/site.ts`.
+Main company data is centralized in `data/site.ts`:
 
 - `site.visibleName`
 - `site.legalName`
 - `site.address`
-- `site.phone` e `site.phoneHref`
-- `site.email` e `site.emailHref`
+- `site.phone` and `site.phoneHref`
+- `site.email` and `site.emailHref`
 - `site.vat`
 - `site.facebookUrl`
 
-## Note legali
+Update this file if the company contact details change.
 
-Le pagine Privacy Policy e Cookie Policy sono strutturate ma contengono punti segnati come `[DA COMPLETARE]` o `[DA VERIFICARE]`. Non considerarle definitive senza revisione del titolare o di un consulente.
+## Branch Workflow
+
+The repository currently uses:
+
+- `main` for the publishable version.
+- `test` for testing changes before moving them to `main`.
+
+Keep both branches aligned when a tested change is approved for publishing.
