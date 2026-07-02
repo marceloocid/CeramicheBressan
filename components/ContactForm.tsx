@@ -10,6 +10,8 @@ type TurnstileWidgetOptions = {
   callback: (token: string) => void;
   "expired-callback": () => void;
   "error-callback": () => void;
+  appearance?: "always" | "execute" | "interaction-only";
+  theme?: "auto" | "light" | "dark";
 };
 
 type TurnstileApi = {
@@ -32,6 +34,8 @@ export function ContactForm() {
   const turnstileRef = useRef<HTMLDivElement>(null);
   const turnstileWidgetId = useRef<string | undefined>(undefined);
   const [scriptReady, setScriptReady] = useState(false);
+  const [turnstileLoadFailed, setTurnstileLoadFailed] = useState(false);
+  const [turnstileRendered, setTurnstileRendered] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -43,18 +47,47 @@ export function ContactForm() {
   }, []);
 
   useEffect(() => {
+    const timer = window.setTimeout(() => {
+      if (window.turnstile) {
+        setScriptReady(true);
+      }
+    }, 0);
+
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     if (!scriptReady || !siteKey || !turnstileRef.current || !window.turnstile || turnstileWidgetId.current) {
       return;
     }
 
-    turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
-      sitekey: siteKey,
-      callback: (token) => setTurnstileToken(token),
-      "expired-callback": () => setTurnstileToken(""),
-      "error-callback": () => setTurnstileToken("")
-    });
+    let statusTimer: number | undefined;
+
+    try {
+      turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
+        sitekey: siteKey,
+        callback: (token) => setTurnstileToken(token),
+        "expired-callback": () => setTurnstileToken(""),
+        "error-callback": () => setTurnstileToken(""),
+        appearance: "always",
+        theme: "light"
+      });
+      statusTimer = window.setTimeout(() => {
+        setTurnstileLoadFailed(false);
+        setTurnstileRendered(true);
+      }, 0);
+    } catch {
+      statusTimer = window.setTimeout(() => {
+        setTurnstileLoadFailed(true);
+        setTurnstileRendered(false);
+      }, 0);
+    }
 
     return () => {
+      if (statusTimer) {
+        window.clearTimeout(statusTimer);
+      }
+
       if (turnstileWidgetId.current && window.turnstile) {
         window.turnstile.remove(turnstileWidgetId.current);
         turnstileWidgetId.current = undefined;
@@ -122,8 +155,18 @@ export function ContactForm() {
           id="cloudflare-turnstile"
           src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
           strategy="afterInteractive"
-          onLoad={() => setScriptReady(true)}
-          onReady={() => setScriptReady(true)}
+          onError={() => {
+            setScriptReady(false);
+            setTurnstileLoadFailed(true);
+          }}
+          onLoad={() => {
+            setTurnstileLoadFailed(false);
+            setScriptReady(true);
+          }}
+          onReady={() => {
+            setTurnstileLoadFailed(false);
+            setScriptReady(true);
+          }}
         />
       ) : null}
       <form className="paper-panel grid gap-5 rounded-sm p-6 shadow-soft" onSubmit={handleSubmit} ref={formRef}>
@@ -209,8 +252,18 @@ export function ContactForm() {
         </label>
 
         {siteKey ? (
-          <div className="min-h-[65px]">
+          <div className="min-h-[74px]">
             <div ref={turnstileRef} />
+            {!turnstileRendered && !turnstileLoadFailed ? (
+              <p className="rounded-sm border border-oro/45 bg-white/75 p-3 text-sm leading-6 text-argilla">
+                Caricamento verifica antispam...
+              </p>
+            ) : null}
+            {turnstileLoadFailed ? (
+              <p className="rounded-sm border border-red-200 bg-red-50 p-3 text-sm font-bold leading-6 text-red-800">
+                Verifica antispam non caricata. Ricarica la pagina o riprova tra poco.
+              </p>
+            ) : null}
           </div>
         ) : (
           <p className="rounded-sm border border-oro/45 bg-white/75 p-3 text-sm leading-6 text-argilla">
