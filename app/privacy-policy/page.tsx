@@ -18,8 +18,8 @@ const thirdPartyServices = [
     text: "servizio antispam utilizzato per verificare che l'invio del modulo non provenga da sistemi automatici."
   },
   {
-    name: "Vercel Analytics",
-    text: "strumento di statistiche aggregate e privacy-friendly, attivato solo se l'utente accetta la categoria Statistiche."
+    name: "Vercel Analytics e Speed Insights",
+    text: "strumenti di statistiche aggregate e misurazione delle prestazioni, attivati solo se l'utente accetta la categoria Statistiche."
   },
   {
     name: "Google Maps",
@@ -27,7 +27,7 @@ const thirdPartyServices = [
   }
 ];
 
-const lastUpdated = "29 giugno 2026";
+const lastUpdated = "4 luglio 2026";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -135,6 +135,10 @@ export default function PrivacyPolicyPage() {
             </p>
             <p className="mt-3">
               Le richieste possono essere inviate ai recapiti indicati in questa informativa.
+            </p>
+            <p className="mt-3">
+              L’interessato ha inoltre diritto di proporre reclamo al Garante per la protezione dei dati
+              personali.
             </p>
           </section>
 

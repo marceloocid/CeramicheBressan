@@ -14,8 +14,8 @@ const services = [
     text: "usato nel modulo di contatto per prevenire invii automatici e spam. Può trattare dati tecnici necessari alla verifica."
   },
   {
-    title: "Vercel Analytics",
-    text: "usato per statistiche aggregate e privacy-friendly. Viene caricato solo se l'utente accetta la categoria Statistiche."
+    title: "Vercel Analytics e Speed Insights",
+    text: "usati per statistiche aggregate e misurazione delle prestazioni. Vengono caricati solo se l'utente accetta la categoria Statistiche."
   },
   {
     title: "Google Maps",
@@ -27,7 +27,7 @@ const services = [
   }
 ];
 
-const lastUpdated = "29 giugno 2026";
+const lastUpdated = "4 luglio 2026";
 
 export default function CookiePolicyPage() {
   return (
@@ -90,6 +90,10 @@ export default function CookiePolicyPage() {
               L&apos;utente può gestire o bloccare i cookie e tecnologie simili anche attraverso le impostazioni
               del proprio browser. La disattivazione di alcune funzioni può limitare la corretta
               visualizzazione di servizi esterni, come la mappa.
+            </p>
+            <p className="mt-3">
+              Per i trattamenti collegati ai cookie, l&apos;utente ha anche diritto di proporre reclamo al
+              Garante per la protezione dei dati personali.
             </p>
           </section>
 
