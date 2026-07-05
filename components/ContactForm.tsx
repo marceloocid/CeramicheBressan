@@ -2,6 +2,8 @@
 
 import Script from "next/script";
 import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
+import type { Locale } from "@/lib/i18n";
+import { contactFormText } from "@/lib/translations";
 
 type SubmitStatus = "idle" | "success" | "error";
 
@@ -26,10 +28,8 @@ declare global {
   }
 }
 
-const errorMessage =
-  "Si è verificato un errore durante l’invio. Riprova tra poco o contattaci direttamente via email.";
-
-export function ContactForm() {
+export function ContactForm({ locale }: { locale: Locale }) {
+  const text = contactFormText[locale];
   const formRef = useRef<HTMLFormElement>(null);
   const turnstileRef = useRef<HTMLDivElement>(null);
   const turnstileWidgetId = useRef<string | undefined>(undefined);
@@ -171,13 +171,13 @@ export function ContactForm() {
       ) : null}
       <form className="paper-panel grid gap-5 rounded-sm p-6 shadow-soft" onSubmit={handleSubmit} ref={formRef}>
         <div className="hidden" aria-hidden="true">
-          <label htmlFor="website">Website</label>
+          <label htmlFor="website">{text.hiddenWebsite}</label>
           <input autoComplete="off" id="website" name="website" tabIndex={-1} type="text" />
         </div>
 
         <div>
           <label className="block text-sm font-bold uppercase tracking-[0.1em] text-ceramica" htmlFor="nome">
-            Nome e cognome
+            {text.name}
           </label>
           <input
             className="focus-ring mt-2 w-full rounded-sm border border-oro/45 bg-white/80 px-4 py-3 text-argilla"
@@ -189,7 +189,7 @@ export function ContactForm() {
         </div>
         <div>
           <label className="block text-sm font-bold uppercase tracking-[0.1em] text-ceramica" htmlFor="azienda">
-            Nome del negozio / attività
+            {text.company}
           </label>
           <input
             className="focus-ring mt-2 w-full rounded-sm border border-oro/45 bg-white/80 px-4 py-3 text-argilla"
@@ -201,7 +201,7 @@ export function ContactForm() {
         </div>
         <div>
           <label className="block text-sm font-bold uppercase tracking-[0.1em] text-ceramica" htmlFor="email">
-            Email
+            {text.email}
           </label>
           <input
             className="focus-ring mt-2 w-full rounded-sm border border-oro/45 bg-white/80 px-4 py-3 text-argilla"
@@ -213,7 +213,7 @@ export function ContactForm() {
         </div>
         <div>
           <label className="block text-sm font-bold uppercase tracking-[0.1em] text-ceramica" htmlFor="telefono">
-            Telefono
+            {text.phone}
           </label>
           <input
             className="focus-ring mt-2 w-full rounded-sm border border-oro/45 bg-white/80 px-4 py-3 text-argilla"
@@ -224,7 +224,7 @@ export function ContactForm() {
         </div>
         <div>
           <label className="block text-sm font-bold uppercase tracking-[0.1em] text-ceramica" htmlFor="citta">
-            Città
+            {text.city}
           </label>
           <input
             className="focus-ring mt-2 w-full rounded-sm border border-oro/45 bg-white/80 px-4 py-3 text-argilla"
@@ -235,7 +235,7 @@ export function ContactForm() {
         </div>
         <div>
           <label className="block text-sm font-bold uppercase tracking-[0.1em] text-ceramica" htmlFor="messaggio">
-            Messaggio
+            {text.message}
           </label>
           <textarea
             className="focus-ring mt-2 min-h-36 w-full rounded-sm border border-oro/45 bg-white/80 px-4 py-3 text-argilla"
@@ -248,7 +248,7 @@ export function ContactForm() {
 
         <label className="flex gap-3 text-sm leading-6 text-argilla">
           <input className="mt-1 h-4 w-4 shrink-0 accent-ceramica" name="privacy" required type="checkbox" />
-          <span>Accetto il trattamento dei dati personali per essere ricontattato in merito alla mia richiesta.</span>
+          <span>{text.privacy}</span>
         </label>
 
         {siteKey ? (
@@ -256,18 +256,18 @@ export function ContactForm() {
             <div ref={turnstileRef} />
             {!turnstileRendered && !turnstileLoadFailed ? (
               <p className="rounded-sm border border-oro/45 bg-white/75 p-3 text-sm leading-6 text-argilla">
-                Caricamento verifica antispam...
+                {text.loadingAntispam}
               </p>
             ) : null}
             {turnstileLoadFailed ? (
               <p className="rounded-sm border border-red-200 bg-red-50 p-3 text-sm font-bold leading-6 text-red-800">
-                Verifica antispam non caricata. Ricarica la pagina o riprova tra poco.
+                {text.antispamFailed}
               </p>
             ) : null}
           </div>
         ) : (
           <p className="rounded-sm border border-oro/45 bg-white/75 p-3 text-sm leading-6 text-argilla">
-            Verifica antispam non configurata.
+            {text.antispamMissing}
           </p>
         )}
 
@@ -276,23 +276,22 @@ export function ContactForm() {
           disabled={isSubmitting}
           type="submit"
         >
-          {isSubmitting ? "Invio in corso..." : "Invia richiesta"}
+          {isSubmitting ? text.submitting : text.submit}
         </button>
 
         {status === "success" ? (
           <p className="rounded-sm border border-ceramica/25 bg-ceramica/10 p-3 text-sm font-bold leading-6 text-ceramica">
-            Grazie, la tua richiesta è stata inviata correttamente. Ti ricontatteremo al più presto.
+            {text.success}
           </p>
         ) : null}
         {status === "error" ? (
           <p className="rounded-sm border border-red-200 bg-red-50 p-3 text-sm font-bold leading-6 text-red-800">
-            {errorMessage}
+            {text.error}
           </p>
         ) : null}
 
         <p className="text-sm leading-6 text-argilla">
-          Le richieste sono rivolte a negozi, botteghe e punti vendita. Non effettuiamo vendita online
-          o vendita diretta al pubblico dalla sede produttiva.
+          {text.b2bNote}
         </p>
       </form>
     </>

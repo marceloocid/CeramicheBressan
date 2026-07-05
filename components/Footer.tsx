@@ -1,20 +1,23 @@
 import Link from "next/link";
 import { CookiePreferencesButton } from "@/components/CookieConsent";
-import { navItems, site } from "@/data/site";
+import { getNavItems, getSiteContent, site } from "@/data/site";
+import { getRoutePath, type Locale } from "@/lib/i18n";
+import { globalText } from "@/lib/translations";
 
-export function Footer() {
+export function Footer({ locale }: { locale: Locale }) {
+  const navItems = getNavItems(locale);
+  const siteText = getSiteContent(locale);
+  const text = globalText[locale];
+
   return (
     <footer className="border-t border-ceramica/25 bg-[#f2e4ca] pb-20 sm:pb-0">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr] lg:px-8">
         <div>
           <p className="font-serif text-2xl font-semibold text-ceramica">{site.visibleName}</p>
-          <p className="mt-3 max-w-md leading-7 text-argilla">
-            Ceramiche artistiche dipinte a mano per negozi e punti vendita — Pianezze, Vicenza.
-            Creazioni in ceramica artigianale per casa, tavola e regalo.
-          </p>
+          <p className="mt-3 max-w-md leading-7 text-argilla">{siteText.footerDescription}</p>
         </div>
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.14em] text-ceramica">Contatti</p>
+          <p className="text-sm font-bold uppercase tracking-[0.14em] text-ceramica">{text.contacts}</p>
           <address className="mt-3 not-italic leading-7 text-argilla">
             {site.address}
             <br />
@@ -28,7 +31,7 @@ export function Footer() {
           </address>
         </div>
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.14em] text-ceramica">Link</p>
+          <p className="text-sm font-bold uppercase tracking-[0.14em] text-ceramica">{text.links}</p>
           <div className="mt-3 grid gap-2 text-argilla">
             {navItems.map((item) => (
               <Link className="focus-ring hover:text-ceramica" href={item.href} key={item.href}>
@@ -36,15 +39,15 @@ export function Footer() {
               </Link>
             ))}
             <a className="focus-ring hover:text-ceramica" href={site.facebookUrl}>
-              Facebook
+              {text.facebook}
             </a>
-            <Link className="focus-ring hover:text-ceramica" href="/privacy-policy">
-              Privacy Policy
+            <Link className="focus-ring hover:text-ceramica" href={getRoutePath("privacy", locale)}>
+              {text.privacyPolicy}
             </Link>
-            <Link className="focus-ring hover:text-ceramica" href="/cookie-policy">
-              Cookie Policy
+            <Link className="focus-ring hover:text-ceramica" href={getRoutePath("cookie", locale)}>
+              {text.cookiePolicy}
             </Link>
-            <CookiePreferencesButton />
+            <CookiePreferencesButton locale={locale} />
           </div>
         </div>
       </div>

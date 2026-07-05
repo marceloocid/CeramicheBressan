@@ -3,11 +3,14 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { ProductImage } from "@/data/site";
+import type { Locale } from "@/lib/i18n";
+import { catalogUiText } from "@/lib/translations";
 
 type CatalogLightboxProps = {
   images: ProductImage[];
   initialIndex?: number;
   isOpen: boolean;
+  locale: Locale;
   onClose: () => void;
   title: string;
 };
@@ -16,9 +19,11 @@ export function CatalogLightbox({
   images,
   initialIndex = 0,
   isOpen,
+  locale,
   onClose,
   title
 }: CatalogLightboxProps) {
+  const text = catalogUiText[locale];
   const [activeIndex, setActiveIndex] = useState(initialIndex);
   const touchStartX = useRef<number | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -85,13 +90,13 @@ export function CatalogLightbox({
       >
         <div className="flex items-center justify-between gap-4 border-b border-ceramica/20 px-4 py-3 sm:px-5">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-ceramica">Galleria</p>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-ceramica">{text.gallery}</p>
             <h2 className="font-serif text-xl font-semibold leading-tight text-ceramica sm:text-2xl" id={titleId}>
               {title}
             </h2>
           </div>
           <button
-            aria-label="Chiudi la galleria"
+            aria-label={text.closeGallery}
             className="focus-ring inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-ceramica/30 bg-white text-2xl leading-none text-ceramica transition hover:bg-white/70"
             onClick={onClose}
             ref={closeButtonRef}
@@ -138,7 +143,7 @@ export function CatalogLightbox({
           {hasMultipleImages ? (
             <>
               <button
-                aria-label="Immagine precedente"
+                aria-label={text.previousImage}
                 className="focus-ring absolute left-3 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm border border-white/75 bg-[#1e2318]/65 text-3xl leading-none text-white transition hover:bg-[#1e2318]/85 sm:left-5"
                 onClick={goToPrevious}
                 type="button"
@@ -146,7 +151,7 @@ export function CatalogLightbox({
                 &lsaquo;
               </button>
               <button
-                aria-label="Immagine successiva"
+                aria-label={text.nextImage}
                 className="focus-ring absolute right-3 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-sm border border-white/75 bg-[#1e2318]/65 text-3xl leading-none text-white transition hover:bg-[#1e2318]/85 sm:right-5"
                 onClick={goToNext}
                 type="button"
@@ -168,7 +173,7 @@ export function CatalogLightbox({
 
               return (
                 <button
-                  aria-label={`Vai all'immagine ${index + 1} di ${images.length}`}
+                  aria-label={`${text.goToImage} ${index + 1} / ${images.length}`}
                   className={`focus-ring relative h-16 w-20 shrink-0 overflow-hidden rounded-sm border bg-white transition sm:h-20 sm:w-28 ${
                     isActive ? "border-ceramica ring-2 ring-ceramica/25" : "border-ceramica/20 hover:border-ceramica"
                   }`}

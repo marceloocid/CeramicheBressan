@@ -1,33 +1,16 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CollectionCard } from "@/components/CollectionCard";
 import { ContactCta } from "@/components/ContactCta";
 import { SectionTitle } from "@/components/SectionTitle";
-import { collectionCategories } from "@/data/site";
+import { getCollectionCategories } from "@/data/site";
+import { getRoutePath, type Locale } from "@/lib/i18n";
+import { pageText } from "@/lib/translations";
 
-export const metadata: Metadata = {
-  title: "Ceramiche dipinte a mano a Pianezze",
-  description:
-    "Ceramiche artistiche dipinte a mano a Pianezze, Vicenza: creazioni artigianali italiane per casa, tavola, regalo, negozi e punti vendita."
-};
+export function HomePageContent({ locale }: { locale: Locale }) {
+  const text = pageText[locale].home;
+  const collectionCategories = getCollectionCategories(locale);
 
-const pillars = [
-  {
-    title: "Tradizione artigianale",
-    text: "Una bottega legata al territorio vicentino, dove forme e colori conservano il calore della ceramica italiana."
-  },
-  {
-    title: "Decorazioni dipinte a mano",
-    text: "Decori, pennellate e piccoli dettagli rendono ogni creazione riconoscibile, viva e naturalmente diversa."
-  },
-  {
-    title: "Creazioni per negozi e punti vendita",
-    text: "Oggetti in ceramica pensati per arricchire esposizioni, vetrine e spazi dedicati alla casa e al regalo."
-  }
-];
-
-export default function Home() {
   return (
     <main>
       <section className="relative isolate overflow-hidden">
@@ -35,7 +18,7 @@ export default function Home() {
           priority
           className="absolute inset-0 -z-20 object-cover"
           src="/images/home-laboratorio-bressan.jpg"
-          alt="Laboratorio Bressan C2 con ceramiche artistiche dipinte a mano"
+          alt={text.heroAlt}
           fill
           sizes="100vw"
         />
@@ -51,19 +34,18 @@ export default function Home() {
               </p>
             </div>
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#8a4f3a]">
-              Bottega artigiana a Pianezze
+              {text.heroEyebrow}
             </p>
             <h1 className="mt-4 font-serif text-4xl font-semibold leading-[1.08] text-ceramica sm:text-6xl">
-              Ceramiche artistiche dipinte a mano
+              {text.heroTitle}
             </h1>
             <p className="mt-6 max-w-2xl text-xl leading-9 text-argilla">
-              Creazioni in ceramica per la casa, la tavola e il regalo, pensate per arricchire negozi,
-              botteghe e punti vendita con il valore dell’artigianato italiano.
+              {text.heroIntro}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/catalogo">Sfoglia il catalogo</ButtonLink>
-              <ButtonLink href="/creazioni" variant="ghost">
-                Scopri le collezioni
+              <ButtonLink href={getRoutePath("catalogo", locale)}>{text.heroPrimary}</ButtonLink>
+              <ButtonLink href={getRoutePath("creazioni", locale)} variant="ghost">
+                {text.heroSecondary}
               </ButtonLink>
             </div>
           </div>
@@ -73,20 +55,13 @@ export default function Home() {
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionTitle
-            eyebrow="La bottega"
-            title="Ceramiche nate per essere esposte, raccontate e scelte"
-            intro="Lavoriamo con negozi, botteghe e punti vendita che desiderano proporre ceramiche artistiche italiane, curate nei dettagli e dal carattere autentico."
+            eyebrow={text.workshopEyebrow}
+            title={text.workshopTitle}
+            intro={text.workshopIntro}
           />
           <div className="paper-panel rounded-sm p-8 text-lg leading-8 text-argilla">
-            <p>
-              A Pianezze, nel territorio vicentino, Bressan C2 realizza ceramiche artistiche,
-              oggettistica varia e prodotti per la casa, la tavola, la cucina e il regalo con un linguaggio
-              caldo, familiare e riconoscibile.
-            </p>
-            <p className="mt-5">
-              Il sito è una vetrina di creazioni e collezioni: per conoscere disponibilità e dettagli,
-              il contatto avviene direttamente con l’azienda.
-            </p>
+            <p>{text.workshopParagraphs[0]}</p>
+            <p className="mt-5">{text.workshopParagraphs[1]}</p>
           </div>
         </div>
       </section>
@@ -94,7 +69,7 @@ export default function Home() {
       <section className="bg-[#f2e4ca] px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 md:grid-cols-3">
-            {pillars.map((pillar) => (
+            {text.pillars.map((pillar) => (
               <article className="paper-panel rounded-sm p-7" key={pillar.title}>
                 <h2 className="font-serif text-2xl font-semibold text-ceramica">{pillar.title}</h2>
                 <p className="mt-4 leading-7 text-argilla">{pillar.text}</p>
@@ -107,13 +82,13 @@ export default function Home() {
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionTitle
-            eyebrow="Collezioni"
-            title="Una selezione per casa, tavola e regalo"
-            intro="Una panoramica di famiglie decorative e ispirazioni: ogni richiesta viene gestita con contatto diretto."
+            eyebrow={text.collectionsEyebrow}
+            title={text.collectionsTitle}
+            intro={text.collectionsIntro}
           />
           <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
             {collectionCategories.slice(0, 3).map((category) => (
-              <CollectionCard {...category} key={category.slug} />
+              <CollectionCard {...category} key={category.slug} locale={locale} />
             ))}
           </div>
         </div>
@@ -126,30 +101,30 @@ export default function Home() {
             <Image
               className="object-cover"
               src="/images/dettagli-decorazione.jpg"
-              alt="Dettagli di decorazione manuale su ceramica"
+              alt={text.detailAlt}
               fill
               sizes="(min-width: 1024px) 46vw, 100vw"
             />
           </div>
           <div>
             <SectionTitle
-              eyebrow="Pensate per il punto vendita"
-              title="Oggetti da esporre, raccontare e scegliere"
-              intro="Le nostre ceramiche nascono per essere esposte, raccontate e scelte: oggetti decorativi e funzionali che portano nel negozio il calore della lavorazione artigianale italiana."
+              eyebrow={text.retailEyebrow}
+              title={text.retailTitle}
+              intro={text.retailIntro}
             />
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/per-rivenditori" variant="ghost">
-                Per negozi
+              <ButtonLink href={getRoutePath("perRivenditori", locale)} variant="ghost">
+                {text.retailPrimary}
               </ButtonLink>
-              <ButtonLink href="/creazioni" variant="secondary">
-                Scopri le collezioni
+              <ButtonLink href={getRoutePath("creazioni", locale)} variant="secondary">
+                {text.retailSecondary}
               </ButtonLink>
             </div>
           </div>
         </div>
       </section>
 
-      <ContactCta />
+      <ContactCta locale={locale} />
     </main>
   );
 }

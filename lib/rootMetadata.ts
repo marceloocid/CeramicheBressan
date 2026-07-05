@@ -1,23 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import { CookieConsentProvider } from "@/components/CookieConsent";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { MobileCallButton } from "@/components/MobileCallButton";
-import { site } from "@/data/site";
+import { getSiteUrl } from "@/lib/metadata";
 
-function getSiteUrl() {
-  try {
-    return new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").toString();
-  } catch {
-    return "http://localhost:3000";
-  }
-}
-
-const siteUrl = getSiteUrl();
+const siteUrl = getSiteUrl().toString();
 const socialImage = "/images/home-laboratorio-bressan.jpg";
 
-export const metadata: Metadata = {
+export const rootMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: "Ceramiche Artistiche Bressan C2 | Ceramiche dipinte a mano",
@@ -68,48 +55,3 @@ export const metadata: Metadata = {
     ]
   }
 };
-
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: site.visibleName,
-    legalName: site.legalName,
-    url: siteUrl,
-    description:
-      "Bottega artigiana di ceramiche artistiche, oggettistica varia in ceramica e creazioni dipinte a mano per casa, tavola e regalo.",
-    telephone: "+39042475762",
-    email: site.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: site.streetAddress,
-      addressLocality: site.city,
-      addressRegion: site.province,
-      postalCode: site.postalCode,
-      addressCountry: site.country
-    },
-    taxID: site.vat,
-    sameAs: [site.facebookUrl]
-  };
-
-  return (
-    <html lang="it" data-scroll-behavior="smooth">
-      <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-        <CookieConsentProvider>
-          <Header />
-          {children}
-          <Footer />
-          <MobileCallButton />
-        </CookieConsentProvider>
-      </body>
-    </html>
-  );
-}

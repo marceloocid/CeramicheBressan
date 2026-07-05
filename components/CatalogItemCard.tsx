@@ -5,13 +5,17 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CatalogLightbox } from "@/components/CatalogLightbox";
 import type { CatalogItem } from "@/data/site";
+import { getRoutePath, type Locale } from "@/lib/i18n";
+import { catalogUiText } from "@/lib/translations";
 
 type CatalogItemCardProps = {
   item: CatalogItem;
   categoryTitle: string;
+  locale: Locale;
 };
 
-export function CatalogItemCard({ item, categoryTitle }: CatalogItemCardProps) {
+export function CatalogItemCard({ item, categoryTitle, locale }: CatalogItemCardProps) {
+  const text = catalogUiText[locale];
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const lastTriggerRef = useRef<HTMLElement | null>(null);
   const coverImage = item.images[0];
@@ -32,7 +36,7 @@ export function CatalogItemCard({ item, categoryTitle }: CatalogItemCardProps) {
   return (
     <article className="paper-panel flex h-full flex-col overflow-hidden rounded-sm shadow-soft" id={item.slug}>
       <button
-        aria-label={`Apri immagine grande per ${item.name}`}
+        aria-label={`${text.openLarge} ${item.name}`}
         className="focus-ring group relative aspect-[4/3] w-full cursor-zoom-in overflow-hidden bg-[#fffaf1]"
         onClick={openGallery}
         type="button"
@@ -45,7 +49,7 @@ export function CatalogItemCard({ item, categoryTitle }: CatalogItemCardProps) {
           sizes="(min-width: 1280px) 38vw, (min-width: 1024px) 44vw, 100vw"
         />
         <span className="absolute bottom-3 left-3 rounded-sm bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-ceramica shadow-sm">
-          {item.images.length} {item.images.length === 1 ? "immagine" : "immagini"}
+          {item.images.length} {item.images.length === 1 ? text.imageSingular : text.imagePlural}
         </span>
       </button>
 
@@ -62,11 +66,11 @@ export function CatalogItemCard({ item, categoryTitle }: CatalogItemCardProps) {
               onClick={openGallery}
               type="button"
             >
-              Vedi la galleria
+              {text.viewGallery}
             </button>
           ) : null}
-          <ButtonLink href="/contatti" variant="ghost">
-            Chiedi informazioni
+          <ButtonLink href={getRoutePath("contatti", locale)} variant="ghost">
+            {text.askInfo}
           </ButtonLink>
         </div>
       </div>
@@ -77,6 +81,7 @@ export function CatalogItemCard({ item, categoryTitle }: CatalogItemCardProps) {
           initialIndex={0}
           isOpen={isGalleryOpen}
           onClose={closeGallery}
+          locale={locale}
           title={item.name}
         />
       ) : null}

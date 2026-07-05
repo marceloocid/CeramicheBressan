@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
 import type { CollectionCategory } from "@/data/site";
+import { getRoutePath, type Locale } from "@/lib/i18n";
+import { globalText } from "@/lib/translations";
 
 export function CollectionCard({
   title,
@@ -8,8 +10,11 @@ export function CollectionCard({
   image,
   alt,
   imageFit = "contain",
-  themes
-}: CollectionCategory) {
+  themes,
+  locale = "it"
+}: CollectionCategory & { locale?: Locale }) {
+  const text = globalText[locale];
+
   return (
     <article className="paper-panel overflow-hidden rounded-sm shadow-soft">
       <div className="relative aspect-[4/3] bg-[#fffaf1]">
@@ -34,8 +39,8 @@ export function CollectionCard({
             </span>
           ))}
         </div>
-        <ButtonLink href="/contatti" variant="ghost" className="mt-5">
-          Richiedi informazioni
+        <ButtonLink href={getRoutePath("contatti", locale)} variant="ghost" className="mt-5">
+          {text.requestInfo}
         </ButtonLink>
       </div>
     </article>

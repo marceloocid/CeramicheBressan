@@ -3,6 +3,8 @@
 import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Locale } from "@/lib/i18n";
+import { cookieText } from "@/lib/translations";
 
 const STORAGE_KEY = "ceramiche-bressan-cookie-consent";
 const CONSENT_VERSION = 1;
@@ -55,7 +57,8 @@ function readStoredConsent(): StoredConsent | null {
   }
 }
 
-export function CookieConsentProvider({ children }: { children: ReactNode }) {
+export function CookieConsentProvider({ children, locale }: { children: ReactNode; locale: Locale }) {
+  const text = cookieText[locale];
   const [isReady, setIsReady] = useState(false);
   const [hasDecision, setHasDecision] = useState(false);
   const [settings, setSettings] = useState<ConsentSettings>(defaultSettings);
@@ -137,11 +140,8 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
         <div className="fixed inset-x-4 bottom-4 z-[70] mx-auto max-w-5xl rounded-sm border border-ceramica/25 bg-[#fffaf1] p-4 shadow-soft sm:p-5">
           <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.14em] text-ceramica">Preferenze cookie</p>
-              <p className="mt-2 leading-7 text-argilla">
-                Usiamo strumenti necessari al funzionamento del sito. Con il tuo consenso possiamo
-                attivare statistiche aggregate e contenuti esterni come Google Maps.
-              </p>
+              <p className="text-sm font-bold uppercase tracking-[0.14em] text-ceramica">{text.bannerTitle}</p>
+              <p className="mt-2 leading-7 text-argilla">{text.bannerText}</p>
             </div>
             <div className="flex flex-wrap gap-2">
               <button
@@ -149,21 +149,21 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
                 onClick={() => setIsPreferencesOpen(true)}
                 type="button"
               >
-                Gestisci preferenze
+                {text.manage}
               </button>
               <button
                 className="focus-ring min-h-11 rounded-sm border border-ceramica bg-transparent px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] text-ceramica transition hover:bg-white/50"
                 onClick={value.rejectAll}
                 type="button"
               >
-                Rifiuta
+                {text.reject}
               </button>
               <button
                 className="focus-ring min-h-11 rounded-sm border border-ceramica bg-ceramica px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-[#004f31]"
                 onClick={value.acceptAll}
                 type="button"
               >
-                Accetta
+                {text.accept}
               </button>
             </div>
           </div>
@@ -178,13 +178,13 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
           <div className="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-sm border border-ceramica/25 bg-[#fffaf1] p-5 shadow-soft sm:p-6">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-sm font-bold uppercase tracking-[0.14em] text-ceramica">Cookie</p>
+                <p className="text-sm font-bold uppercase tracking-[0.14em] text-ceramica">{text.modalEyebrow}</p>
                 <h2 className="mt-2 font-serif text-3xl font-semibold text-ceramica">
-                  Gestisci preferenze
+                  {text.modalTitle}
                 </h2>
               </div>
               <button
-                aria-label="Chiudi preferenze cookie"
+                aria-label={text.closeLabel}
                 className="focus-ring inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-ceramica/30 bg-white text-2xl leading-none text-ceramica"
                 onClick={() => setIsPreferencesOpen(false)}
                 type="button"
@@ -196,20 +196,20 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
             <div className="mt-6 grid gap-4">
               <CookiePreferenceRow
                 checked
-                description="Servono al funzionamento del sito e al salvataggio delle preferenze. Sono sempre attivi."
+                description={text.necessaryDescription}
                 disabled
-                label="Necessari"
+                label={text.necessary}
               />
               <CookiePreferenceRow
                 checked={draftSettings.statistiche}
-                description="Consentono statistiche aggregate tramite Vercel Analytics e Speed Insights."
-                label="Statistiche"
+                description={text.statisticsDescription}
+                label={text.statistics}
                 onChange={(checked) => setDraftSettings((current) => ({ ...current, statistiche: checked }))}
               />
               <CookiePreferenceRow
                 checked={draftSettings.contenutiEsterni}
-                description="Consentono il caricamento di contenuti esterni, come la mappa di Google Maps."
-                label="Contenuti esterni"
+                description={text.externalDescription}
+                label={text.external}
                 onChange={(checked) =>
                   setDraftSettings((current) => ({ ...current, contenutiEsterni: checked }))
                 }
@@ -222,21 +222,21 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
                 onClick={value.rejectAll}
                 type="button"
               >
-                Rifiuta
+                {text.reject}
               </button>
               <button
                 className="focus-ring min-h-11 rounded-sm border border-oro/60 bg-transparent px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] text-ceramica transition hover:border-ceramica hover:bg-white/50"
                 onClick={() => value.saveSettings(draftSettings)}
                 type="button"
               >
-                Salva preferenze
+                {text.save}
               </button>
               <button
                 className="focus-ring min-h-11 rounded-sm border border-ceramica bg-ceramica px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-[#004f31]"
                 onClick={value.acceptAll}
                 type="button"
               >
-                Accetta tutto
+                {text.acceptAll}
               </button>
             </div>
           </div>
@@ -286,12 +286,13 @@ export function useCookieConsent() {
   return context;
 }
 
-export function CookiePreferencesButton() {
+export function CookiePreferencesButton({ locale }: { locale: Locale }) {
   const { openPreferences } = useCookieConsent();
+  const text = cookieText[locale];
 
   return (
     <button className="focus-ring text-left hover:text-ceramica" onClick={openPreferences} type="button">
-      Gestisci preferenze cookie
+      {text.preferencesButton}
     </button>
   );
 }

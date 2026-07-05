@@ -1,38 +1,34 @@
-import type { Metadata } from "next";
 import { CatalogItemCard } from "@/components/CatalogItemCard";
 import { ButtonLink } from "@/components/ButtonLink";
-import { ContactCta } from "@/components/ContactCta";
 import { SectionTitle } from "@/components/SectionTitle";
-import { catalogItems, collectionCategories, site } from "@/data/site";
+import { getCatalogItems, getCollectionCategories, getSiteContent } from "@/data/site";
+import { getRoutePath, type Locale } from "@/lib/i18n";
+import { pageText } from "@/lib/translations";
 
-export const metadata: Metadata = {
-  title: "Catalogo ceramiche artistiche",
-  description:
-    "Catalogo fotografico di linee e creazioni in ceramica artistica dipinta a mano per negozi, botteghe e punti vendita."
-};
+export function CatalogoPageContent({ locale }: { locale: Locale }) {
+  const text = pageText[locale].catalogo;
+  const siteText = getSiteContent(locale);
+  const catalogItems = getCatalogItems(locale);
+  const collectionCategories = getCollectionCategories(locale);
 
-export default function CatalogoPage() {
   return (
     <main>
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionTitle
-            eyebrow="Catalogo"
-            title="Esempi fotografici per tema"
-            intro="Una selezione organizzata di ceramiche artistiche per negozi, botteghe e punti vendita. Ogni scheda raccoglie tutte le immagini disponibili della stessa linea o famiglia di prodotto."
+            eyebrow={text.eyebrow}
+            title={text.title}
+            intro={text.intro}
             align="center"
             as="h1"
           />
           <div className="paper-panel mx-auto mt-10 max-w-4xl rounded-sm p-6 text-center">
-            <p className="leading-7 text-argilla">
-              Le immagini rappresentano esempi di prodotto. Per disponibilità e dettagli sulle linee,
-              contattaci direttamente.
-            </p>
-            <p className="mt-3 font-bold leading-7 text-ceramica">{site.b2bNotice}</p>
+            <p className="leading-7 text-argilla">{text.notice}</p>
+            <p className="mt-3 font-bold leading-7 text-ceramica">{siteText.b2bNotice}</p>
           </div>
 
           <nav
-            aria-label="Indice del catalogo"
+            aria-label={text.indexLabel}
             className="mx-auto mt-8 max-w-5xl rounded-sm border border-ceramica/20 bg-[#fffaf1] p-2 shadow-[0_10px_26px_rgba(41,31,18,0.10)] lg:sticky lg:top-32 lg:z-30"
           >
             <div className="flex gap-2 overflow-x-auto">
@@ -77,7 +73,7 @@ export default function CatalogoPage() {
                   </div>
                   <div className="grid gap-7 lg:grid-cols-2">
                     {categoryItems.map((item) => (
-                      <CatalogItemCard categoryTitle={category.title} item={item} key={item.slug} />
+                      <CatalogItemCard categoryTitle={category.title} item={item} key={item.slug} locale={locale} />
                     ))}
                   </div>
                 </section>
@@ -89,25 +85,20 @@ export default function CatalogoPage() {
 
       <section className="bg-[#f2e4ca] px-4 py-16 sm:px-6 lg:px-8">
         <div className="paper-panel mx-auto max-w-4xl rounded-sm p-8 text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ceramica">Collezioni per il punto vendita</p>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ceramica">{text.ctaEyebrow}</p>
           <h2 className="mt-3 font-serif text-3xl font-semibold text-ceramica">
-            Parliamo delle linee disponibili
+            {text.ctaTitle}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl leading-7 text-argilla">
-            Se hai un negozio, una bottega o un punto vendita, contattaci per ricevere maggiori
-            informazioni sulle linee più adatte al tuo assortimento.
-          </p>
+          <p className="mx-auto mt-4 max-w-2xl leading-7 text-argilla">{text.ctaText}</p>
           {/*
-            Attivare quando esiste un file reale:
-            <a href="/catalogo-bressan-c2.pdf">Scarica il catalogo PDF</a>
+            Enable when a real file exists:
+            <a href="/catalogo-bressan-c2.pdf">Download the PDF catalog</a>
           */}
-          <ButtonLink href="/contatti" variant="secondary" className="mt-7">
-            Richiedi informazioni
+          <ButtonLink href={getRoutePath("contatti", locale)} variant="secondary" className="mt-7">
+            {text.ctaButton}
           </ButtonLink>
         </div>
       </section>
-
-      <ContactCta />
     </main>
   );
 }

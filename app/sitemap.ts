@@ -1,32 +1,29 @@
 import type { MetadataRoute } from "next";
+import { localizedRoutes, type Locale, type RouteKey } from "@/lib/i18n";
+import { getSiteUrl } from "@/lib/metadata";
 
-const routes = [
-  "/",
-  "/azienda",
-  "/creazioni",
-  "/per-rivenditori",
-  "/catalogo",
-  "/contatti",
-  "/lavorazione",
-  "/privacy-policy",
-  "/cookie-policy"
-];
-
-function getSiteUrl() {
-  try {
-    return new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000");
-  } catch {
-    return new URL("http://localhost:3000");
-  }
-}
+const routeKeys = Object.keys(localizedRoutes) as RouteKey[];
+const routeLocales: Locale[] = ["it", "en"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = getSiteUrl();
 
-  return routes.map((route) => ({
-    url: new URL(route, baseUrl).toString(),
-    lastModified: new Date(),
-    changeFrequency: route === "/" ? "weekly" : "monthly",
-    priority: route === "/" ? 1 : 0.7
-  }));
+  return routeKeys.flatMap((routeKey) =>
+    routeLocales.map((locale) => {
+      const route = localizedRoutes[routeKey][locale];
+
+      return {
+        url: new URL(route, baseUrl).toString(),
+        lastModified: new Date(),
+        changeFrequency: routeKey === "home" ? "weekly" : "monthly",
+        priority: routeKey === "home" ? 1 : 0.7,
+        alternates: {
+          languages: {
+            it: new URL(localizedRoutes[routeKey].it, baseUrl).toString(),
+            en: new URL(localizedRoutes[routeKey].en, baseUrl).toString()
+          }
+        }
+      } satisfies MetadataRoute.Sitemap[number];
+    })
+  );
 }
