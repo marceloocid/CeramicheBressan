@@ -12,7 +12,7 @@ export function Header({ locale }: { locale: Locale }) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-ceramica/25 bg-avorio/95 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-4 py-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-5 sm:px-6 lg:px-8">
         <Link
           className="brand-plaque focus-ring block px-4 py-2"
           href={getRoutePath("home", locale)}
@@ -47,6 +47,10 @@ export function Header({ locale }: { locale: Locale }) {
             {text.requestInfo}
           </ButtonLink>
         </div>
+
+        <div className="sm:hidden">
+          <LanguageSwitcher locale={locale} />
+        </div>
       </div>
 
       <nav
@@ -58,9 +62,6 @@ export function Header({ locale }: { locale: Locale }) {
             {item.label}
           </Link>
         ))}
-        <div className="shrink-0 sm:hidden">
-          <LanguageSwitcher locale={locale} />
-        </div>
       </nav>
     </header>
   );
