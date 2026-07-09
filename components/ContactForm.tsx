@@ -5,7 +5,7 @@ import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import type { Locale } from "@/lib/i18n";
 import { contactFormText } from "@/lib/translations";
 
-type SubmitStatus = "idle" | "success" | "error";
+type SubmitStatus = "idle" | "success" | "requiredError" | "privacyError" | "turnstileError" | "sendError";
 
 type TurnstileWidgetOptions = {
   sitekey: string;
@@ -100,7 +100,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
     setStatus("idle");
 
     if (!siteKey || !turnstileToken) {
-      setStatus("error");
+      setStatus("turnstileError");
       return;
     }
 
@@ -108,7 +108,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
     const privacyAccepted = formData.get("privacy") === "on";
 
     if (!privacyAccepted) {
-      setStatus("error");
+      setStatus("privacyError");
       return;
     }
 
@@ -141,11 +141,22 @@ export function ContactForm({ locale }: { locale: Locale }) {
       setStatus("success");
       resetTurnstile();
     } catch {
-      setStatus("error");
+      setStatus("sendError");
       resetTurnstile();
     } finally {
       setIsSubmitting(false);
     }
+  }
+
+  function handleInvalid(event: FormEvent<HTMLFormElement>) {
+    const target = event.target;
+
+    if (target instanceof HTMLInputElement && target.name === "privacy") {
+      setStatus("privacyError");
+      return;
+    }
+
+    setStatus("requiredError");
   }
 
   return (
@@ -169,7 +180,12 @@ export function ContactForm({ locale }: { locale: Locale }) {
           }}
         />
       ) : null}
-      <form className="paper-panel grid gap-5 rounded-sm p-6 shadow-soft" onSubmit={handleSubmit} ref={formRef}>
+      <form
+        className="paper-panel grid gap-5 rounded-sm p-6 shadow-soft"
+        onInvalid={handleInvalid}
+        onSubmit={handleSubmit}
+        ref={formRef}
+      >
         <div className="hidden" aria-hidden="true">
           <label htmlFor="website">{text.hiddenWebsite}</label>
           <input autoComplete="off" id="website" name="website" tabIndex={-1} type="text" />
@@ -284,9 +300,9 @@ export function ContactForm({ locale }: { locale: Locale }) {
             {text.success}
           </p>
         ) : null}
-        {status === "error" ? (
+        {status !== "idle" && status !== "success" ? (
           <p className="rounded-sm border border-red-200 bg-red-50 p-3 text-sm font-bold leading-6 text-red-800">
-            {text.error}
+            {text[status]}
           </p>
         ) : null}
 

@@ -226,7 +226,11 @@ export const contactFormText = {
     submitting: "Invio in corso...",
     submit: "Invia richiesta",
     success: "Grazie, la tua richiesta è stata inviata correttamente. Ti ricontatteremo al più presto.",
-    error:
+    requiredError: "Completa i campi obbligatori e controlla che l'email sia corretta.",
+    privacyError: "Per inviare la richiesta è necessario accettare il trattamento dei dati personali.",
+    turnstileError:
+      "Completa la verifica antispam prima di inviare. Se non appare, ricarica la pagina o riprova tra poco.",
+    sendError:
       "Si è verificato un errore durante l’invio. Riprova tra poco o contattaci direttamente via email.",
     b2bNote:
       "Le richieste sono rivolte a negozi, botteghe e punti vendita. Non effettuiamo vendita online o vendita diretta al pubblico dalla sede produttiva."
@@ -247,7 +251,11 @@ export const contactFormText = {
     submitting: "Sending...",
     submit: "Send request",
     success: "Thank you, your request has been sent successfully. We will contact you as soon as possible.",
-    error:
+    requiredError: "Complete the required fields and check that the email address is correct.",
+    privacyError: "To send the request, you need to accept the processing of your personal data.",
+    turnstileError:
+      "Complete the anti-spam verification before sending. If it does not appear, reload the page or try again shortly.",
+    sendError:
       "An error occurred while sending. Please try again shortly or contact us directly by email.",
     b2bNote:
       "Requests are intended for shops, boutiques and points of sale. We do not sell online or directly to the public from the workshop."
