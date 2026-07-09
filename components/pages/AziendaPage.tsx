@@ -24,7 +24,7 @@ export function AziendaPageContent({ locale }: { locale: Locale }) {
             {/* Placeholder: sostituire con immagine reale dell'esterno o dell'interno laboratorio. */}
             <Image
               className="object-cover"
-              src="/images/laboratorio-ceramica.jpg"
+              src="/images/laboratorio-ceramica.webp"
               alt={text.heroAlt}
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"

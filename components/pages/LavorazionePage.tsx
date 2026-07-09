@@ -16,7 +16,7 @@ export function LavorazionePageContent({ locale }: { locale: Locale }) {
             {/* Placeholder: sostituire con foto reale della decorazione a mano. */}
             <Image
               className="object-cover"
-              src="/images/dettagli-decorazione.jpg"
+              src="/images/dettagli-decorazione.webp"
               alt={text.imageAlt}
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"

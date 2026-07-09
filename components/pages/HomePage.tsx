@@ -17,7 +17,7 @@ export function HomePageContent({ locale }: { locale: Locale }) {
         <Image
           priority
           className="absolute inset-0 -z-20 object-cover"
-          src="/images/home-laboratorio-bressan.jpg"
+          src="/images/home-laboratorio-bressan.webp"
           alt={text.heroAlt}
           fill
           sizes="100vw"
@@ -100,7 +100,7 @@ export function HomePageContent({ locale }: { locale: Locale }) {
             {/* Placeholder: sostituire con foto ravvicinata di decorazione manuale o dettagli prodotto. */}
             <Image
               className="object-cover"
-              src="/images/dettagli-decorazione.jpg"
+              src="/images/dettagli-decorazione.webp"
               alt={text.detailAlt}
               fill
               sizes="(min-width: 1024px) 46vw, 100vw"

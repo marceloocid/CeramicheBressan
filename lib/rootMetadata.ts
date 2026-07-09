@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getSiteUrl } from "@/lib/metadata";
 
 const siteUrl = getSiteUrl().toString();
-const socialImage = "/images/home-laboratorio-bressan.jpg";
+const socialImage = "/images/home-laboratorio-bressan.webp";
 
 export const rootMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
