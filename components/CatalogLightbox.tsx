@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import type { ProductImage } from "@/data/site";
 import type { Locale } from "@/lib/i18n";
@@ -28,8 +28,11 @@ export function CatalogLightbox({
   const touchStartX = useRef<number | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const hasMultipleImages = images.length > 1;
-  const activeImage = images[activeIndex];
-  const titleId = `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-gallery-title`;
+  const activeImage = useMemo(() => images[activeIndex], [activeIndex, images]);
+  const titleId = useMemo(
+    () => `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-gallery-title`,
+    [title]
+  );
 
   const goToPrevious = useCallback(() => {
     setActiveIndex((current) => (current === 0 ? images.length - 1 : current - 1));
@@ -38,6 +41,36 @@ export function CatalogLightbox({
   const goToNext = useCallback(() => {
     setActiveIndex((current) => (current === images.length - 1 ? 0 : current + 1));
   }, [images.length]);
+
+  const selectImage = useCallback((index: number) => {
+    setActiveIndex(index);
+  }, []);
+
+  const handleTouchStart = useCallback((event: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = event.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (event: React.TouchEvent<HTMLDivElement>) => {
+      if (touchStartX.current === null || !hasMultipleImages) {
+        return;
+      }
+
+      const distance = event.changedTouches[0].clientX - touchStartX.current;
+      touchStartX.current = null;
+
+      if (Math.abs(distance) < 45) {
+        return;
+      }
+
+      if (distance > 0) {
+        goToPrevious();
+      } else {
+        goToNext();
+      }
+    },
+    [goToNext, goToPrevious, hasMultipleImages]
+  );
 
   useEffect(() => {
     if (!isOpen) {
@@ -108,33 +141,15 @@ export function CatalogLightbox({
 
         <div
           className="relative min-h-0 flex-1 bg-white"
-          onTouchEnd={(event) => {
-            if (touchStartX.current === null || !hasMultipleImages) {
-              return;
-            }
-
-            const distance = event.changedTouches[0].clientX - touchStartX.current;
-            touchStartX.current = null;
-
-            if (Math.abs(distance) < 45) {
-              return;
-            }
-
-            if (distance > 0) {
-              goToPrevious();
-            } else {
-              goToNext();
-            }
-          }}
-          onTouchStart={(event) => {
-            touchStartX.current = event.touches[0].clientX;
-          }}
+          onTouchEnd={handleTouchEnd}
+          onTouchStart={handleTouchStart}
         >
           <div className="relative h-[58vh] max-h-[680px] min-h-[280px] sm:h-[66vh]">
             <Image
               alt={activeImage.alt}
               className="object-contain p-3 sm:p-6"
               fill
+              loading="eager"
               sizes="100vw"
               src={activeImage.src}
             />
@@ -167,33 +182,88 @@ export function CatalogLightbox({
         </div>
 
         {hasMultipleImages ? (
-          <div className="flex gap-2 overflow-x-auto border-t border-ceramica/20 bg-[#fffaf1] p-3 sm:p-4">
-            {images.map((image, index) => {
-              const isActive = index === activeIndex;
-
-              return (
-                <button
-                  aria-label={`${text.goToImage} ${index + 1} / ${images.length}`}
-                  className={`focus-ring relative h-16 w-20 shrink-0 overflow-hidden rounded-sm border bg-white transition sm:h-20 sm:w-28 ${
-                    isActive ? "border-ceramica ring-2 ring-ceramica/25" : "border-ceramica/20 hover:border-ceramica"
-                  }`}
-                  key={`${title}-${image.src}`}
-                  onClick={() => setActiveIndex(index)}
-                  type="button"
-                >
-                  <Image
-                    alt=""
-                    className={image.fit === "cover" ? "object-cover" : "object-contain p-1"}
-                    fill
-                    sizes="112px"
-                    src={image.src}
-                  />
-                </button>
-              );
-            })}
-          </div>
+          <ThumbnailStrip
+            activeIndex={activeIndex}
+            images={images}
+            onSelect={selectImage}
+            title={title}
+            text={text}
+          />
         ) : null}
       </div>
     </div>
   );
 }
+
+type ThumbnailStripProps = {
+  activeIndex: number;
+  images: ProductImage[];
+  onSelect: (index: number) => void;
+  text: (typeof catalogUiText)[Locale];
+  title: string;
+};
+
+const ThumbnailStrip = memo(function ThumbnailStrip({
+  activeIndex,
+  images,
+  onSelect,
+  text,
+  title
+}: ThumbnailStripProps) {
+  return (
+    <div className="flex gap-2 overflow-x-auto border-t border-ceramica/20 bg-[#fffaf1] p-3 sm:p-4">
+      {images.map((image, index) => (
+        <ThumbnailButton
+          image={image}
+          index={index}
+          isActive={index === activeIndex}
+          key={`${title}-${image.src}`}
+          onSelect={onSelect}
+          text={text}
+          total={images.length}
+        />
+      ))}
+    </div>
+  );
+});
+
+type ThumbnailButtonProps = {
+  image: ProductImage;
+  index: number;
+  isActive: boolean;
+  onSelect: (index: number) => void;
+  text: (typeof catalogUiText)[Locale];
+  total: number;
+};
+
+const ThumbnailButton = memo(function ThumbnailButton({
+  image,
+  index,
+  isActive,
+  onSelect,
+  text,
+  total
+}: ThumbnailButtonProps) {
+  const handleClick = useCallback(() => {
+    onSelect(index);
+  }, [index, onSelect]);
+
+  return (
+    <button
+      aria-label={`${text.goToImage} ${index + 1} / ${total}`}
+      className={`focus-ring relative h-16 w-20 shrink-0 overflow-hidden rounded-sm border bg-white transition sm:h-20 sm:w-28 ${
+        isActive ? "border-ceramica ring-2 ring-ceramica/25" : "border-ceramica/20 hover:border-ceramica"
+      }`}
+      onClick={handleClick}
+      type="button"
+    >
+      <Image
+        alt=""
+        className={image.fit === "cover" ? "object-cover" : "object-contain p-1"}
+        fill
+        sizes="112px"
+        src={image.src}
+      />
+    </button>
+  );
+});
