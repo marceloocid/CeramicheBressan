@@ -61,7 +61,8 @@ Notes:
 
 - Never commit `.env.local`.
 - `CONTACT_FROM_EMAIL` must be a sender accepted by Resend.
-- In production, set `NEXT_PUBLIC_SITE_URL` to the real public domain.
+- In production, set `NEXT_PUBLIC_SITE_URL` to the definitive canonical public domain, including `https://`.
+- Vercel preview deployments can fall back to `VERCEL_PROJECT_PRODUCTION_URL` or `VERCEL_URL`, but the canonical production domain should still be configured explicitly.
 - In Cloudflare Turnstile, authorize every domain used for testing and production, including `localhost` if needed.
 - Only variables prefixed with `NEXT_PUBLIC_` are exposed to the browser.
 
@@ -78,6 +79,7 @@ Notes:
 - `/cookie-policy`
 - `/robots.txt`
 - `/sitemap.xml`
+- `/llms.txt`
 
 ## Project Structure
 
@@ -177,19 +179,25 @@ To replace the favicon, update `public/favicon-source.png` and regenerate the fa
 
 ## SEO and Publishing
 
+The website uses two localized root layouts:
+
+- `app/(it)/layout.tsx` for Italian routes,
+- `app/en/layout.tsx` for English routes.
+
 The website includes:
 
-- global metadata in `app/layout.tsx`,
+- global metadata shared by both localized root layouts,
 - page-level metadata on main pages,
 - Open Graph metadata,
 - Twitter card metadata,
 - `app/sitemap.ts`,
 - `app/robots.ts`,
+- `public/llms.txt`,
 - `LocalBusiness` structured data.
 
 Before publishing, verify:
 
-- `NEXT_PUBLIC_SITE_URL` points to the production domain,
+- `NEXT_PUBLIC_SITE_URL` points to the definitive canonical production domain and uses `https://`,
 - Resend is configured with the final sender/domain,
 - Cloudflare Turnstile allows the production domain,
 - the contact form works in production,

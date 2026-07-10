@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { getSiteUrl } from "@/lib/metadata";
+import { getSiteUrl, siteName, socialImageAlt, socialImagePath } from "@/lib/metadata";
 
-const siteUrl = getSiteUrl().toString();
-const socialImage = "/images/home-laboratorio-bressan.webp";
+const siteUrl = getSiteUrl();
+const socialImage = new URL(socialImagePath, siteUrl).toString();
 
 export const rootMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -21,15 +21,15 @@ export const rootMetadata: Metadata = {
     "Bressan C2 ceramiche"
   ],
   openGraph: {
-    siteName: "Ceramiche Artistiche Bressan C2",
-    title: "Ceramiche Artistiche Bressan C2",
+    siteName,
+    title: siteName,
     description:
       "Creazioni in ceramica dipinte a mano per la casa, la tavola e il regalo, pensate per negozi e punti vendita.",
     url: "/",
     images: [
       {
         url: socialImage,
-        alt: "Laboratorio Bressan C2 con ceramiche artistiche dipinte a mano"
+        alt: socialImageAlt
       }
     ],
     locale: "it_IT",
@@ -37,7 +37,7 @@ export const rootMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ceramiche Artistiche Bressan C2",
+    title: siteName,
     description:
       "Ceramiche artistiche dipinte a mano a Pianezze, Vicenza, per negozi, botteghe e punti vendita.",
     images: [socialImage]

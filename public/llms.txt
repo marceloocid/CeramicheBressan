@@ -1,0 +1,23 @@
+# Ceramiche Artistiche Bressan C2
+
+> Italian artisan workshop in Pianezze, Vicenza, creating hand-painted artistic ceramics for shops, boutiques and points of sale.
+
+This website is a visual catalogue, not an ecommerce store. It does not offer online checkout or direct sales to the public from the production workshop.
+
+## Main pages
+
+* [Company](/en/company): Workshop, location and company details.
+* [Creations](/en/creations): Main decorative and product families.
+* [Catalog](/en/catalog): Photographic catalogue organized by theme.
+* [For retailers](/en/retailers): Information for shops and points of sale.
+* [Workmanship](/en/workmanship): Hand decoration and artisan production.
+* [Contact](/en/contact): Business enquiries and workshop location.
+
+## Italian
+
+* [Azienda](/azienda)
+* [Creazioni](/creazioni)
+* [Catalogo](/catalogo)
+* [Per rivenditori](/per-rivenditori)
+* [Lavorazione](/lavorazione)
+* [Contatti](/contatti)
