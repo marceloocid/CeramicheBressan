@@ -52,7 +52,18 @@ export function Footer({ locale }: { locale: Locale }) {
         </div>
       </div>
       <div className="border-t border-oro/25 px-4 py-4 text-center text-sm text-argilla">
-        {site.legalName} - C.F. / P.IVA {site.vat}
+        <p>{site.legalName} - C.F. / P.IVA {site.vat}</p>
+        <p className="mt-1 text-xs font-normal text-argilla/70">
+          {text.websiteCredit}{" "}
+          <a
+            className="underline-offset-2 hover:underline focus-visible:underline"
+            href="https://www.linkedin.com/in/marcelo-cid-solaun-1369411a3/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {text.websiteCreditName}
+          </a>
+        </p>
       </div>
     </footer>
   );
