@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
+import { HeaderNavigation } from "@/components/HeaderNavigation";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { getNavItems } from "@/data/site";
 import type { Locale } from "@/lib/i18n";
@@ -12,9 +13,9 @@ export function Header({ locale }: { locale: Locale }) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-ceramica/25 bg-avorio/95 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-5 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 lg:px-8">
         <Link
-          className="brand-plaque focus-ring block px-4 py-2"
+          className="brand-plaque focus-ring block shrink-0 px-4 py-2"
           href={getRoutePath("home", locale)}
           aria-label={text.brandAria}
         >
@@ -24,26 +25,20 @@ export function Header({ locale }: { locale: Locale }) {
           <span className="brand-script relative z-10 block text-3xl font-semibold leading-none text-ceramica sm:text-4xl">
             Bressan C2
           </span>
-          <span className="relative z-10 hidden text-[10px] uppercase tracking-[0.18em] text-argilla sm:block">
-            Pianezze, Vicenza
+          <span className="relative z-10 hidden whitespace-nowrap text-[8px] uppercase tracking-[0.08em] text-argilla sm:block lg:text-[9px]">
+            {text.brandClaimShort}
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label={text.mainNavigation}>
-          {navItems.map((item) => (
-            <Link
-              className="focus-ring text-sm font-bold uppercase tracking-[0.11em] text-argilla transition hover:text-ceramica"
-              href={item.href}
-              key={item.href}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <HeaderNavigation items={navItems} label={text.mainNavigation} variant="desktop" />
 
-        <div className="hidden items-center gap-5 sm:flex">
+        <div className="hidden shrink-0 items-center gap-4 sm:flex">
           <LanguageSwitcher locale={locale} />
-          <ButtonLink href={`${getRoutePath("contatti", locale)}#richiesta`} variant="secondary" className="px-4 py-2">
+          <ButtonLink
+            href={`${getRoutePath("contatti", locale)}#richiesta`}
+            variant="secondary"
+            className="whitespace-nowrap px-4 py-2"
+          >
             {text.requestInfo}
           </ButtonLink>
         </div>
@@ -53,16 +48,7 @@ export function Header({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      <nav
-        className="flex items-center gap-4 overflow-x-auto border-t border-ceramica/15 px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] text-argilla lg:hidden"
-        aria-label={text.mobileNavigation}
-      >
-        {navItems.map((item) => (
-          <Link className="focus-ring shrink-0 py-1 hover:text-ceramica" href={item.href} key={item.href}>
-            {item.label}
-          </Link>
-        ))}
-      </nav>
+      <HeaderNavigation items={navItems} label={text.mobileNavigation} variant="mobile" />
     </header>
   );
 }

@@ -19,14 +19,10 @@ export function ContactCta({ locale }: { locale: Locale }) {
           </p>
         </div>
         <div className="flex flex-wrap gap-3">
-          <ButtonLink href={getRoutePath("contatti", locale)} variant="secondary">
+          <ButtonLink href={getRoutePath("contatti", locale)} variant="inverse">
             {global.contactUs}
           </ButtonLink>
-          <ButtonLink
-            href={getRoutePath("catalogo", locale)}
-            variant="ghost"
-            className="focus-ring inline-flex min-h-11 items-center justify-center rounded-sm border border-white bg-white px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ceramica shadow-soft transition hover:bg-[#fff6e6] hover:border-[#fff6e6]"
-          >
+          <ButtonLink href={getRoutePath("catalogo", locale)} variant="inverseGhost">
             {global.discoverCatalog}
           </ButtonLink>
         </div>

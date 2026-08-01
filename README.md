@@ -1,10 +1,10 @@
 # Ceramiche Artistiche Bressan C2
 
-Corporate catalogue website for **Ceramiche Artistiche Bressan C2**, an Italian hand-painted ceramics workshop based in Pianezze, Vicenza.
+Corporate catalogue website for **Ceramiche Artistiche Bressan C2**, a family-run Italian artisan ceramics business based in Pianezze, Vicenza.
 
 The website is not an ecommerce platform. It has no cart, checkout, prices, or payments. Its purpose is to present the company, product families, visual catalogue, and contact channels for shops, boutiques, retailers, distributors, and interested business customers.
 
-Visible website content is written in Italian.
+Visible website content is available in Italian and English.
 
 ## Tech Stack
 
@@ -70,6 +70,7 @@ Notes:
 
 - `/` - Home
 - `/azienda` - Company profile and business details
+- `/storia` - Historical account and recognitions in Italian
 - `/creazioni` - Editorial product families and collections
 - `/per-rivenditori` - Information for shops and retailers
 - `/catalogo` - Visual catalogue grouped by product series
@@ -77,6 +78,7 @@ Notes:
 - `/contatti` - Contact page, request form, and map
 - `/privacy-policy`
 - `/cookie-policy`
+- `/en/history` - English translation of the historical account and recognitions
 - `/robots.txt`
 - `/sitemap.xml`
 - `/llms.txt`

@@ -11,9 +11,11 @@ export function CollectionCard({
   alt,
   imageFit = "contain",
   themes,
-  locale = "it"
-}: CollectionCategory & { locale?: Locale }) {
+  locale = "it",
+  headingLevel = "h3"
+}: CollectionCategory & { locale?: Locale; headingLevel?: "h2" | "h3" }) {
   const text = globalText[locale];
+  const Heading = headingLevel;
 
   return (
     <article className="paper-panel overflow-hidden rounded-sm shadow-soft">
@@ -27,7 +29,7 @@ export function CollectionCard({
         />
       </div>
       <div className="p-6">
-        <h3 className="font-serif text-2xl font-semibold text-ceramica">{title}</h3>
+        <Heading className="font-serif text-2xl font-semibold text-ceramica">{title}</Heading>
         <p className="mt-3 leading-7 text-argilla">{description}</p>
         <div className="mt-5 flex flex-wrap gap-2">
           {themes.map((theme) => (

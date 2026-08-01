@@ -6,19 +6,24 @@ export const seoText: Record<
 > = {
   it: {
     home: {
-      title: "Ceramiche dipinte a mano a Pianezze",
+      title: "Ceramiche Bressan C2 – Prodotto artigianale fatto a mano | Pianezze, Vicenza",
       description:
         "Ceramiche artistiche dipinte a mano a Pianezze, Vicenza: creazioni artigianali italiane per casa, tavola, regalo, negozi e punti vendita."
     },
     azienda: {
       title: "Azienda artigiana a Pianezze",
       description:
-        "Scopri Ceramiche Artistiche Bressan C2, bottega artigiana a Pianezze, Vicenza, specializzata in ceramiche dipinte a mano per negozi e punti vendita."
+        "Scopri Ceramiche Artistiche Bressan C2, realtà artigianale a conduzione familiare a Pianezze, Vicenza, specializzata in ceramiche dipinte a mano per negozi e punti vendita."
+    },
+    storia: {
+      title: "La nostra storia",
+      description:
+        "Al centro di questa storia c'è Bruno Bressan. Per una vita intera le sue mani hanno plasmato la ceramica."
     },
     creazioni: {
       title: "Collezioni di ceramiche artigianali",
       description:
-        "Famiglie decorative e collezioni di ceramiche artigianali italiane dipinte a mano per casa, tavola, regalo, negozi e botteghe."
+        "Temi decorativi e collezioni di ceramiche artigianali italiane dipinte a mano per casa, tavola, regalo, negozi e botteghe."
     },
     catalogo: {
       title: "Catalogo ceramiche artistiche",
@@ -53,19 +58,24 @@ export const seoText: Record<
   },
   en: {
     home: {
-      title: "Hand-painted ceramics from Pianezze",
+      title: "Ceramiche Bressan C2 – Handmade artisan ceramics | Pianezze, Vicenza",
       description:
         "Hand-painted artistic ceramics from Pianezze, Vicenza: Italian artisan creations for the home, table, gift sector, shops and points of sale."
     },
     azienda: {
-      title: "Italian ceramic workshop in Pianezze",
+      title: "Family-run artisan ceramics business in Pianezze",
       description:
-        "Discover Ceramiche Artistiche Bressan C2, an artisan workshop in Pianezze, Vicenza, specializing in hand-painted ceramics for shops and points of sale."
+        "Discover Ceramiche Artistiche Bressan C2, a family-run artisan business in Pianezze, Vicenza, specializing in hand-painted ceramics for shops and points of sale."
+    },
+    storia: {
+      title: "Our history",
+      description:
+        "At the heart of this story is Bruno Bressan. For an entire lifetime, his hands shaped ceramics."
     },
     creazioni: {
       title: "Artisan ceramic collections",
       description:
-        "Decorative families and collections of hand-painted Italian artisan ceramics for the home, table, gift sector, shops and boutiques."
+        "Decorative themes and collections of hand-painted Italian artisan ceramics for the home, table, gift sector, shops and boutiques."
     },
     catalogo: {
       title: "Artistic ceramics catalog",
@@ -110,6 +120,11 @@ export const globalText = {
     discoverCatalog: "Scopri il catalogo",
     links: "Link",
     contacts: "Contatti",
+    landline: "Telefono fisso",
+    mobile: "Cellulare",
+    whatsapp: "WhatsApp",
+    brandClaim: "Bressan C2 – Prodotto artigianale fatto a mano",
+    brandClaimShort: "Prodotto artigianale fatto a mano",
     facebook: "Facebook",
     privacyPolicy: "Privacy Policy",
     cookiePolicy: "Cookie Policy",
@@ -129,6 +144,11 @@ export const globalText = {
     discoverCatalog: "View the catalog",
     links: "Links",
     contacts: "Contact",
+    landline: "Landline",
+    mobile: "Mobile",
+    whatsapp: "WhatsApp",
+    brandClaim: "Bressan C2 – Handmade artisan ceramics",
+    brandClaimShort: "Handmade artisan ceramics",
     facebook: "Facebook",
     privacyPolicy: "Privacy Policy",
     cookiePolicy: "Cookie Policy",
@@ -237,7 +257,7 @@ export const contactFormText = {
     sendError:
       "Si è verificato un errore durante l’invio. Riprova tra poco o contattaci direttamente via email.",
     b2bNote:
-      "Le richieste sono rivolte a negozi, botteghe e punti vendita. Non effettuiamo vendita online o vendita diretta al pubblico dalla sede produttiva."
+      "Non effettuiamo vendita online, ma è possibile acquistare direttamente presso la nostra sede di Pianezze, dal lunedì al venerdì dalle 8:00 alle 18:30 (orario continuato). Sabato e domenica siamo chiusi."
   },
   en: {
     hiddenWebsite: "Website",
@@ -262,7 +282,7 @@ export const contactFormText = {
     sendError:
       "An error occurred while sending. Please try again shortly or contact us directly by email.",
     b2bNote:
-      "Requests are intended for shops, boutiques and points of sale. We do not sell online or directly to the public from the workshop."
+      "We do not sell online, but purchases can be made directly from our premises in Pianezze, Monday to Friday from 8:00 a.m. to 6:30 p.m. (open continuously). We are closed on Saturdays and Sundays."
   }
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -541,24 +561,24 @@ export const legalText = {
 export const pageText = {
   it: {
     home: {
-      heroEyebrow: "Bottega artigiana a Pianezze",
+      heroEyebrow: "Realtà artigianale a Pianezze",
       heroTitle: "Ceramiche artistiche dipinte a mano",
       heroIntro:
         "Creazioni in ceramica per la casa, la tavola e il regalo, pensate per arricchire negozi, botteghe e punti vendita con il valore dell’artigianato italiano.",
       heroPrimary: "Sfoglia il catalogo",
       heroSecondary: "Scopri le collezioni",
-      workshopEyebrow: "La bottega",
+      workshopEyebrow: "La nostra realtà",
       workshopTitle: "Ceramiche nate per essere esposte, raccontate e scelte",
       workshopIntro:
         "Lavoriamo con negozi, botteghe e punti vendita che desiderano proporre ceramiche artistiche italiane, curate nei dettagli e dal carattere autentico.",
       workshopParagraphs: [
         "A Pianezze, nel territorio vicentino, Bressan C2 realizza ceramiche artistiche, oggettistica varia e prodotti per la casa, la tavola, la cucina e il regalo con un linguaggio caldo, familiare e riconoscibile.",
-        "Il sito è una vetrina di creazioni e collezioni: per conoscere disponibilità e dettagli, il contatto avviene direttamente con l’azienda."
+        "Il sito è una vetrina di creazioni e collezioni: per conoscere disponibilità e dettagli, contattaci direttamente."
       ],
       pillars: [
         {
           title: "Tradizione artigianale",
-          text: "Una bottega legata al territorio vicentino, dove forme e colori conservano il calore della ceramica italiana."
+          text: "Una realtà artigianale legata al territorio vicentino, dove forme e colori conservano il calore della ceramica italiana."
         },
         {
           title: "Decorazioni dipinte a mano",
@@ -572,7 +592,7 @@ export const pageText = {
       collectionsEyebrow: "Collezioni",
       collectionsTitle: "Una selezione per casa, tavola e regalo",
       collectionsIntro:
-        "Una panoramica di famiglie decorative e ispirazioni: ogni richiesta viene gestita con contatto diretto.",
+        "Una panoramica di temi decorativi e ispirazioni: ogni richiesta viene gestita con un contatto diretto.",
       retailEyebrow: "Pensate per il punto vendita",
       retailTitle: "Oggetti da esporre, raccontare e scegliere",
       retailIntro:
@@ -589,12 +609,12 @@ export const pageText = {
     },
     azienda: {
       heroEyebrow: "Azienda",
-      heroTitle: "Una bottega artigiana nel territorio vicentino",
+      heroTitle: "Una realtà artigianale a conduzione familiare nel territorio vicentino",
       heroIntro:
         "Da Bressan C2 la ceramica nasce come oggetto decorativo e funzionale: forme, colori e dettagli pensati per portare nei punti vendita il calore della lavorazione artigianale italiana.",
-      heroAlt: "Bottega artigiana di ceramiche a Pianezze",
+      heroAlt: "Realtà artigianale di ceramiche a Pianezze",
       paragraphs: [
-        "Ceramiche Artistiche Bressan C2 opera a Pianezze, in un territorio vicentino dove la ceramica conserva un forte legame con la casa, la tavola e gli oggetti decorativi. La bottega realizza ceramiche artistiche, oggettistica varia e prodotti per la cucina con un linguaggio caldo, familiare e riconoscibile.",
+        "Ceramiche Artistiche Bressan C2 opera a Pianezze, in un territorio vicentino dove la ceramica conserva un forte legame con la casa, la tavola e gli oggetti decorativi. Realizziamo ceramiche artistiche, oggettistica varia e prodotti per la cucina con un linguaggio caldo, familiare e riconoscibile.",
         "Il lavoro artigianale si riconosce nella cura delle superfici, nella scelta dei colori e nell’attenzione al dettaglio. Ogni creazione viene pensata per essere proposta in un punto vendita con un carattere riconoscibile, caldo e autenticamente artigianale.",
         "La continuità familiare e la dimensione artigianale permettono un rapporto diretto con negozi, botteghe e realtà che scelgono ceramiche italiane da inserire nel proprio assortimento con cura.",
         "Non una piattaforma di vendita online, ma una vetrina di forme e decori da conoscere attraverso catalogo visuale, richiesta di informazioni e contatto diretto."
@@ -608,6 +628,9 @@ export const pageText = {
       locationIntro:
         "La nostra sede produttiva si trova a Pianezze, in provincia di Vicenza. Da qui realizziamo ceramiche artistiche dipinte a mano per negozi, botteghe e punti vendita.",
       productionSite: "Sede produttiva",
+      openingHours: "Orari di apertura",
+      weekdaysHours: "Lunedì – Venerdì: 8:00 – 18:30, orario continuato.",
+      weekendHours: "Sabato e Domenica: chiuso.",
       directionsText: "Per indicazioni, contatti e mappa completa puoi visitare la pagina contatti.",
       directionsButton: "Vedi contatti e mappa",
       companyData: "Dati aziendali",
@@ -631,7 +654,7 @@ export const pageText = {
       productEyebrow: "Dal tema al prodotto",
       productTitle: "Una lettura ordinata delle proposte",
       productIntro:
-        "Questa pagina presenta le famiglie decorative e le direzioni di assortimento. Il catalogo raccoglie invece le serie fotografiche complete, con tutti gli esempi disponibili per ogni tema.",
+        "Questa pagina presenta i temi decorativi e le linee di assortimento. Il catalogo raccoglie invece le serie fotografiche complete, con tutti gli esempi disponibili per ogni tema.",
       promptTitle: "Vuoi vedere gli esempi concreti?",
       promptText:
         "Nel catalogo trovi le linee come agrumi, limoni, pizza, Linea Pasta, ortaggi, fiori e mare, con tutte le immagini disponibili per ciascuna serie.",
@@ -660,6 +683,7 @@ export const pageText = {
       collaborationsTitle: "Per chi lavoriamo",
       collaborationsIntro:
         "Le nostre creazioni trovano spazio in realtà che scelgono oggetti artigianali italiani da esporre e raccontare.",
+      shippingText: "Lavoriamo con negozi in tutta Italia e spediamo anche all'estero.",
       audiences: [
         "Negozi di articoli regalo",
         "Negozi per la casa",
@@ -667,7 +691,8 @@ export const pageText = {
         "Negozi di ceramiche",
         "Punti vendita turistici",
         "Concept store",
-        "Attività commerciali"
+        "Attività commerciali",
+        "Ambulanti e banchi di mercato"
       ],
       valueEyebrow: "Valore professionale",
       valueTitle: "Perché scegliere Bressan C2",
@@ -728,15 +753,24 @@ export const pageText = {
         "Informazioni su assortimento e collaborazioni",
         "Produzione artigianale a Pianezze, Vicenza"
       ],
-      phone: "Telefono",
-      productionSite: "Sede produttiva",
-      commercialRequests: "Richieste commerciali",
+      phone: "TELEFONO",
+      landline: "Telefono fisso",
+      mobile: "Cellulare",
+      whatsapp: "WhatsApp",
+      openingHours: "ORARI DI APERTURA",
+      weekdaysHours: "Lunedì – Venerdì: 8:00 – 18:30, orario continuato.",
+      weekendHours: "Sabato e Domenica: chiuso.",
+      productionSite: "SEDE PRODUTTIVA",
+      commercialRequests: "MODULO DI CONTATTO",
+      formSummary: "Per informazioni, preventivi e collaborazioni.",
       formAnchor: "Vai al modulo",
       formEyebrow: "Modulo",
       formTitle: "Richiedi informazioni",
       formIntro:
         "Compila il modulo per ricevere informazioni sulle linee disponibili, sulle collaborazioni con negozi e sui prodotti più adatti al tuo punto vendita.",
+      responseTime: "Rispondiamo entro 5 giorni lavorativi.",
       directTitle: "Preferisci scriverci direttamente?",
+      email: "Email",
       mapEyebrow: "Dove siamo",
       mapTitle: "Via San Giuseppe, 9 - Pianezze",
       mapText:
@@ -745,24 +779,24 @@ export const pageText = {
   },
   en: {
     home: {
-      heroEyebrow: "Artisan workshop in Pianezze",
+      heroEyebrow: "Artisan business in Pianezze",
       heroTitle: "Hand-painted artistic ceramics",
       heroIntro:
         "Ceramic creations for the home, table and gift sector, designed to enrich shops, boutiques and points of sale with the value of Italian craftsmanship.",
       heroPrimary: "Browse the catalog",
       heroSecondary: "Discover the collections",
-      workshopEyebrow: "The workshop",
+      workshopEyebrow: "Our business",
       workshopTitle: "Ceramics made to be displayed, described and chosen",
       workshopIntro:
         "We work with shops, boutiques and points of sale that want to offer Italian artistic ceramics with careful details and an authentic character.",
       workshopParagraphs: [
         "In Pianezze, in the Vicenza area, Bressan C2 creates artistic ceramics, decorative objects and pieces for the home, table, kitchen and gift sector with a warm, familiar and recognizable language.",
-        "This website is a showcase of creations and collections: availability and details are handled through direct contact with the company."
+        "This website is a showcase of creations and collections: to learn about availability and details, contact us directly."
       ],
       pillars: [
         {
           title: "Artisan tradition",
-          text: "A workshop rooted in the Vicenza area, where shapes and colors preserve the warmth of Italian ceramics."
+          text: "An artisan business rooted in the Vicenza area, where shapes and colors preserve the warmth of Italian ceramics."
         },
         {
           title: "Hand-painted decoration",
@@ -776,7 +810,7 @@ export const pageText = {
       collectionsEyebrow: "Collections",
       collectionsTitle: "A selection for the home, table and gift sector",
       collectionsIntro:
-        "An overview of decorative families and inspirations: every request is handled through direct contact.",
+        "An overview of decorative themes and inspirations: every request is handled through direct contact.",
       retailEyebrow: "Designed for retail displays",
       retailTitle: "Objects to display, describe and choose",
       retailIntro:
@@ -793,12 +827,12 @@ export const pageText = {
     },
     azienda: {
       heroEyebrow: "Company",
-      heroTitle: "An artisan workshop in the Vicenza area",
+      heroTitle: "A family-run artisan business in the Vicenza area",
       heroIntro:
         "At Bressan C2, ceramics are created as decorative and functional objects: shapes, colors and details designed to bring the warmth of Italian artisan work into points of sale.",
-      heroAlt: "Artisan ceramic workshop in Pianezze",
+      heroAlt: "Family-run artisan ceramics business in Pianezze",
       paragraphs: [
-        "Ceramiche Artistiche Bressan C2 works in Pianezze, in the Vicenza area, where ceramics keep a strong connection with the home, the table and decorative objects. The workshop creates artistic ceramics, decorative pieces and kitchen items with a warm, familiar and recognizable language.",
+        "Ceramiche Artistiche Bressan C2 operates in Pianezze, in the Vicenza area, where ceramics retain a strong connection with the home, the table and decorative objects. We create artistic ceramics, a variety of decorative objects and kitchen products with a warm, familiar and recognizable style.",
         "The artisan work can be seen in the care given to surfaces, the choice of colors and the attention to detail. Every creation is designed to be presented in a point of sale with a recognizable, warm and authentically handmade character.",
         "Family continuity and the artisan scale of the workshop allow a direct relationship with shops, boutiques and businesses that choose Italian ceramics for carefully curated assortments.",
         "This is not an online shop, but a showcase of shapes and decorations to explore through the visual catalog, information requests and direct contact."
@@ -812,6 +846,9 @@ export const pageText = {
       locationIntro:
         "Our production workshop is in Pianezze, in the province of Vicenza. From here we create hand-painted artistic ceramics for shops, boutiques and points of sale.",
       productionSite: "Production workshop",
+      openingHours: "Opening hours",
+      weekdaysHours: "Monday – Friday: 8:00 a.m. – 6:30 p.m., open continuously.",
+      weekendHours: "Saturday and Sunday: closed.",
       directionsText: "For directions, contact details and the full map, visit the contact page.",
       directionsButton: "View contact details and map",
       companyData: "Company details",
@@ -835,7 +872,7 @@ export const pageText = {
       productEyebrow: "From motif to product",
       productTitle: "An organized view of the proposals",
       productIntro:
-        "This page presents the decorative families and assortment directions. The catalog gathers the complete photographic series, with all available examples for each theme.",
+        "This page presents the decorative themes and product lines. The catalog gathers the complete photographic series, with all available examples for each theme.",
       promptTitle: "Would you like to see concrete examples?",
       promptText:
         "In the catalog you will find lines such as citrus, lemons, pizza, Pasta line, vegetables, flowers and sea, with all available images for each series.",
@@ -864,6 +901,7 @@ export const pageText = {
       collaborationsTitle: "Who we work with",
       collaborationsIntro:
         "Our creations find their place in businesses that choose Italian artisan objects to display and describe.",
+      shippingText: "We work with shops throughout Italy and also ship internationally.",
       audiences: [
         "Gift shops",
         "Homeware shops",
@@ -871,7 +909,8 @@ export const pageText = {
         "Ceramic shops",
         "Tourist points of sale",
         "Concept stores",
-        "Retail businesses"
+        "Retail businesses",
+        "Market traders and market stalls"
       ],
       valueEyebrow: "Professional value",
       valueTitle: "Why choose Bressan C2",
@@ -932,15 +971,24 @@ export const pageText = {
         "Information about assortments and collaborations",
         "Artisan production in Pianezze, Vicenza"
       ],
-      phone: "Phone",
-      productionSite: "Production workshop",
-      commercialRequests: "Business requests",
+      phone: "PHONE",
+      landline: "Landline",
+      mobile: "Mobile",
+      whatsapp: "WhatsApp",
+      openingHours: "OPENING HOURS",
+      weekdaysHours: "Monday – Friday: 8:00 a.m. – 6:30 p.m., open continuously.",
+      weekendHours: "Saturday and Sunday: closed.",
+      productionSite: "PRODUCTION SITE",
+      commercialRequests: "CONTACT FORM",
+      formSummary: "For information, quotes and collaborations.",
       formAnchor: "Go to the form",
       formEyebrow: "Form",
       formTitle: "Request information",
       formIntro:
         "Fill in the form to receive information about available lines, collaborations with shops and the products best suited to your point of sale.",
+      responseTime: "We reply within 5 business days.",
       directTitle: "Would you rather write to us directly?",
+      email: "Email",
       mapEyebrow: "Where we are",
       mapTitle: "Via San Giuseppe, 9 - Pianezze",
       mapText:

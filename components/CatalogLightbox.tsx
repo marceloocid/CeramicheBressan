@@ -26,6 +26,7 @@ export function CatalogLightbox({
   const text = catalogUiText[locale];
   const [activeIndex, setActiveIndex] = useState(initialIndex);
   const touchStartX = useRef<number | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const hasMultipleImages = images.length > 1;
   const activeImage = useMemo(() => images[activeIndex], [activeIndex, images]);
@@ -79,7 +80,36 @@ export function CatalogLightbox({
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
+        event.preventDefault();
         onClose();
+        return;
+      }
+
+      if (event.key === "Tab" && dialogRef.current) {
+        const focusableElements = Array.from(
+          dialogRef.current.querySelectorAll<HTMLElement>(
+            'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          )
+        ).filter((element) => element.getClientRects().length > 0);
+
+        if (focusableElements.length === 0) {
+          event.preventDefault();
+          return;
+        }
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        const activeElement = document.activeElement;
+
+        if (event.shiftKey && (activeElement === firstElement || !dialogRef.current.contains(activeElement))) {
+          event.preventDefault();
+          lastElement.focus();
+        } else if (!event.shiftKey && activeElement === lastElement) {
+          event.preventDefault();
+          firstElement.focus();
+        }
+
+        return;
       }
 
       if (!hasMultipleImages) {
@@ -95,12 +125,13 @@ export function CatalogLightbox({
       }
     };
 
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     closeButtonRef.current?.focus();
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [goToNext, goToPrevious, hasMultipleImages, isOpen, onClose]);
@@ -120,6 +151,7 @@ export function CatalogLightbox({
       <div
         className="flex max-h-[94vh] w-full max-w-6xl flex-col overflow-hidden rounded-sm border border-white/20 bg-[#fffaf1] shadow-soft"
         onClick={(event) => event.stopPropagation()}
+        ref={dialogRef}
       >
         <div className="flex items-center justify-between gap-4 border-b border-ceramica/20 px-4 py-3 sm:px-5">
           <div>
@@ -176,7 +208,10 @@ export function CatalogLightbox({
             </>
           ) : null}
 
-          <p className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-sm bg-[#1e2318]/72 px-3 py-1 text-sm font-bold text-white">
+          <p
+            aria-live="polite"
+            className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-sm bg-[#1e2318]/72 px-3 py-1 text-sm font-bold text-white"
+          >
             {activeIndex + 1} / {images.length}
           </p>
         </div>
@@ -251,6 +286,7 @@ const ThumbnailButton = memo(function ThumbnailButton({
   return (
     <button
       aria-label={`${text.goToImage} ${index + 1} / ${total}`}
+      aria-pressed={isActive}
       className={`focus-ring relative h-16 w-20 shrink-0 overflow-hidden rounded-sm border bg-white transition sm:h-20 sm:w-28 ${
         isActive ? "border-ceramica ring-2 ring-ceramica/25" : "border-ceramica/20 hover:border-ceramica"
       }`}

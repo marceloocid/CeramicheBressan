@@ -9,10 +9,15 @@ export const site = {
   province: "Vicenza",
   postalCode: "36060",
   country: "IT",
-  phone: "0424 75762",
+  phone: "+39 0424 75762",
+  phoneE164: "+39042475762",
   phoneHref: "tel:+39042475762",
+  mobilePhone: "+39 333 100 31 53",
+  mobilePhoneE164: "+393331003153",
+  mobilePhoneHref: "tel:+393331003153",
+  whatsappHref: "https://wa.me/393331003153",
   vat: "02084630249",
-  facebookUrl: "https://www.facebook.com/people/Ceramiche-Bressan-C2/100057633592183/",
+  facebookUrl: "https://www.facebook.com/BressanC2",
   email: "ceramichebressanc2@gmail.com",
   emailHref: "mailto:ceramichebressanc2@gmail.com"
 };
@@ -27,21 +32,21 @@ export type SiteContent = {
 export const siteContent: Record<Locale, SiteContent> = {
   it: {
     b2bNotice:
-      "Le nostre creazioni sono destinate a negozi e punti vendita. Non effettuiamo vendita online o vendita diretta al pubblico dalla sede produttiva.",
+      "Le nostre creazioni sono pensate soprattutto per negozi e punti vendita. Non effettuiamo vendita online: per acquisti diretti in sede o maggiori informazioni, contattaci.",
     countryName: "Italia",
     footerDescription:
       "Ceramiche artistiche dipinte a mano per negozi e punti vendita — Pianezze, Vicenza. Creazioni in ceramica artigianale per casa, tavola e regalo.",
     structuredDataDescription:
-      "Bottega artigiana di ceramiche artistiche, oggettistica varia in ceramica e creazioni dipinte a mano per casa, tavola e regalo."
+      "Realtà artigianale a conduzione familiare che realizza ceramiche artistiche, oggettistica varia in ceramica e creazioni dipinte a mano per casa, tavola e regalo."
   },
   en: {
     b2bNotice:
-      "Our creations are intended for shops and points of sale. We do not sell online or directly to the public from the workshop.",
+      "Our creations are designed primarily for shops and points of sale. We do not sell online: for purchases directly from our premises or further information, contact us.",
     countryName: "Italy",
     footerDescription:
       "Hand-painted artistic ceramics for shops and points of sale — Pianezze, Vicenza. Artisan ceramic pieces for the home, table and gift sector.",
     structuredDataDescription:
-      "Italian artisan workshop creating hand-painted artistic ceramics, decorative objects and ceramic pieces for the home, table and gift sector."
+      "Family-run artisan business creating hand-painted artistic ceramics, decorative objects and ceramic pieces for the home, table and gift sector."
   }
 };
 
@@ -54,6 +59,7 @@ export type NavItem = {
 const navLabels: Record<Locale, Array<{ label: string; routeKey: RouteKey }>> = {
   it: [
     { label: "Azienda", routeKey: "azienda" },
+    { label: "Storia", routeKey: "storia" },
     { label: "Collezioni", routeKey: "creazioni" },
     { label: "Per negozi", routeKey: "perRivenditori" },
     { label: "Catalogo", routeKey: "catalogo" },
@@ -61,6 +67,7 @@ const navLabels: Record<Locale, Array<{ label: string; routeKey: RouteKey }>> = 
   ],
   en: [
     { label: "Company", routeKey: "azienda" },
+    { label: "History", routeKey: "storia" },
     { label: "Creations", routeKey: "creazioni" },
     { label: "Retailers", routeKey: "perRivenditori" },
     { label: "Catalog", routeKey: "catalogo" },

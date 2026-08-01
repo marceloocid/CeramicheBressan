@@ -23,6 +23,7 @@ export function AziendaPageContent({ locale }: { locale: Locale }) {
           <div className="image-frame ornamental-border relative aspect-[4/3] overflow-hidden rounded-sm">
             {/* Placeholder: sostituire con immagine reale dell'esterno o dell'interno laboratorio. */}
             <Image
+              priority
               className="object-cover"
               src="/images/laboratorio-ceramica.webp"
               alt={text.heroAlt}
@@ -68,6 +69,11 @@ export function AziendaPageContent({ locale }: { locale: Locale }) {
               <br />
               {site.postalCode} {site.city} ({site.province}), {siteText.countryName}
             </address>
+            <div className="mt-5 border-t border-ceramica/15 pt-5 leading-7 text-argilla">
+              <p className="font-bold text-ceramica">{text.openingHours}</p>
+              <p className="mt-2">{text.weekdaysHours}</p>
+              <p>{text.weekendHours}</p>
+            </div>
             <p className="mt-4 leading-7 text-argilla">{text.directionsText}</p>
             <ButtonLink href={`${getRoutePath("contatti", locale)}#dove-siamo`} variant="secondary" className="mt-6">
               {text.directionsButton}

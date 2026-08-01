@@ -20,6 +20,9 @@ export function PerRivenditoriPageContent({ locale }: { locale: Locale }) {
             align="center"
             as="h1"
           />
+          <p className="mx-auto mt-7 max-w-3xl text-center text-lg font-bold leading-8 text-ceramica">
+            {text.shippingText}
+          </p>
           <div className="paper-panel mx-auto mt-10 max-w-4xl rounded-sm p-6 text-center">
             <p className="text-lg font-bold leading-8 text-ceramica">{siteText.b2bNotice}</p>
           </div>

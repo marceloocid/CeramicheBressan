@@ -28,7 +28,7 @@ export function CreazioniPageContent({ locale }: { locale: Locale }) {
           </div>
           <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
             {collectionCategories.map((category) => (
-              <CollectionCard {...category} key={category.slug} locale={locale} />
+              <CollectionCard {...category} headingLevel="h2" key={category.slug} locale={locale} />
             ))}
           </div>
         </div>

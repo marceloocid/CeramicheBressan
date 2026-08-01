@@ -21,7 +21,7 @@ export function SiteRootLayout({
     legalName: site.legalName,
     url: siteUrl,
     description: siteText.structuredDataDescription,
-    telephone: "+39042475762",
+    telephone: site.phoneE164,
     email: site.email,
     address: {
       "@type": "PostalAddress",
@@ -32,6 +32,26 @@ export function SiteRootLayout({
       addressCountry: site.country
     },
     taxID: site.vat,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: site.phoneE164,
+        contactType: "customer service",
+        availableLanguage: ["Italian", "English"]
+      },
+      {
+        "@type": "ContactPoint",
+        telephone: site.mobilePhoneE164,
+        contactType: "customer service",
+        availableLanguage: ["Italian", "English"]
+      }
+    ],
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "18:30"
+    },
     sameAs: [site.facebookUrl]
   };
 

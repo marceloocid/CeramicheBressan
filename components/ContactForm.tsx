@@ -148,10 +148,10 @@ export function ContactForm({ locale }: { locale: Locale }) {
     }
   }
 
-  function handleInvalid(event: FormEvent<HTMLFormElement>) {
-    const target = event.target;
+  function handleInvalid() {
+    const firstInvalidField = formRef.current?.querySelector<HTMLElement>(":invalid");
 
-    if (target instanceof HTMLInputElement && target.name === "privacy") {
+    if (firstInvalidField instanceof HTMLInputElement && firstInvalidField.name === "privacy") {
       setStatus("privacyError");
       return;
     }
@@ -181,6 +181,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
         />
       ) : null}
       <form
+        aria-busy={isSubmitting}
         className="paper-panel grid gap-5 rounded-sm p-6 shadow-soft"
         onInvalid={handleInvalid}
         onSubmit={handleSubmit}
@@ -196,6 +197,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
             {text.name}
           </label>
           <input
+            autoComplete="name"
             className="focus-ring mt-2 w-full rounded-sm border border-oro/45 bg-white/80 px-4 py-3 text-argilla"
             id="nome"
             name="nome"
@@ -208,6 +210,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
             {text.company}
           </label>
           <input
+            autoComplete="organization"
             className="focus-ring mt-2 w-full rounded-sm border border-oro/45 bg-white/80 px-4 py-3 text-argilla"
             id="azienda"
             name="azienda"
@@ -220,6 +223,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
             {text.email}
           </label>
           <input
+            autoComplete="email"
             className="focus-ring mt-2 w-full rounded-sm border border-oro/45 bg-white/80 px-4 py-3 text-argilla"
             id="email"
             name="email"
@@ -232,6 +236,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
             {text.phone}
           </label>
           <input
+            autoComplete="tel"
             className="focus-ring mt-2 w-full rounded-sm border border-oro/45 bg-white/80 px-4 py-3 text-argilla"
             id="telefono"
             name="telefono"
@@ -243,6 +248,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
             {text.city}
           </label>
           <input
+            autoComplete="address-level2"
             className="focus-ring mt-2 w-full rounded-sm border border-oro/45 bg-white/80 px-4 py-3 text-argilla"
             id="citta"
             name="citta"
@@ -262,8 +268,8 @@ export function ContactForm({ locale }: { locale: Locale }) {
           />
         </div>
 
-        <label className="flex gap-3 text-sm leading-6 text-argilla">
-          <input className="mt-1 h-4 w-4 shrink-0 accent-ceramica" name="privacy" required type="checkbox" />
+        <label className="flex min-h-11 gap-3 py-2 text-sm leading-6 text-argilla">
+          <input className="mt-0.5 h-5 w-5 shrink-0 accent-ceramica" name="privacy" required type="checkbox" />
           <span>{text.privacy}</span>
         </label>
 
@@ -271,12 +277,19 @@ export function ContactForm({ locale }: { locale: Locale }) {
           <div className="min-h-[74px]">
             <div ref={turnstileRef} />
             {!turnstileRendered && !turnstileLoadFailed ? (
-              <p className="rounded-sm border border-oro/45 bg-white/75 p-3 text-sm leading-6 text-argilla">
+              <p
+                aria-live="polite"
+                className="rounded-sm border border-oro/45 bg-white/75 p-3 text-sm leading-6 text-argilla"
+                role="status"
+              >
                 {text.loadingAntispam}
               </p>
             ) : null}
             {turnstileLoadFailed ? (
-              <p className="rounded-sm border border-red-200 bg-red-50 p-3 text-sm font-bold leading-6 text-red-800">
+              <p
+                className="rounded-sm border border-red-200 bg-red-50 p-3 text-sm font-bold leading-6 text-red-800"
+                role="alert"
+              >
                 {text.antispamFailed}
               </p>
             ) : null}
@@ -296,12 +309,19 @@ export function ContactForm({ locale }: { locale: Locale }) {
         </button>
 
         {status === "success" ? (
-          <p className="rounded-sm border border-ceramica/25 bg-ceramica/10 p-3 text-sm font-bold leading-6 text-ceramica">
+          <p
+            aria-live="polite"
+            className="rounded-sm border border-ceramica/25 bg-ceramica/10 p-3 text-sm font-bold leading-6 text-ceramica"
+            role="status"
+          >
             {text.success}
           </p>
         ) : null}
         {status !== "idle" && status !== "success" ? (
-          <p className="rounded-sm border border-red-200 bg-red-50 p-3 text-sm font-bold leading-6 text-red-800">
+          <p
+            className="rounded-sm border border-red-200 bg-red-50 p-3 text-sm font-bold leading-6 text-red-800"
+            role="alert"
+          >
             {text[status]}
           </p>
         ) : null}

@@ -15,6 +15,7 @@ export function LavorazionePageContent({ locale }: { locale: Locale }) {
           <div className="image-frame relative aspect-[4/3] overflow-hidden rounded-sm">
             {/* Placeholder: sostituire con foto reale della decorazione a mano. */}
             <Image
+              priority
               className="object-cover"
               src="/images/dettagli-decorazione.webp"
               alt={text.imageAlt}

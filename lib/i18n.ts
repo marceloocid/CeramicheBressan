@@ -7,6 +7,7 @@ export const defaultLocale: Locale = "it";
 export type RouteKey =
   | "home"
   | "azienda"
+  | "storia"
   | "creazioni"
   | "perRivenditori"
   | "catalogo"
@@ -23,6 +24,10 @@ export const localizedRoutes: Record<RouteKey, Record<Locale, string>> = {
   azienda: {
     it: "/azienda",
     en: "/en/company"
+  },
+  storia: {
+    it: "/storia",
+    en: "/en/history"
   },
   creazioni: {
     it: "/creazioni",

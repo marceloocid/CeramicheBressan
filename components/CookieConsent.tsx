@@ -1,6 +1,15 @@
 "use client";
 
-import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Locale } from "@/lib/i18n";
@@ -27,7 +36,7 @@ type CookieConsentContextValue = {
   rejectAll: () => void;
   saveSettings: (settings: ConsentSettings) => void;
   acceptExternalContent: () => void;
-  openPreferences: () => void;
+  openPreferences: (trigger?: HTMLElement) => void;
 };
 
 const defaultSettings: ConsentSettings = {
@@ -64,6 +73,9 @@ export function CookieConsentProvider({ children, locale }: { children: ReactNod
   const [settings, setSettings] = useState<ConsentSettings>(defaultSettings);
   const [isPreferencesOpen, setIsPreferencesOpen] = useState(false);
   const [draftSettings, setDraftSettings] = useState<ConsentSettings>(defaultSettings);
+  const preferencesDialogRef = useRef<HTMLDivElement>(null);
+  const preferencesCloseButtonRef = useRef<HTMLButtonElement>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -86,7 +98,7 @@ export function CookieConsentProvider({ children, locale }: { children: ReactNod
     return () => window.clearTimeout(timer);
   }, []);
 
-  const persistSettings = (nextSettings: ConsentSettings) => {
+  const persistSettings = useCallback((nextSettings: ConsentSettings) => {
     const storedConsent: StoredConsent = {
       ...nextSettings,
       version: CONSENT_VERSION,
@@ -99,7 +111,82 @@ export function CookieConsentProvider({ children, locale }: { children: ReactNod
     setDraftSettings(nextSettings);
     setHasDecision(true);
     setIsPreferencesOpen(false);
-  };
+  }, []);
+
+  const closePreferences = useCallback(() => {
+    setIsPreferencesOpen(false);
+  }, []);
+
+  const openPreferences = useCallback((trigger?: HTMLElement) => {
+    returnFocusRef.current =
+      trigger ?? (document.activeElement instanceof HTMLElement ? document.activeElement : null);
+    setDraftSettings(settings);
+    setIsPreferencesOpen(true);
+  }, [settings]);
+
+  useEffect(() => {
+    if (!isPreferencesOpen) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    const focusableSelector = [
+      "a[href]",
+      "button:not([disabled])",
+      "input:not([disabled])",
+      "select:not([disabled])",
+      "textarea:not([disabled])",
+      '[tabindex]:not([tabindex="-1"])'
+    ].join(",");
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closePreferences();
+        return;
+      }
+
+      if (event.key !== "Tab" || !preferencesDialogRef.current) {
+        return;
+      }
+
+      const focusableElements = Array.from(
+        preferencesDialogRef.current.querySelectorAll<HTMLElement>(focusableSelector)
+      ).filter((element) => element.getClientRects().length > 0);
+
+      if (focusableElements.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+      const activeElement = document.activeElement;
+
+      if (event.shiftKey && (activeElement === firstElement || !preferencesDialogRef.current.contains(activeElement))) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    const focusFrame = window.requestAnimationFrame(() => preferencesCloseButtonRef.current?.focus());
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+
+      const returnTarget = returnFocusRef.current;
+      if (returnTarget?.isConnected) {
+        window.requestAnimationFrame(() => returnTarget.focus());
+      }
+    };
+  }, [closePreferences, isPreferencesOpen]);
 
   const value = useMemo<CookieConsentContextValue>(
     () => ({
@@ -117,12 +204,9 @@ export function CookieConsentProvider({ children, locale }: { children: ReactNod
           ...settings,
           contenutiEsterni: true
         }),
-      openPreferences: () => {
-        setDraftSettings(settings);
-        setIsPreferencesOpen(true);
-      }
+      openPreferences
     }),
-    [hasDecision, settings]
+    [hasDecision, openPreferences, persistSettings, settings]
   );
 
   const showBanner = isReady && !hasDecision;
@@ -137,7 +221,11 @@ export function CookieConsentProvider({ children, locale }: { children: ReactNod
         </>
       ) : null}
       {showBanner ? (
-        <div className="fixed inset-x-4 bottom-4 z-[70] mx-auto max-w-5xl rounded-sm border border-ceramica/25 bg-[#fffaf1] p-4 shadow-soft sm:p-5">
+        <div
+          aria-label={text.bannerTitle}
+          className="fixed inset-x-4 bottom-4 z-[70] mx-auto max-w-5xl rounded-sm border border-ceramica/25 bg-[#fffaf1] p-4 shadow-soft sm:p-5"
+          role="region"
+        >
           <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.14em] text-ceramica">{text.bannerTitle}</p>
@@ -146,7 +234,7 @@ export function CookieConsentProvider({ children, locale }: { children: ReactNod
             <div className="flex flex-wrap gap-2">
               <button
                 className="focus-ring min-h-11 rounded-sm border border-oro/60 bg-transparent px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] text-ceramica transition hover:border-ceramica hover:bg-white/50"
-                onClick={() => setIsPreferencesOpen(true)}
+                onClick={(event) => value.openPreferences(event.currentTarget)}
                 type="button"
               >
                 {text.manage}
@@ -171,22 +259,30 @@ export function CookieConsentProvider({ children, locale }: { children: ReactNod
       ) : null}
       {isPreferencesOpen ? (
         <div
+          aria-labelledby="cookie-preferences-title"
           aria-modal="true"
           className="fixed inset-0 z-[80] flex items-center justify-center bg-[#1e2318]/70 p-4"
           role="dialog"
         >
-          <div className="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-sm border border-ceramica/25 bg-[#fffaf1] p-5 shadow-soft sm:p-6">
+          <div
+            className="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-sm border border-ceramica/25 bg-[#fffaf1] p-5 shadow-soft sm:p-6"
+            ref={preferencesDialogRef}
+          >
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.14em] text-ceramica">{text.modalEyebrow}</p>
-                <h2 className="mt-2 font-serif text-3xl font-semibold text-ceramica">
+                <h2
+                  className="mt-2 font-serif text-3xl font-semibold text-ceramica"
+                  id="cookie-preferences-title"
+                >
                   {text.modalTitle}
                 </h2>
               </div>
               <button
                 aria-label={text.closeLabel}
-                className="focus-ring inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-ceramica/30 bg-white text-2xl leading-none text-ceramica"
-                onClick={() => setIsPreferencesOpen(false)}
+                className="focus-ring inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-ceramica/30 bg-white text-2xl leading-none text-ceramica"
+                onClick={closePreferences}
+                ref={preferencesCloseButtonRef}
                 type="button"
               >
                 &times;
@@ -291,7 +387,11 @@ export function CookiePreferencesButton({ locale }: { locale: Locale }) {
   const text = cookieText[locale];
 
   return (
-    <button className="focus-ring text-left hover:text-ceramica" onClick={openPreferences} type="button">
+    <button
+      className="focus-ring inline-flex min-h-6 items-center text-left hover:text-ceramica"
+      onClick={(event) => openPreferences(event.currentTarget)}
+      type="button"
+    >
       {text.preferencesButton}
     </button>
   );

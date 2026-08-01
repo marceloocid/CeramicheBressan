@@ -29,7 +29,7 @@ export function CatalogoPageContent({ locale }: { locale: Locale }) {
 
           <nav
             aria-label={text.indexLabel}
-            className="mx-auto mt-8 max-w-5xl rounded-sm border border-ceramica/20 bg-[#fffaf1] p-2 shadow-[0_10px_26px_rgba(41,31,18,0.10)] lg:sticky lg:top-32 lg:z-30"
+            className="mx-auto mt-8 max-w-5xl rounded-sm border border-ceramica/20 bg-[#fffaf1] p-2 shadow-[0_10px_26px_rgba(41,31,18,0.10)] xl:sticky xl:top-32 xl:z-30"
           >
             <div className="flex gap-2 overflow-x-auto">
               {collectionCategories.map((category) => {

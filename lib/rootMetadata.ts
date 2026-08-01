@@ -29,7 +29,7 @@ export const rootMetadata: Metadata = {
     images: [
       {
         url: socialImage,
-        alt: socialImageAlt
+        alt: socialImageAlt.it
       }
     ],
     locale: "it_IT",

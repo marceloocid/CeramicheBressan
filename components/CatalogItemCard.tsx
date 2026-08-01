@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { type MouseEvent, useRef, useState } from "react";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CatalogLightbox } from "@/components/CatalogLightbox";
@@ -21,8 +21,8 @@ export function CatalogItemCard({ item, categoryTitle, locale }: CatalogItemCard
   const coverImage = item.images[0];
   const hasGallery = item.images.length > 1;
 
-  const openGallery = () => {
-    lastTriggerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  const openGallery = (event: MouseEvent<HTMLButtonElement>) => {
+    lastTriggerRef.current = event.currentTarget;
     setIsGalleryOpen(true);
   };
 
