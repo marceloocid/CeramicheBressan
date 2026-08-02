@@ -20,6 +20,7 @@ export function CatalogItemCard({ item, categoryTitle, locale }: CatalogItemCard
   const lastTriggerRef = useRef<HTMLElement | null>(null);
   const coverImage = item.images[0];
   const hasGallery = item.images.length > 1;
+  const hasDistinctTheme = item.slug === "pasta-spaghetti" || item.slug === "piatti-decori-dipinti";
 
   const openGallery = (event: MouseEvent<HTMLButtonElement>) => {
     lastTriggerRef.current = event.currentTarget;
@@ -56,8 +57,12 @@ export function CatalogItemCard({ item, categoryTitle, locale }: CatalogItemCard
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <p className="text-xs font-bold uppercase tracking-[0.16em] text-ceramica">{categoryTitle}</p>
         <h3 className="mt-2 font-serif text-2xl font-semibold leading-tight text-ceramica sm:text-3xl">{item.name}</h3>
-        <p className="mt-2 text-xs font-bold uppercase tracking-[0.14em] text-argilla">{item.theme}</p>
-        <p className="mt-4 flex-1 leading-7 text-argilla">{item.description}</p>
+        {hasDistinctTheme ? (
+          <p className="mt-2 text-xs font-bold uppercase tracking-[0.14em] text-argilla">{item.theme}</p>
+        ) : null}
+        <p className={`${hasDistinctTheme ? "mt-4" : "mt-3"} flex-1 leading-7 text-argilla`}>
+          {item.description}
+        </p>
 
         <div className="mt-6 flex flex-wrap items-center gap-3">
           {hasGallery ? (
