@@ -100,8 +100,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  if (!nome || !email || !messaggio) {
-    return NextResponse.json({ error: "Nome, email e messaggio sono obbligatori." }, { status: 400 });
+  if (!nome || !azienda || !email || !messaggio) {
+    return NextResponse.json(
+      { error: "Nome, negozio / attività, email e messaggio sono obbligatori." },
+      { status: 400 }
+    );
   }
 
   if (!emailRegex.test(email)) {
@@ -127,7 +130,7 @@ export async function POST(request: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL;
+  const to = process.env.CONTACT_EMAIL_TO;
   const from = process.env.CONTACT_FROM_EMAIL;
 
   if (!apiKey || !to || !from) {
