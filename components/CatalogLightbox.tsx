@@ -210,7 +210,7 @@ export function CatalogLightbox({
 
           <p
             aria-live="polite"
-            className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-sm bg-[#1e2318]/72 px-3 py-1 text-sm font-bold text-white"
+            className="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-sm bg-[#1e2318] px-3 py-1 text-sm font-bold text-white"
           >
             {activeIndex + 1} / {images.length}
           </p>
@@ -245,8 +245,24 @@ const ThumbnailStrip = memo(function ThumbnailStrip({
   text,
   title
 }: ThumbnailStripProps) {
+  const stripRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const strip = stripRef.current;
+    const active = strip?.querySelector<HTMLElement>('[aria-pressed="true"]');
+
+    if (strip && active) {
+      const item = active.getBoundingClientRect();
+      const container = strip.getBoundingClientRect();
+      strip.scrollTo({
+        left: strip.scrollLeft + item.left - container.left - (strip.clientWidth - item.width) / 2,
+        behavior: "instant"
+      });
+    }
+  }, [activeIndex]);
+
   return (
-    <div className="flex gap-2 overflow-x-auto border-t border-ceramica/20 bg-[#fffaf1] p-3 sm:p-4">
+    <div className="flex gap-2 overflow-x-auto border-t border-ceramica/20 bg-[#fffaf1] p-3 sm:p-4" ref={stripRef}>
       {images.map((image, index) => (
         <ThumbnailButton
           image={image}

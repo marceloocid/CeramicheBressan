@@ -14,3 +14,25 @@ yarn-error.log*
 pnpm-debug.log*
 .DS_Store
 codex-doctor.json
+*.tsbuildinfo
+
+# Local prepared originals; the catalogue uses the final WebP images.
+/public/images/anguria/*.png
+/public/images/calle_dipinte/*.png
+/public/images/cerchi_multicolori/*.png
+/public/images/edera_e_stelle/*.png
+/public/images/fiori/*.png
+/public/images/fiori_bianchi_e_foglie_sfumate/*.png
+/public/images/fragole_e_fiocchi/*.png
+/public/images/lavanda/*.png
+/public/images/limoni/*.png
+/public/images/limoni_e_olive/*.png
+/public/images/margherite_arancio/*.png
+/public/images/olive/*.png
+/public/images/papaveri_dipinti/*.png
+/public/images/piatti_e_decori_dipinti/*.png
+/public/images/pomodori_e_ortaggi_dipinti/*.png
+/public/images/righe_multicolori/*.png
+/public/images/rosa_dei_venti/*.png
+/public/images/rose_dipinte/*.png
+/public/images/spirali_multicolori/*.png

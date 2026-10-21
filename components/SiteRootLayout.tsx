@@ -3,6 +3,7 @@ import { LocalizedChrome } from "@/components/LocalizedChrome";
 import { getSiteContent, site } from "@/data/site";
 import type { Locale } from "@/lib/i18n";
 import { getSiteUrl } from "@/lib/metadata";
+import { lato, playfairDisplay } from "@/app/fonts";
 
 const siteUrl = getSiteUrl().toString();
 
@@ -56,7 +57,7 @@ export function SiteRootLayout({
   };
 
   return (
-    <html lang={locale} data-scroll-behavior="smooth">
+    <html className={`${lato.variable} ${playfairDisplay.variable}`} lang={locale} data-scroll-behavior="smooth">
       <body>
         <script
           type="application/ld+json"

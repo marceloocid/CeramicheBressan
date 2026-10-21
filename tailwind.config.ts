@@ -18,8 +18,8 @@ const config: Config = {
         inchiostro: "#1E2318"
       },
       fontFamily: {
-        serif: ["Playfair Display", "Cormorant Garamond", "Georgia", "serif"],
-        sans: ["Lato", "Inter", "Arial", "sans-serif"]
+        serif: ["var(--font-playfair-display)", "Georgia", "serif"],
+        sans: ["var(--font-lato)", "Arial", "sans-serif"]
       },
       boxShadow: {
         soft: "0 18px 55px rgba(41, 31, 18, 0.14)"

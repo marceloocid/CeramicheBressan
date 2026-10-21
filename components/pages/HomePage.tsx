@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
+import { BrandWordmark } from "@/components/BrandWordmark";
 import { CollectionCard } from "@/components/CollectionCard";
 import { ContactCta } from "@/components/ContactCta";
 import { SectionTitle } from "@/components/SectionTitle";
@@ -30,7 +31,7 @@ export function HomePageContent({ locale }: { locale: Locale }) {
             <div className="mb-7">
               <p className="font-serif text-lg italic leading-none text-ceramica">Ceramiche Artistiche</p>
               <p className="brand-script mt-1 text-5xl font-semibold leading-none text-ceramica sm:text-7xl">
-                Bressan C2
+                <BrandWordmark />
               </p>
             </div>
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#8a4f3a]">
@@ -86,9 +87,12 @@ export function HomePageContent({ locale }: { locale: Locale }) {
             title={text.collectionsTitle}
             intro={text.collectionsIntro}
           />
-          <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+          <ButtonLink href={getRoutePath("creazioni", locale)} variant="secondary" className="mt-6">
+            {text.allFamilies}
+          </ButtonLink>
+          <div className="mt-8 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
             {collectionCategories.slice(0, 3).map((category) => (
-              <CollectionCard {...category} key={category.slug} locale={locale} />
+              <CollectionCard {...category} key={category.slug} locale={locale} showLinesLink />
             ))}
           </div>
         </div>

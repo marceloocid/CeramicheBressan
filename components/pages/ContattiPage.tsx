@@ -84,7 +84,7 @@ export function ContattiPageContent({ locale }: { locale: Locale }) {
       </section>
 
       <section className="scroll-mt-36 bg-white/45 px-4 py-16 sm:px-6 lg:scroll-mt-40 lg:px-8 lg:py-20" id="richiesta">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-[0.82fr_1.18fr]">
           <div className="lg:sticky lg:top-40 lg:self-start">
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-terracotta">{text.formEyebrow}</p>
             <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight text-ceramica sm:text-5xl">

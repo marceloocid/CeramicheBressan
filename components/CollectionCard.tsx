@@ -6,14 +6,16 @@ import { globalText } from "@/lib/translations";
 
 export function CollectionCard({
   title,
+  slug,
   description,
   image,
   alt,
   imageFit = "contain",
   themes,
   locale = "it",
-  headingLevel = "h3"
-}: CollectionCategory & { locale?: Locale; headingLevel?: "h2" | "h3" }) {
+  headingLevel = "h3",
+  showLinesLink = false
+}: CollectionCategory & { locale?: Locale; headingLevel?: "h2" | "h3"; showLinesLink?: boolean }) {
   const text = globalText[locale];
   const Heading = headingLevel;
 
@@ -41,9 +43,16 @@ export function CollectionCard({
             </span>
           ))}
         </div>
-        <ButtonLink href={getRoutePath("contatti", locale)} variant="ghost" className="mt-5">
-          {text.requestInfo}
-        </ButtonLink>
+        <div className="mt-5 flex flex-wrap items-center gap-2">
+          {showLinesLink ? (
+            <ButtonLink href={`${getRoutePath("catalogo", locale)}#${slug}`} variant="secondary">
+              {text.viewLines}
+            </ButtonLink>
+          ) : null}
+          <ButtonLink href={getRoutePath("contatti", locale)} variant="ghost">
+            {text.requestInfo}
+          </ButtonLink>
+        </div>
       </div>
     </article>
   );

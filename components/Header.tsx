@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
+import { BrandWordmark } from "@/components/BrandWordmark";
 import { HeaderNavigation } from "@/components/HeaderNavigation";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { getNavItems } from "@/data/site";
@@ -23,7 +24,7 @@ export function Header({ locale }: { locale: Locale }) {
             Ceramiche Artistiche
           </span>
           <span className="brand-script relative z-10 block text-3xl font-semibold leading-none text-ceramica sm:text-4xl">
-            Bressan C2
+            <BrandWordmark />
           </span>
           <span className="relative z-10 hidden whitespace-nowrap text-[8px] uppercase tracking-[0.08em] text-argilla sm:block lg:text-[9px]">
             {text.brandClaimShort}

@@ -19,6 +19,29 @@ html {
   scroll-behavior: smooth;
 }
 
+.catalog-content {
+  --catalog-header-height: 140px;
+  --catalog-index-height: 62px;
+  --catalog-index-gap: 6px;
+}
+
+.catalog-family {
+  scroll-margin-top: calc(var(--catalog-header-height) + var(--catalog-index-gap) + var(--catalog-index-height) + 1rem);
+}
+
+@media (min-width: 640px) {
+  .catalog-content {
+    --catalog-header-height: 172px;
+    --catalog-index-gap: 10px;
+  }
+}
+
+@media (min-width: 1340px) {
+  .catalog-content {
+    --catalog-header-height: 119px;
+  }
+}
+
 body {
   margin: 0;
   background:
@@ -28,7 +51,8 @@ body {
     #FFF9F0;
   background-size: auto, auto, 13px 13px, auto;
   color: #1E2318;
-  font-family: Lato, Inter, Arial, sans-serif;
+  font-family: var(--font-lato), Arial, sans-serif;
+  font-synthesis: none;
 }
 
 a {
@@ -113,7 +137,6 @@ img {
 }
 
 .brand-script {
-  font-family: "Snell Roundhand", "Apple Chancery", "Brush Script MT", "Segoe Script", cursive;
   letter-spacing: 0;
 }
 

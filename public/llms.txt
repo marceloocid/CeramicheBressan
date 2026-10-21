@@ -8,8 +8,8 @@ This website is a visual catalogue, not an ecommerce store, and does not offer o
 
 * [Company](/en/company): Business, location and company details.
 * [History](/en/history): The story of Bruno Bressan, the family business and its historical awards.
-* [Creations](/en/creations): Main decorative and product families.
-* [Catalog](/en/catalog): Photographic catalogue organized by theme.
+* [Collections](/en/creations): Overview of six ceramic product families, grouped by use and decorative motif, with links to their individual lines in the catalogue.
+* [Catalog](/en/catalog): Individual ceramic lines organized into the six families. Each line has a card and a photo gallery showing its pieces and decorations.
 * [For retailers](/en/retailers): Information for shops and points of sale.
 * [Workmanship](/en/workmanship): Hand decoration and artisan production.
 * [Contact](/en/contact): Business enquiries and workshop location.
@@ -18,8 +18,8 @@ This website is a visual catalogue, not an ecommerce store, and does not offer o
 
 * [Azienda](/azienda)
 * [Storia](/storia)
-* [Creazioni](/creazioni)
-* [Catalogo](/catalogo)
+* [Collezioni](/creazioni): Panoramica delle sei famiglie di ceramiche, con accesso alle singole linee nel catalogo.
+* [Catalogo](/catalogo): Linee raggruppate nelle sei famiglie, ciascuna con una scheda e una galleria fotografica.
 * [Per rivenditori](/per-rivenditori)
 * [Lavorazione](/lavorazione)
 * [Contatti](/contatti)

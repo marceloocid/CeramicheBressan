@@ -23,12 +23,12 @@ export const seoText: Record<
     creazioni: {
       title: "Collezioni di ceramiche artigianali",
       description:
-        "Temi decorativi e collezioni di ceramiche artigianali italiane dipinte a mano per casa, tavola, regalo, negozi e botteghe."
+        "Scopri le famiglie delle ceramiche Bressan C2: una panoramica di usi e motivi decorativi per orientarti tra le collezioni e trovare le linee nel catalogo."
     },
     catalogo: {
       title: "Catalogo ceramiche artistiche",
       description:
-        "Catalogo fotografico di linee e creazioni in ceramica artistica dipinta a mano per negozi, botteghe e punti vendita."
+        "Esplora le linee di ceramiche Bressan C2, raggruppate per famiglia, con gallerie fotografiche per conoscere decori e pezzi e richiedere informazioni."
     },
     perRivenditori: {
       title: "Ceramiche artigianali per negozi",
@@ -46,12 +46,12 @@ export const seoText: Record<
         "Contatti, sede e modulo di richiesta informazioni per Ceramiche Artistiche Bressan C2 a Pianezze, Vicenza."
     },
     privacy: {
-      title: "Privacy Policy",
+      title: "Informativa sulla privacy",
       description:
         "Informativa privacy per il sito Ceramiche Artistiche Bressan C2, il modulo di contatto e i servizi tecnici collegati."
     },
     cookie: {
-      title: "Cookie Policy",
+      title: "Informativa sui cookie",
       description:
         "Informativa sui cookie e sui servizi terzi usati dal sito Ceramiche Artistiche Bressan C2."
     }
@@ -75,12 +75,12 @@ export const seoText: Record<
     creazioni: {
       title: "Artisan ceramic collections",
       description:
-        "Decorative themes and collections of hand-painted Italian artisan ceramics for the home, table, gift sector, shops and boutiques."
+        "Discover the Bressan C2 ceramic product families: an overview of uses and decorative motifs to help you explore the collections and find individual lines in the catalog."
     },
     catalogo: {
       title: "Artistic ceramics catalog",
       description:
-        "Photographic catalog of hand-painted artistic ceramic lines and creations for shops, boutiques and points of sale."
+        "Explore Bressan C2 ceramic lines, grouped by family, with photo galleries to discover decorations and pieces and enquire about the lines that interest you."
     },
     perRivenditori: {
       title: "Artisan ceramics for retailers",
@@ -116,6 +116,7 @@ export const globalText = {
     mainNavigation: "Navigazione principale",
     mobileNavigation: "Navigazione mobile",
     requestInfo: "Richiedi informazioni",
+    viewLines: "Vedi le linee",
     contactUs: "Contattaci",
     discoverCatalog: "Scopri il catalogo",
     links: "Link",
@@ -140,6 +141,7 @@ export const globalText = {
     mainNavigation: "Main navigation",
     mobileNavigation: "Mobile navigation",
     requestInfo: "Request information",
+    viewLines: "View the lines",
     contactUs: "Contact us",
     discoverCatalog: "View the catalog",
     links: "Links",
@@ -205,6 +207,25 @@ export const cookieText = {
     preferencesButton: "Manage cookie preferences"
   }
 } satisfies Record<Locale, Record<string, string>>;
+
+export const catalogFamilyLabels: Record<Locale, Record<string, string>> = {
+  it: {
+    tavola: "Tavola",
+    cucina: "Cucina",
+    gastronomia: "Gastronomia",
+    frutta: "Frutta",
+    natura: "Natura",
+    regalo: "Regalo"
+  },
+  en: {
+    tavola: "Table",
+    cucina: "Kitchen",
+    gastronomia: "Gastronomy",
+    frutta: "Fruit",
+    natura: "Nature",
+    regalo: "Gifts"
+  }
+};
 
 export const catalogUiText = {
   it: {
@@ -592,7 +613,8 @@ export const pageText = {
       collectionsEyebrow: "Collezioni",
       collectionsTitle: "Una selezione per casa, tavola e regalo",
       collectionsIntro:
-        "Una panoramica di temi decorativi e ispirazioni: ogni richiesta viene gestita con un contatto diretto.",
+        "Tre famiglie per iniziare: esplora le loro linee nel catalogo o scopri la panoramica completa delle collezioni.",
+      allFamilies: "Scopri le sei famiglie",
       retailEyebrow: "Pensate per il punto vendita",
       retailTitle: "Oggetti da esporre, raccontare e scegliere",
       retailIntro:
@@ -645,29 +667,27 @@ export const pageText = {
         "Ceramiche artistiche, oggettistica varia in ceramica, prodotti in ceramica per la casa e la cucina, dipinti a mano."
     },
     creazioni: {
-      eyebrow: "Creazioni e collezioni",
+      eyebrow: "Collezioni",
       title: "Collezioni artigianali in ceramica",
       intro:
-        "Una panoramica delle proposte Bressan C2 per negozi casa, regalo, botteghe e punti vendita che scelgono prodotti artigianali italiani.",
+        "Sei famiglie raggruppano le ceramiche per uso e motivo decorativo. Ogni famiglia ti porta alle singole linee del catalogo, ciascuna con la propria galleria fotografica.",
       notice:
-        "Le immagini rappresentano esempi di produzione. Per conoscere linee disponibili e dettagli sulle creazioni, contattaci direttamente.",
-      productEyebrow: "Dal tema al prodotto",
-      productTitle: "Una lettura ordinata delle proposte",
+        "Esempi di produzione per negozi e punti vendita, senza vendita online. Per disponibilità, informazioni o acquisti in sede, contattaci.",
+      productEyebrow: "Catalogo fotografico",
+      productTitle: "Tutte le linee, nel catalogo",
       productIntro:
-        "Questa pagina presenta i temi decorativi e le linee di assortimento. Il catalogo raccoglie invece le serie fotografiche complete, con tutti gli esempi disponibili per ogni tema.",
-      promptTitle: "Vuoi vedere gli esempi concreti?",
-      promptText:
-        "Nel catalogo trovi le linee come agrumi, limoni, pizza, Linea Pasta, ortaggi, fiori e mare, con tutte le immagini disponibili per ciascuna serie.",
+        "Esplora i decori e i pezzi di ogni linea nelle gallerie fotografiche.",
       promptButton: "Vai al catalogo"
     },
     catalogo: {
       eyebrow: "Catalogo",
-      title: "Esempi fotografici per tema",
+      title: "Linee in ceramica",
       intro:
-        "Una selezione organizzata di ceramiche artistiche per negozi, botteghe e punti vendita. Ogni scheda raccoglie tutte le immagini disponibili della stessa linea o famiglia di prodotto.",
+        "Esplora le sei famiglie: ogni scheda presenta una linea e la sua galleria fotografica.",
       notice:
-        "Le immagini rappresentano esempi di prodotto. Per disponibilità e dettagli sulle linee, contattaci direttamente.",
+        "Esempi per negozi e punti vendita, senza vendita online. Per disponibilità, acquisti in sede e informazioni, contattaci.",
       indexLabel: "Indice del catalogo",
+      familyLabel: "Famiglia",
       ctaEyebrow: "Collezioni per il punto vendita",
       ctaTitle: "Parliamo delle linee disponibili",
       ctaText:
@@ -810,7 +830,8 @@ export const pageText = {
       collectionsEyebrow: "Collections",
       collectionsTitle: "A selection for the home, table and gift sector",
       collectionsIntro:
-        "An overview of decorative themes and inspirations: every request is handled through direct contact.",
+        "Start with three product families: explore their lines in the catalog or discover the full collections overview.",
+      allFamilies: "Explore all six families",
       retailEyebrow: "Designed for retail displays",
       retailTitle: "Objects to display, describe and choose",
       retailIntro:
@@ -863,29 +884,27 @@ export const pageText = {
         "Artistic ceramics, decorative ceramic objects, ceramic products for the home and kitchen, hand-painted."
     },
     creazioni: {
-      eyebrow: "Creations and collections",
+      eyebrow: "Collections",
       title: "Artisan ceramic collections",
       intro:
-        "An overview of Bressan C2 proposals for homeware shops, gift stores, boutiques and points of sale choosing Italian artisan products.",
+        "Six families group our ceramics by use and decorative motif. Each family leads to individual lines in the catalog, each with its own photo gallery.",
       notice:
-        "The images show examples of production. To learn about available lines and details, contact us directly.",
-      productEyebrow: "From motif to product",
-      productTitle: "An organized view of the proposals",
+        "Product examples for shops and retailers, with no online sales. Contact us for availability, information or purchases at our premises.",
+      productEyebrow: "Photo catalog",
+      productTitle: "Explore the full catalog",
       productIntro:
-        "This page presents the decorative themes and product lines. The catalog gathers the complete photographic series, with all available examples for each theme.",
-      promptTitle: "Would you like to see concrete examples?",
-      promptText:
-        "In the catalog you will find lines such as citrus, lemons, pizza, Pasta line, vegetables, flowers and sea, with all available images for each series.",
+        "Discover the decorations and pieces in each line through its photo gallery.",
       promptButton: "Go to catalog"
     },
     catalogo: {
       eyebrow: "Catalog",
-      title: "Photographic examples by theme",
+      title: "Ceramic lines",
       intro:
-        "An organized selection of artistic ceramics for shops, boutiques and points of sale. Each card gathers all available images from the same line or product family.",
+        "Browse six product families. Each card presents one line and its photo gallery.",
       notice:
-        "The images show product examples. For availability and details about the lines, contact us directly.",
+        "Product examples for shops and retailers. No online sales. Contact us for availability, purchases at our premises and information.",
       indexLabel: "Catalog index",
+      familyLabel: "Family",
       ctaEyebrow: "Collections for points of sale",
       ctaTitle: "Let’s discuss the available lines",
       ctaText:
